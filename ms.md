@@ -35,7 +35,7 @@ figure:
     file: figure1.png
     wide: true
 date: Work in progress.
-abstract: Writing manuscripts doesn't have to be awful. This template *tries* to provide good defaults for both the draft and preprint modes. Most of the information is contained in the YAML file.
+abstract: ...
 ---
 
 
@@ -45,11 +45,25 @@ abstract: Writing manuscripts doesn't have to be awful. This template *tries* to
 
 ## Measures on output
 
-# Implementation
+# Implementation and availability
 
-## Numerical integration
+The `befwm` package is available for the `julia` programming language, and
+has been tested with releases `0.3` (legacy), `0.4` (current as of writing),
+and `0.5` (development) on Linux and Mac OS X. The package can be installed
+from the `julia` REPL using
 
-## Documentation, contributions, and code quality
+~~~ julia
+Pkg.add("befwm")
+~~~
+
+The code is released under the MIT license. This software note describes
+version `0.1.0`.
+
+Documentation is available online at
+`https://www.gitbook.com/book/poisotlab/befwm/details`, and can be downloaded
+as a printable PDF. The documentation includes several use-cases, as well
+as discussion of some design choices. All functions in the package have an
+in-line documentation, available from the `julia` interface.
 
 # Use cases
 
