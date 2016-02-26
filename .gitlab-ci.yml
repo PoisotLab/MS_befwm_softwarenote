@@ -1,0 +1,20 @@
+stages:
+    - runs
+
+draft:
+    stage: runs
+    script:
+        - make TITLE=befwm TYPE=draft
+    artifacts: 
+        paths:
+            - befwm_draft_version.pdf
+
+preprint:
+    stage: runs
+    script:
+        - make TITLE=befwm TYPE=preprint
+    artifacts: 
+        paths:
+            - befwm_preprint_version.pdf
+
+
