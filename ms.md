@@ -43,6 +43,11 @@ abstract: ...
 
 ## Biomass dynamics
 
+We implement the model as described by @brose_ase, which is itself described
+in greater detail in @williams_hyi -- this model is an adaptation of the
+@yodzis_bsc classical bio-energetic model, describing the flows of biomass
+across trophic levels, primarily defined by body size.
+
 ## Measures on output
 
 # Implementation and availability
