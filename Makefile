@@ -1,7 +1,7 @@
 SOURCE=ms.md
 HTML=ms.html
 TYPE=draft# alt. value: preprint
-TITLE=plmt
+TITLE=befwm
 MARKED= $(TITLE)_temp.md
 PFLAGS= --variable=$(TYPE) --filter pandoc-citeproc
 OUTPUT= $(TITLE)_$(TYPE)_version.pdf
