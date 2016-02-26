@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="minimal">
   <info>
-    <title>Vancouver (author-date)</title>
+    <title>PoisotLab -- adapted from Vancouver (author-date)</title>
     <id>http://www.zotero.org/styles/vancouver-author-date</id>
     <link href="http://www.zotero.org/styles/vancouver-author-date" rel="self"/>
     <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
     <link href="http://www.zotero.org/styles/cell" rel="template"/>
     <link href="http://www.nlm.nih.gov/bsd/uniform_requirements.html" rel="documentation"/>
     <author>
-      <name>Charles Parnot</name>
-      <email>charles.parnot@gmail.com</email>
-      <uri>http://twitter.com/cparnot</uri>
+      <name>The Poisot Lab</name>
+      <email>tim@poisotlab.io</email>
+      <uri>http://poisotlab.io</uri>
     </author>
     <category citation-format="author-date"/>
     <category field="medicine"/>
     <summary>Vancouver style as outlined by International Committee of Medical Journal Editors Uniform Requirements for Manuscripts Submitted to Biomedical Journals: Sample References</summary>
-    <updated>2012-11-09T12:00:00+00:00</updated>
+    <updated>2016-02-26T12:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
     <date form="text" delimiter=" ">
       <date-part name="year"/>
-      <date-part name="month" form="short" strip-periods="true"/>
-      <date-part name="day"/>
+      <!--<date-part name="month" form="short" strip-periods="true"/>-->
+      <!--<date-part name="day"/>-->
     </date>
     <terms>
       <term name="retrieved">available</term>
@@ -32,18 +32,12 @@
   <locale xml:lang="fr">
     <date form="text" delimiter=" ">
       <date-part name="day"/>
-      <date-part name="month" form="short" strip-periods="true"/>
-      <date-part name="year"/>
+      <!--<date-part name="month" form="short" strip-periods="true"/>-->
+      <!--<date-part name="year"/>-->
     </date>
     <terms>
       <term name="retrieved">disponible</term>
       <term name="from">sur</term>
-    </terms>
-  </locale>
-  <locale xml:lang="de">
-    <terms>
-      <term name="retrieved">verfügbar</term>
-      <term name="from">unter</term>
     </terms>
   </locale>
   <macro name="author">
@@ -63,8 +57,8 @@
         </if>
       </choose>
       <names variable="editor" suffix=".">
-        <name sort-separator=" " initialize-with="" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always"/>
-        <label form="long" prefix=", "/>
+        <name sort-separator=" " initialize-with="" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always" form="short"/>
+        <label form="short" prefix=", "/>
       </names>
     </group>
   </macro>
@@ -169,7 +163,7 @@
   <macro name="date">
     <choose>
       <if type="article-journal article-magazine article-newspaper" match="any">
-        <group suffix=";" delimiter=" ">
+        <group suffix=")" prefix="(" delimiter=" ">
           <date variable="issued" form="text"/>
           <text macro="accessed-date"/>
         </group>
@@ -192,7 +186,7 @@
         </date>
       </else-if>
       <else>
-        <group suffix=".">
+        <group suffix=")" prefix="(">
           <date variable="issued">
             <date-part name="year"/>
           </date>
@@ -218,7 +212,7 @@
     <choose>
       <if type="article-journal article-magazine" match="any">
         <text variable="volume"/>
-        <text variable="issue" prefix="(" suffix=")"/>
+        <!--<text variable="issue" prefix="(" suffix=")"/>-->
       </if>
     </choose>
   </macro>
@@ -231,7 +225,7 @@
   </macro>
   <macro name="author-short">
     <names variable="author">
-      <name form="short" and="text"/>
+      <name form="short" and="symbol"/>
     </names>
   </macro>
   <macro name="issued">
@@ -251,7 +245,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography et-al-min="7" et-al-use-first="6" hanging-indent="true">
+  <bibliography et-al-min="3" et-al-use-first="1" hanging-indent="true">
     <sort>
       <key macro="author"/>
       <key macro="issued"/>
@@ -259,15 +253,15 @@
     </sort>
     <layout>
       <group delimiter=". " suffix=". ">
-        <text macro="author"/>
+        <text macro="author-short" font-weight="bold"/>
+        <text macro="date"/>
         <text macro="title"/>
       </group>
       <group delimiter=" " suffix=". ">
         <text macro="editor"/>
-        <text macro="container-title"/>
+        <text macro="container-title" font-style="italic"/>
         <text macro="publisher"/>
         <group>
-          <text macro="date"/>
           <text macro="journal-location"/>
           <text macro="pages"/>
         </group>
