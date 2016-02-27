@@ -61,16 +61,24 @@ from the `julia` REPL using
 Pkg.add("befwm")
 ~~~
 
-The code is released under the MIT license. This software note describes
-version `0.1.0`.
+The code is released under the MIT license. This software
+note describes version `0.1.0`. The code is mirrored at
+`https://github.com/PoisotLab/befwm.jl`, and we welcome potential
+contributions. The code is version-controlled, undergoes continuous
+integration, and has a code coverage of approx. 90% to this date.
+
+# Use cases
 
 Documentation is available online at
-`https://www.gitbook.com/book/poisotlab/befwm/details`, and can be downloaded
+[https://www.gitbook.com/book/poisotlab/befwm/details], and can be downloaded
 as a printable PDF. The documentation includes several use-cases, as well
 as discussion of some design choices. All functions in the package have an
 in-line documentation, available from the `julia` interface.
 
-# Use cases
+[https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details 
+
+As there is an extensive documentation, we will here describe two "use-cases"
+explaining how `befwm` can be used.
 
 ## Allometric scaling stabilizes food webs
 
