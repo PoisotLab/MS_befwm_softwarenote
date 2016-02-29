@@ -17,8 +17,8 @@ perl -pi -e 's/{\-\-@(\w+) (.+)\-\-}/\\remove[$1]{$2}/gm' $2
 perl -pi -e 's/{\-\-(.+)\-\-}/\\remove{$1}/gm' $2
 
 # Replacements
-perl -pi -e 's/{~~@(\w+) (.+)~>(.+)~~}/\\change[$1]{$2}{$3}/gm' $2
-perl -pi -e 's/{~~(.+)~>(.+)~~}/\\change{$1}{$2}/gm' $2
+perl -pi -e 's/{~~@(\w+) (.+)~>(.+)~~}/\\remove{$2}\\add[$1]{$3}/gm' $2
+perl -pi -e 's/{~~(.+)~>(.+)~~}/\\remove{$1}\\add{$2}/gm' $2
 
 # Annotation
 perl -pi -e 's/{==(.+)==}{>>@(\w+) (.+)<<}/\\annote[$2]{$1}{$3}/gm' $2

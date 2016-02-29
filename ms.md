@@ -2,7 +2,7 @@
 title: Modelling biomass dynamics in food webs with `befwm`
 short: The befwm package
 bibliography: default.json
-csl: plab.csl
+csl: plmt/plab.csl
 author:
   - family: Poisot
     given: Timothée

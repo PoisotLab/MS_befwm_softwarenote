@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-with open('bib.keys', 'r') as infile:
+with open('plmt/bib.keys', 'r') as infile:
     data = infile.read()
     my_keys = data.splitlines()
 
