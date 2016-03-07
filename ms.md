@@ -43,90 +43,51 @@ abstract: ...
 
 ## Biomass dynamics
 
-
 We implement the model as described by @brose_ase, which is itself described in
 greater detail in @williams_hyi -- this model is an adaptation of the
 @yodzis_bsc classical bio-energetic model, describing the flows of biomass
 across trophic levels, primarily defined by body size. It distinguishes
 population based on two highly influential variables for the metabolism and
-assimilation rates, body-size and metabolic type. Once this distinction made, it
+assimilation rates, body-mass and metabolic type. Once this distinction made, it
 model populations as simple stock of biomass growing and shrinking through
 consumer-resources interactions (@williams_hyi). We used the version of the
 model with updated allometric coefficients (@brose_ase, @brown2004) and extended
 to multispecies systems (@williams_hyi). The governing equations below describe
-the changes in relative density of producers (\autoref{e:resource}) and consumers (\autoref{e:consumer})
-respectively.
+the changes in relative density of producers and consumers respectively.
 
-\begin{subequation}\label{e:producer}
-\begin{align}
-B'_i &= r_i(1-\frac{B_i}{K}) B_i -\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}} \\
-B'_i &= -x_iB_i+\sum_{j=resources}^{}x_iy_iB_iF_{ij}-\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
-\end{align}
-\end{subequation}
-
-Where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
-growth rate -- which is set to 1 to define the time-scale of the system, $K$ is
-the carrying capacity, $x_i$ is $i$'s mass-specific metabolic rate, $y_i$ is
-$i$'s maximum consumption rate relative to its metabolic rate, $e_{ij}$ is $i$'s
-assimilation efficiency when consuming population j and $F_{ij}$ is the
-functional response of $i$ consuming $j$, described below.   
-
-As almost all organism metabolic characteristics vary predictably with
-body-mass, these variations can be described by allometric relationships. Hence,
-the biological rates of production (R), metabolism (X) and maximum consumption
-(Y) follow negative power-law relationships with the typical adult body-mass
-(Enquist et al., 1999, Brown, 2004) (\autoref{e:prod_rate}, \autoref{e:metab_rate}, \autoref{e:consum_rate}).
-
-\begin{equation}\label{e:prod_rate}
-R_P = a_rM_P^{-0.25}
+\begin{equation}\label{e:producer}
+B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}} \\
 \end{equation}
 
-\begin{equation}\label{e:metab_rate}
-X_C = a_xM_C^{-0.25}
+\begin{equation}\label{e:consumer}
+B'_i = -x_iB_i+\sum_{j=resources}^{}x_iy_iB_iF_{ij}-\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
-\begin{equation}\label{e:consum_rate}
-Y_C = a_yM_C^{-0.25}
-\end{equation}
-
-The subscripts P and C refer to producers and consumers populations
-respectively, M is the typical adult body-mass and $a_r$, $a_x$ and $a_y$ are
-the allometric constant. Then, the metabolic rates $x_i$ of all populations are
-normalized by the time-scale (\autoref{e:ms_metabrate}) and the maximum consumption rates $y_i$ are
-normalized by the metabolic rates (\autoref{e:max_consumrate}) (@yodzis_bsc, @brose_ase).   
-
-\begin{equation}\label{e:ms_metabrate}
-x_i = \frac {X_C} {R_P} = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{-0.25}
-\end{equation}
-
-\begin{equation}\label{e:max_consumrate}
-y_i = \frac {Y_C} {X_P} = \frac {a_y} {a_x}
-\end{equation}
-
-Consumers' mass $M_C$ is expressed relatively to the mass of the basal species
-to make the results independent of the mass of basal species:
-
-\begin{equation}\label{e:consumer_mass}
-M_C =Z^T
-\end{equation}
-
-where $Z$ is the predator-prey body mass ratio and $T$ the trophic level of
-consumer C (@brose_ase).
-
-The multi-resources functional response describes the portion of the resource
-population $j$ consumed by the consumer population $i$ as a function of the
-biomass of all of its resources $k$ (\autoref{e:func_resp}):
+where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
+growth rate, $K$ is the carrying capacity, $x_i$ is $i$'s mass-specific
+metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
+metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
+population j and $F_{ij}$ is the multi-resources functional response of $i$
+consuming $j$:   
 
 \begin{equation}\label{e:func_resp}
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
-In this equation $\omega_{ij}$ is $i$'s relative consumption rate when consuming $j$
-($\omega_{ij}=1/n$, where $n$ is the number of resource of the consumer species
-$i$), $B_0$ is the half-saturation density, $h$ is Hill coefficient ($h=1$
-yield a type II functional response and $h=2$ a type III) and $c$ quantifies
-predator interference ($c=1$ in case of predator interference and $0$
-otherwise).
+In equation (\autoref{e:func_resp}) $\omega_{ij}$ is $i$'s relative consumption
+rate when consuming $j$ ($\omega_{ij}=1/n$, where $n$ is the number of resource
+of the consumer species $i$), $B_0$ is the half-saturation density, $h$ is Hill
+coefficient ($h=1$ yield a type II functional response and $h=2$ a type III) and
+$c$ quantifies predator interference ($c=1$ in case of predator interference and
+$0$ otherwise).
+
+As almost all organism metabolic characteristics vary predictably with
+body-mass, these variations can be described by allometric relationships as
+described in @williams_hyi and @brose_ase. After normalizing and simplifying
+these relationships, it results that the mass-specific metabolic rate $x_i$ is a
+function of both metabolic type and body-mass, while the maximum consumption
+rate $y_i$ is influenced only by the metabolic type. The assimilation efficiency
+$e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
 
 ## Measures on output
 
