@@ -51,7 +51,7 @@ population based on two highly influential variables for the metabolism and
 assimilation rates, body-mass and metabolic type. Once this distinction made, it
 model populations as simple stock of biomass growing and shrinking through
 consumer-resources interactions (@williams_hyi). We used the version of the
-model with updated allometric coefficients (@brose_ase, @brown2004) and extended
+model with updated allometric coefficients (@brose_ase; @brown2004) and extended
 to multispecies systems (@williams_hyi). The governing equations below describe
 the changes in relative density of producers and consumers respectively.
 
@@ -74,7 +74,7 @@ consuming $j$:
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
-In equation (\autoref{e:func_resp}) $\omega_{ij}$ is $i$'s relative consumption
+In \autoref{e:func_resp} $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$ ($\omega_{ij}=1/n$, where $n$ is the number of resource
 of the consumer species $i$), $B_0$ is the half-saturation density, $h$ is Hill
 coefficient ($h=1$ yield a type II functional response and $h=2$ a type III) and
@@ -86,7 +86,7 @@ body-mass, these variations can be described by allometric relationships as
 described in @williams_hyi and @brose_ase. After normalizing and simplifying
 these relationships, it results that the mass-specific metabolic rate $x_i$ is a
 function of both metabolic type and body-mass, while the maximum consumption
-rate $y_i$ is influenced only by the metabolic type. The assimilation efficiency
+rate $y_i$ is influenced only by the metabolic type and the assimilation efficiency
 $e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
 
 ## Measures on output
