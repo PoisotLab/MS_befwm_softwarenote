@@ -14,6 +14,7 @@ author:
     given: Eva
     affiliation: 1, 2
     id: ed
+    orcid: 0000-0002-6238-229X
 affiliation:
   - id: 1
     text: Université de Montréal, Département de Sciences Biologiques
