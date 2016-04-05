@@ -1,14 +1,6 @@
 stages:
     - runs
 
-draft:
-    stage: runs
-    script:
-        - make TITLE=befwm TYPE=draft
-    artifacts: 
-        paths:
-            - befwm_draft_version.pdf
-
 preprint:
     stage: runs
     script:
