@@ -119,16 +119,10 @@ in-line documentation, available from the `julia` interface.
 
 [https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
 
-As there is an extensive documentation, we will here describe two "use-cases"
-explaining how `befwm` can be used.
-
-## Allometric scaling and species diversity
-
-In the first example, we investigate how allometric scaling affects the species
-diversity of the food web. We vary allometric scaling on a logarithmic scale,
-from $10^-3$ to $10^3$, using 15 intermediate values. The code is presented
-in Supp. Mat. 1.
-
-## Connectance (something something)
+In this section, we will describe a simple use-case, illustrating how `befwm`
+can be used. The entire code is available as Supplementary Material. In
+this example, we will investigate the effect of varying the strength of
+allometric scaling, from negative (values smaller than unity) to positive
+(values greater than unity).
 
 # References
