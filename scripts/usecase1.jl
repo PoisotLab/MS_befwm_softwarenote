@@ -10,24 +10,31 @@ const solver = :ode45
 Z = collect(logspace(-3, 3, 15))
 
 # Initialize a DataFrame
-replicates = 5
+replicates = 20
 df = DataFrame([Float64, Float64, Float64], [:Z, :stability, :diversity], length(Z)*replicates)
 
 # Generates a random network based on the niche model
-A = nichemodel(20, 0.15)
+function nm(n, co)
+    A = nichemodel(n, co)
+    while round(befwm.connectance(A), 2) != co
+        A = nichemodel(n, co)
+    end
+    return A
+end
 
 df_index = 1
 progbar = Progress(length(Z)*replicates, 1, "Simulating ", 50)
 for i in eachindex(Z)
-    p = make_initial_parameters(A)
-    p[:Z] = Z[i]
-    p = make_parameters(p)
     for s in 1:replicates
+        A = nm(20, 0.15)
+        p = make_initial_parameters(A)
+        p[:Z] = Z[i]
+        p = make_parameters(p)
         initial_biomass = rand(size(A, 1))
-        output = simulate(p, initial_biomass, start=0, stop=5000, steps=2000, use=solver)
+        output = simulate(p, initial_biomass, start=0, stop=2000, steps=2000, use=solver)
         df[:Z][df_index] = Z[i]
-        df[:stability][df_index] = population_stability(output, last=2000, threshold=-0.01)
-        df[:diversity][df_index] = foodweb_diversity(output, last=2000)
+        df[:stability][df_index] = population_stability(output, last=1000, threshold=-0.01)
+        df[:diversity][df_index] = foodweb_diversity(output, last=1000)
         df_index += 1
         next!(progbar)
     end
