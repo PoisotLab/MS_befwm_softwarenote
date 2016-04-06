@@ -122,7 +122,12 @@ in-line documentation, available from the `julia` interface.
 As there is an extensive documentation, we will here describe two "use-cases"
 explaining how `befwm` can be used.
 
-## Allometric scaling stabilizes food webs
+## Allometric scaling and species diversity
+
+In the first example, we investigate how allometric scaling affects the species
+diversity of the food web. We vary allometric scaling on a logarithmic scale,
+from $10^-3$ to $10^3$, using 15 intermediate values. The code is presented
+in Supp. Mat. 1.
 
 ## Connectance (something something)
 
