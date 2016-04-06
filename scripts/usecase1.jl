@@ -14,28 +14,26 @@ A = nichemodel(15, 45)
 const solver = :ode45
 
 # The scaling gradient will go from -3 to 3 (log scale)
-Z = collect(logspace(-2, 2, 15))
+Z = collect(logspace(-3, 2, 15))
 
 # Initialize a DataFrame
-df = DataFrame([Float64, Float64, Float64, Float64], [:Z, :d, :min, :max], length(Z))
+replicates = 20
+df = DataFrame([Float64, Float64, Float64], [:Z, :stability, :diversity], length(Z)*replicates)
 
+df_index = 1
 for i in eachindex(Z)
     p = make_initial_parameters(A)
     p[:Z] = Z[i]
     p = make_parameters(p)
-    div = zeros(4)
-    for s in eachindex(div)
+    for s in 1:replicates
         initial_biomass = rand(size(A, 1))
         output = simulate(p, initial_biomass, start=0, stop=1000, steps=2500, use=solver)
-        div[s] = foodweb_diversity(output, last=200)
-        println(div)
+        df[:Z][df_index] = Z[i]
+        df[:stability][df_index] = population_stability(output, last=200, threshold=-0.01)
+        df[:diversity][df_index] = foodweb_diversity(output, last=200)
+        println(df)
+        df_index += 1
     end
-    div = filter((x) -> !isnan(x), div)
-    df[:Z][i] = Z[i]
-    df[:d][i] = mean(div)
-    df[:max][i] = mean(div) + std(div)
-    df[:min][i] = mean(div) - std(div)
-    println(head(df))
 end
 
 plot(df, x=:Z, y=:d, ymin=:min, ymax=:max, Geom.point, Geom.errorbar, Scale.x_log10)
