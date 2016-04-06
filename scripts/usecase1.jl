@@ -24,18 +24,17 @@ for i in eachindex(Z)
     p = make_parameters(p)
     for s in 1:replicates
         initial_biomass = rand(size(A, 1))
-        output = simulate(p, initial_biomass, start=0, stop=1000, steps=2500, use=solver)
+        output = simulate(p, initial_biomass, start=0, stop=2000, steps=1500, use=solver)
         df[:Z][df_index] = Z[i]
-        df[:stability][df_index] = population_stability(output, last=200, threshold=-0.01)
-        df[:diversity][df_index] = foodweb_diversity(output, last=200)
+        df[:stability][df_index] = population_stability(output, last=1000, threshold=-0.01)
+        df[:diversity][df_index] = foodweb_diversity(output, last=1000)
         df_index += 1
         next!(progbar)
     end
 end
 
-plot(df, x=:Z, y=:d, ymin=:min, ymax=:max, Geom.point, Geom.errorbar, Scale.x_log10)
 
 pl_stab = plot(df, x=:Z, y=:stability, Scale.x_log10, Geom.smooth, Geom.point)
-pl_even = plot(df, x=:Z, y=:stability, Scale.x_log10, Geom.smooth, Geom.point)
+pl_even = plot(df, x=:Z, y=:diversity, Scale.x_log10, Geom.smooth, Geom.point)
 
-draw(PDF("effect_scaling.pdf", 8cm, 12cm), hstack(pl_stab, pl_even))
+draw(PDF("effect_scaling.pdf", 18cm, 9cm), hstack(pl_stab, pl_even))
