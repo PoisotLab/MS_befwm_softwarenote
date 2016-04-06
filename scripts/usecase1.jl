@@ -3,8 +3,8 @@ using Gadfly
 using DataFrames
 using ProgressMeter
 
-# Generates a random network based on the null model
-A = nichemodel(15, 45)
+# Generates a random network based on the niche model
+A = nichemodel(20, 0.15)
 
 # We will use the `:ode45` solver
 const solver = :ode45
@@ -13,7 +13,7 @@ const solver = :ode45
 Z = collect(logspace(-3, 2, 15))
 
 # Initialize a DataFrame
-replicates = 20
+replicates = 1
 df = DataFrame([Float64, Float64, Float64], [:Z, :stability, :diversity], length(Z)*replicates)
 
 df_index = 1
@@ -24,7 +24,7 @@ for i in eachindex(Z)
     p = make_parameters(p)
     for s in 1:replicates
         initial_biomass = rand(size(A, 1))
-        output = simulate(p, initial_biomass, start=0, stop=2000, steps=1500, use=solver)
+        output = simulate(p, initial_biomass, start=0, stop=3000, steps=2000, use=solver)
         df[:Z][df_index] = Z[i]
         df[:stability][df_index] = population_stability(output, last=1000, threshold=-0.01)
         df[:diversity][df_index] = foodweb_diversity(output, last=1000)
