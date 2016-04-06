@@ -3,15 +3,18 @@ using Gadfly
 using DataFrames
 using ProgressMeter
 
+
+
 # We will use the `:ode45` solver
 const solver = :ode45
 
 # The scaling gradient will go from -3 to 3 (log scale)
-Z = collect(logspace(-3, 3, 15))
+Z = collect(logspace(-1, 1, 5))
+CO = collect(linspace(0.05, 0.25, 10))
 
 # Initialize a DataFrame
 replicates = 20
-df = DataFrame([Float64, Float64, Float64], [:Z, :stability, :diversity], length(Z)*replicates)
+df = DataFrame([Float64, Float64, Float64, Float64], [:Z, :Co, :stability, :diversity], length(Z)*replicates)
 
 # Generates a random network based on the niche model
 function nm(n, co)
