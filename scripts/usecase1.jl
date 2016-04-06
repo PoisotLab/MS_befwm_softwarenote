@@ -10,10 +10,10 @@ A = nichemodel(20, 0.15)
 const solver = :ode45
 
 # The scaling gradient will go from -3 to 3 (log scale)
-Z = collect(logspace(-3, 2, 15))
+Z = collect(logspace(-3, 2, 6))
 
 # Initialize a DataFrame
-replicates = 1
+replicates = 5
 df = DataFrame([Float64, Float64, Float64], [:Z, :stability, :diversity], length(Z)*replicates)
 
 df_index = 1
@@ -33,8 +33,14 @@ for i in eachindex(Z)
     end
 end
 
+df = df[df[:stability].<0.0,:]
 
-pl_stab = plot(df, x=:Z, y=:stability, Scale.x_log10, Geom.smooth, Geom.point)
-pl_even = plot(df, x=:Z, y=:diversity, Scale.x_log10, Geom.smooth, Geom.point)
+pub_theme = Theme(
+    panel_stroke = colorant"black",
+
+)
+
+pl_stab = plot(df, x=:Z, y=:stability, Scale.x_log10, Geom.smooth, Geom.point, pub_theme)
+pl_even = plot(df, x=:Z, y=:diversity, Scale.x_log10, Geom.smooth, Geom.point, pub_theme)
 
 draw(PDF("effect_scaling.pdf", 18cm, 9cm), hstack(pl_stab, pl_even))
