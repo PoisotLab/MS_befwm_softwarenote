@@ -38,7 +38,6 @@ date: Work in progress.
 abstract: ...
 ---
 
-
 # The model
 
 ## Biomass dynamics
@@ -56,11 +55,11 @@ to multispecies systems (@williams_hyi). The governing equations below describe
 the changes in relative density of producers and consumers respectively.
 
 \begin{equation}\label{e:producer}
-B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}} \\
+B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
 \begin{equation}\label{e:consumer}
-B'_i = -x_iB_i+\sum_{j=resources}^{}x_iy_iB_iF_{ij}-\sum_{j=consumers}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
+B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
 where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
@@ -90,6 +89,29 @@ rate $y_i$ is influenced only by the metabolic type and the assimilation efficie
 $e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
 
 ## Measures on output
+
+The `befwm` package implements a variety of measures that can be applied on
+the output of simulations.
+
+Shannon's entropy
+
+: Diversity within the community is measured through
+  Shannon's entropy, corrected for the total number of populations. This
+  returns values in $]0;1]$, where $1$ indicates that all populations have
+  the same biomass.
+
+Total biomass
+
+: The total biomass within the community is simply defined as the sum of
+  all biomasses at a given time.
+
+Stability
+
+: As in @brose_ase, we measure stability as being the negative of the
+  coefficient of variation of biomasses of each population over a fixed
+  number of timesteps. These are averaged, to give a measure representing
+  the overall fluctuation of biomasses within the community. Values close
+  to 0 are stable, and increasingly negative values are unstable.
 
 # Implementation and availability
 
