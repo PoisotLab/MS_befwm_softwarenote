@@ -1,7 +1,4 @@
-using befwm
-using Gadfly
-using DataFrames
-
+include("common.jl")
 
 steps = 500
 replicates = 50
@@ -32,14 +29,6 @@ for i in 1:replicates
 end
 
 # Melt data frame
-
-function distrmax(x)
-    return mean(x) .+ std(x)
-end
-
-function distrmin(x)
-    return mean(x) .- std(x)
-end
 
 for_plot = aggregate(df, :time, [mean, std, distrmin, distrmax])
 
