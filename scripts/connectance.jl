@@ -1,11 +1,11 @@
-include("common.jl")
+nclude("common.jl")
 
-steps = 5
-replicates = 10
+steps = 8
+replicates = 50
 
 df = DataFrame([Float64, Float64, Float64], [:connectance, :diversity, :stability], steps * replicates)
 
-co_values = collect(linspace(0.1, 0.5, steps))
+co_values = collect(linspace(0.05, 0.4, steps))
 connectance = vec(hcat([co_values for i in 1:replicates]...))
 
 for i in eachindex(connectance)
@@ -18,7 +18,7 @@ for i in eachindex(connectance)
     p = make_parameters(p)
     bm = rand(size(A, 1))
     # Simulate!
-    out = simulate(p, bm, start=0, stop=3000, steps=1500, use=:ode45)
+    out = simulate(p, bm, start=0, stop=2000, steps=1000, use=:ode45)
     d = foodweb_diversity(out, last=1000)
     s = population_stability(out, last=1000)
     df[:connectance][i] = connectance[i]
@@ -32,6 +32,8 @@ df = df[df[:stability] .<= 0.0,:]
 
 # Melt data frame
 for_plot = aggregate(df, :connectance, [mean, std, distrmin, distrmax])
+
+for_plot[:stability_distrmax][for_plot[:stability_max].>0.0] = 0.0
 
 pl_div = plot(for_plot, x=:connectance, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax,
     Geom.path, Geom.ribbon);
