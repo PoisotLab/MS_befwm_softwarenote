@@ -1,11 +1,11 @@
 include("common.jl")
 
-steps = 6
-replicates = 50
+steps = 5
+replicates = 10
 
 df = DataFrame([Float64, Float64, Float64], [:connectance, :diversity, :stability], steps * replicates)
 
-co_values = collect(linspace(0.05, 0.45, steps))
+co_values = collect(linspace(0.1, 0.5, steps))
 connectance = vec(hcat([co_values for i in 1:replicates]...))
 
 for i in eachindex(connectance)
