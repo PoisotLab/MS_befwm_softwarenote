@@ -25,6 +25,20 @@ function nm(n, co)
     return A
 end
 
+# Create a DataFrame with conditions
+replicates = 20
+df = DataFrame([Float64, Float64, Float64, Float64], [:Z, :Co, :stability, :diversity], length(Z)*replicates)
+index = 1
+for z in logspace(-1, 1, 5)
+    for co in linspace(0.05, 0.25, 10)
+        for re in 1:replicates
+            df[:Z][index] = z
+            df[:Co][index] = co
+            index += 1
+        end
+    end
+end
+
 df_index = 1
 progbar = Progress(length(Z)*replicates, 1, "Simulating ", 50)
 for i in eachindex(Z)
