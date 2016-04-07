@@ -26,15 +26,14 @@ keyword:
   - k: allometric scaling
   - k: food webs
 figure:
-  - id: figure1
+  - id: temporal
+    caption: With the default parameters, a food web with 20 populations and a connectance of 0.25 reaches a stable state within the first 100 timesteps. The solid line represents the average value across 50 independant runs, and the ribbon around it is the standard deviation.
+    short: Example figure.
+    file: temporal_dynamics.pdf
+  - id: connectance
     caption: This is a figure.
     short: Example figure.
-    file: figure1.png
-  - id: figure2
-    caption: This is a second figure. It is taking the two columns in preprint mode.
-    short: Example figure.
-    file: figure1.png
-    wide: true
+    file: connectance.pdf
 date: Work in progress.
 abstract: ...
 ---
@@ -119,10 +118,53 @@ in-line documentation, available from the `julia` interface.
 
 [https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
 
-In this section, we will describe a simple use-case, illustrating how `befwm`
-can be used. The entire code is available as Supplementary Material. In
-this example, we will investigate the effect of varying the strength of
-allometric scaling, from negative (values smaller than unity) to positive
-(values greater than unity).
+In this section, we will describe two use-cases (the code to execute them
+is given in the manual, and is attached as Supp. Mat. to this paper).
+
+## Illustration of the temporal dynamics
+
+We will investigate the temporal dynamics of total biomass (sum of biomasses
+of all populations), and of diversity (Shannon's index of biomasses) across
+50 replicate simulations. Every simulation uses a different network (generated
+with the niche model, 20 species, connectance of $0.25 \pm 0.01$).
+
+!{temporal}
+
+We run the simulations with the default parameters (given in
+`?make_initial_parameters`, and in the manual). Each simulation consist of
+the following code:
+
+~~~ julia
+# We generate a random food web
+A = nichemodel(20, 0.25)
+
+# This loop will keep on trying food webs until
+# one with a connectance close enough to 0.25
+# is found
+while abs(befwm.connectance(A) - 0.25) > 0.01
+    A = nichemodel(20, 0.25)
+end
+
+# Prepare the simulation parameters
+p = A |> make_initial_parameters |> make_parameters
+
+# We start each simulation with random biomasses
+# in ]0;1[
+bm = rand(size(A, 1))
+
+# And finally, we simulate over 500 timesteps
+out = simulate(p, bm, start=0, stop=500,
+        steps=1500, use=:ode45)
+~~~
+
+The results are presented in \autoref{temporal}. With this choice of
+parameters, the community reaches stability within 100 timesteps.
+
+## Effect of connectance on stability and diversity
+
+We now illustrate how the package can be used to explore responses of the
+system to changes in parameters.
+
+!{connectance}
 
 # References
