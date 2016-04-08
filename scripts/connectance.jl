@@ -1,7 +1,7 @@
-nclude("common.jl")
+include("common.jl")
 
-steps = 8
-replicates = 50
+steps = 7
+replicates = 200
 
 df = DataFrame([Float64, Float64, Float64], [:connectance, :diversity, :stability], steps * replicates)
 
@@ -29,11 +29,12 @@ end
 # Filter results
 df = df[!isnan(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
+df = df[df[:stability] .>= -5.0,:]
 
 # Melt data frame
 for_plot = aggregate(df, :connectance, [mean, std, distrmin, distrmax])
 
-for_plot[:stability_distrmax][for_plot[:stability_max].>0.0] = 0.0
+for_plot[:stability_distrmax][for_plot[:stability_distrmax].>0.0] = 0.0
 
 pl_div = plot(for_plot, x=:connectance, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax,
     Geom.path, Geom.ribbon);
