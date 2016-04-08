@@ -21,7 +21,7 @@ for i in eachindex(scaling)
     # Simulate!
     out = simulate(p, bm, start=0, stop=2000, steps=1000, use=:ode45)
     d = foodweb_diversity(out, last=1000)
-    s = population_stability(out, last=1000)
+    s = population_stability(out, last=1000, threshold=-0.01)
     df[:scaling][i] = p[:Z]
     df[:diversity][i] = d
     df[:stability][i] = s
