@@ -30,11 +30,11 @@ figure:
     caption: With the default parameters, a food web with 20 populations and a connectance of 0.25 reaches a stable state within the first 100 timesteps. The solid line represents the average value across 50 independant runs, and the ribbon around it is the standard deviation.
     short: Example figure.
     file: temporal_dynamics.pdf
-  - id: connectance
+  - id: scaling
     caption: This is a figure.
     short: Example figure.
-    file: connectance.pdf
-date: Work in progress.
+    file: scaling
+date: \today
 abstract: ...
 ---
 
@@ -153,7 +153,7 @@ with the niche model, 20 species, connectance of $0.25 \pm 0.01$).
 !{temporal}
 
 We run the simulations with the default parameters (given in
-`?make_initial_parameters`, and in the manual). Each simulation consist of
+`?make_initial_parameters`, and in the manual). Each simulation consists of
 the following code:
 
 ~~~ julia
@@ -182,11 +182,31 @@ out = simulate(p, bm, start=0, stop=500,
 The results are presented in \autoref{temporal}. With this choice of
 parameters, the community reaches stability within 100 timesteps.
 
-## Effect of connectance on stability and diversity
+## Effect of allometric scaling on stability and diversity
 
 We now illustrate how the package can be used to explore responses of the
-system to changes in parameters.
+system to changes in parameters. In particular, we explore how diversity
+and population stability are affected by an increase in connectance. The
+results are presented in \autoref{scaling}.
 
-!{connectance}
+!{scaling}
+
+The allometric scaling is controlled by the parameter $Z$ (field `:Z` in
+the code), and can be changed in the following way:
+
+~~~ julia
+# Prepare the simulation parameters
+p = make_initial_parameters(A)
+# Change the scaling
+p[:Z] = scaling[i]
+# Finishes the simulation parameters
+p = make_parameters(p)
+~~~
+
+Note that the value of `:Z` *has* to be changed before `make_parameters`
+is called. This is because `make_parameters` will calculate the allometry
+for the different populations based on $Z$, their trophic rank, etc. These
+parameters are calculated only once, which allows an efficient implementation
+of the model.
 
 # References
