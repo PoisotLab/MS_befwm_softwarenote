@@ -39,8 +39,8 @@ for_plot = aggregate(df, :scaling, [mean, std, distrmin, distrmax])
 for_plot[:stability_distrmax][for_plot[:stability_distrmax].>0.0] = 0.0
 
 pl_div = plot(for_plot, x=:scaling, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax,
-    Geom.point, Geom.errorbar, Scale.x_log10);
+    Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
 pl_sta = plot(for_plot, x=:scaling, y=:stability_mean, ymin=:stability_distrmin, ymax=:stability_distrmax,
-    Geom.point, Geom.errorbar, Scale.x_log10);
+    Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
 
 draw(PDF("figures/scaling.pdf", 14cm, 17cm), vstack(pl_div, pl_sta))

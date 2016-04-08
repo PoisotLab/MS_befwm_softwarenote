@@ -33,8 +33,8 @@ end
 for_plot = aggregate(df, :time, [mean, std, distrmin, distrmax])
 
 pl_bio = plot(for_plot, x=:time, y=:biomass_mean, ymin=:biomass_distrmin, ymax=:biomass_distrmax,
-    Geom.path, Geom.ribbon);
+    Geom.path, Geom.ribbon, plab_theme);
 pl_div = plot(for_plot, x=:time, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax,
-    Geom.path, Geom.ribbon);
+    Geom.path, Geom.ribbon, plab_theme);
 
 draw(PDF("figures/temporal_dynamics.pdf", 14cm, 17cm), vstack(pl_div, pl_bio))
