@@ -1,7 +1,7 @@
 include("common.jl")
 
-steps = 7
-replicates = 100
+steps = 13
+replicates = 200
 
 df = DataFrame([Float64, Float64, Float64], [:scaling, :diversity, :stability], steps * replicates)
 
