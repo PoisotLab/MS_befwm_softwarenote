@@ -1,7 +1,7 @@
 include("common.jl")
 
 steps = 13
-replicates = 200
+replicates = 250
 
 df = DataFrame([Float64, Float64, Float64], [:scaling, :diversity, :stability], steps * replicates)
 
@@ -9,9 +9,9 @@ z_values = collect(logspace(-3, 3, steps))
 scaling = vec(hcat([z_values for i in 1:replicates]...))
 
 for i in eachindex(scaling)
-    A = nichemodel(20, 0.15)
-    while abs(befwm.connectance(A) - 0.15) > 0.01
-        A = nichemodel(20, 0.15)
+    A = nichemodel(20, 0.12)
+    while abs(befwm.connectance(A) - 0.12) > 0.01
+        A = nichemodel(20, 0.12)
     end
     # Prepare the simulation parameters
     p = make_initial_parameters(A)
