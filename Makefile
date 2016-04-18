@@ -11,6 +11,7 @@ PHONY: all prepare
 
 prepare:
 	chmod +x plmt/*.{sh,py}
+	mkdir -p figures
 
 all: prepare $(OUTPUT)
 
