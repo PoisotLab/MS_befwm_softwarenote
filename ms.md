@@ -40,9 +40,30 @@ abstract: ...
 
 # Introduction
 
-Research in ecology has long seek to understand the processes influencing the diversity and stability of natural communities. These communities are formed by populations whose dynamics of persistence and extinction depends on resource availability. Seeing that the coexistence of populations is thus constrained by feeding interactions, models have been created equating the relationship between resources and consumers, from the simplest, most generalist models (e.g. LV) to more tailored and parametrized ones (find an example). Among these, @yodzis_bsc generalist resource-consumer model has the advantage of yielding results close to the empirical observations while needing only few, easy to assess parameters. To achieve this purpose, it uses allometric scaling of metabolic and assimilation rates, meaning that these rates depend on the body mass of the organism in addition to the metabolic type (such as invertebrates or ectotherm vertebrates).
+Research in ecology has long seek to understand the processes influencing the
+diversity and stability of natural communities. These communities are formed by
+populations whose dynamics of persistence and extinction depends on resource
+availability. Seeing that the coexistence of populations is thus constrained by
+feeding interactions, models have been created equating the relationship between
+resources and consumers, from the simplest, most generalist models -- such as
+the Lotka-Volterra model @lotka1926,@volterra1928 -- to more tailored and
+parametrized ones. Among these, @yodzis_bsc generalist resource-consumer model
+has the advantage of yielding results close to the empirical observations while
+needing only few, easy to assess parameters. To achieve this purpose, it uses
+allometric scaling of metabolic and assimilation rates, meaning that the flow of
+biomass from a resource to its consumer thus depends on the body-mass ratio
+between them.
 
-Adaptations of this model have been use to show that allometric scaling enhances predictions regarding stability (Brose et al., 2006, Otto et al., 2007), interaction strength (Berlow et al., 2009, Boit et al., 2012, Iles et Novak, 2016) and perturbation spread (Iles et Novak, 2016) within large, realistic food webs. Yet, although these authors used the same model, they used personal adaptation and implementation of it. Here we present `befwm`, a Julia package implementing @brose_ase adaptation of @yodzis_bsc bio-energetic model for food-webs (@williams_hyi) with updated allometric coefficients. This package aims at offering an efficient common ground for modeling food-webs dynamics using this particular model.
+Adaptations of this model have been use to show that allometric scaling enhances
+predictions regarding stability (Brose et al., 2006, Otto et al., 2007),
+interaction strength (Berlow et al., 2009, Boit et al., 2012, Iles et Novak, 2016)
+and perturbation spread (Iles et Novak, 2016) within large, realistic food
+webs. Yet, although these authors used the same model, they used personal
+adaptation and implementation of it. Here we present `befwm`, a Julia package
+implementing @brose_ase adaptation of @yodzis_bsc bio-energetic model for
+food-webs (@williams_hyi) with updated allometric coefficients. This package
+aims at offering an efficient common ground for modeling food-webs dynamics
+using this particular model.
 
 # The model
 
@@ -54,8 +75,9 @@ across trophic levels, primarily defined by body size. It distinguishes
 population based on two highly influential variables for the metabolism and
 assimilation rates, body-mass and metabolic type. Once this distinction made, it
 model populations as simple stocks of biomass growing and shrinking through
-consumer-resources interactions (@williams_hyi). The governing equations below describe
-the changes in relative density of producers and consumers respectively.
+consumer-resources interactions (@williams_hyi). The governing equations below
+describe the changes in relative density of producers and consumers
+respectively.
 
 \begin{equation}\label{e:producer}
 B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
@@ -65,21 +87,27 @@ B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
-where $B_i$ is the biomass of population $i$ and $F_{ij}$ is the multi-resources functional response of $i$ consuming $j$ described in the following equation, other parameters are described in \autoref{tab:parameters}:   
+where $B_i$ is the biomass of population $i$ and $F_{ij}$ is the multi-resources
+functional response of $i$ consuming $j$ described in the following equation,
+other parameters are described in \autoref{tab:parameters}:    
 
 \begin{equation}\label{e:func_resp}
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
-Depending on the parameters $h$ and $c$ the functional response can take several forms (see \autoref{tab:parameters}).
+Depending on the parameters $h$ and $c$ the functional response can take several
+forms (see \autoref{tab:parameters}).
 
-As almost all organism metabolic characteristics vary predictably with
-body-mass, these variations can be described by allometric relationships as
-described in @williams_hyi and @brose_ase. Hence,
-the biological rates of production, metabolism and maximum consumption follow negative power-law relationships with the typical adult body-mass
-(@enquist_asp,@brown_tmt). After normalizing and simplifying
-these relationships, it results that the mass-specific metabolic rate $x_i$ is a
-function of both metabolic type and body-mass (see \autoref{}), while the maximum consumption rate $y_i$ is influenced only by the metabolic type and the assimilation efficiency $e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
+As almost all organism metabolic characteristics vary predictably with body-mass
+(@brown_tmt), these variations can be described by allometric relationships as
+described in @williams_hyi and @brose_ase. Hence, the biological rates of
+production, metabolism and maximum consumption follow negative power-law
+relationships with the typical adult body-mass (@enquist_asp,@brown_tmt). After
+normalizing and simplifying these relationships, it results that the
+mass-specific metabolic rate $x_i$ is a function of both metabolic type and
+body-mass (see \autoref{}), while the maximum consumption rate $y_i$ is
+influenced only by the metabolic type and the assimilation efficiency $e_{ij}$
+is function of $i$'s diet (herbivore or carnivore).
 
 $$
 x_i = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{-0.25}
@@ -99,11 +127,11 @@ the allometric constant (see \autoref{tab::parameters}).
 |$ω_{ij}$|$i$'s relative consumption rate when consuming $j$ and correspond to $1/n$ where $n$ is $i$'s number of prey|None|
 |$B_0$|half-saturation density|0.5 (can be set between 0 and K)|
 |$h$|Hill coefficient|1 (define a type II Hill functional response, for a type III functional response, set h = 2)|
-|$c$|quantifies predator interference|0 (1 if there is case of predator interference, only possible in empirical cases if h = 1)|
+|$c$|quantifies the predator interference|0 (1 if there is case of predator interference, only possible in empirical cases if h = 1)|
 |$a_x$|allometric constant of the metabolic rate $X_C = a_xM_C^{-0.25}$|0.314 for invertebrates and 0.88 for ectotherm vertebrates|
 |$a_r$|allometric constant of the production rate $R_C = a_rM_P^{-0.25}$|1|
 
-:Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, this -- as long as the values of all parameters -- can be changed using the `make_initial_parameters` function. \label{tab:parameters}
+:Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, this -- as long as the values of all parameters -- can be changed using the `make_initial_parameters` function. For more details on the choice of parameters default values, see @brose_ase. \label{tab:parameters}
 
 ## Measures on output
 
