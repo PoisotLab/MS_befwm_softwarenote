@@ -1,16 +1,19 @@
 $if(draft)$\documentclass[12pt]{article}$endif$
-$if(preprint)$\documentclass[10pt,twocolumn]{article}$endif$
+$if(preprint)$\documentclass[9pt,twocolumn]{article}$endif$
+
+\usepackage[table]{xcolor}
+\usepackage{ccicons}
+
+% Colors
+\input{plmt/plmt-color.tex}
+
+% pgf
+\input{plmt/plmt-pgf.tex}
 
 \usepackage[hidelinks]{hyperref}
-\usepackage[utf8]{inputenc}
-\usepackage{xcolor}
-\usepackage{tikz}
-\usepackage{caption}
 \usepackage{etoolbox}
-\usepackage{soul}
-\setstcolor{red}
-
 \usepackage{graphicx}
+\usepackage{adjustbox}
 
 % Fonts
 \input{plmt/plmt-fonts.tex}
@@ -18,35 +21,15 @@ $if(preprint)$\documentclass[10pt,twocolumn]{article}$endif$
 % Code highlight and colors
 \input{plmt/plmt-code.tex}
 
-% Colors
-\input{plmt/plmt-color.tex}
-
+\usepackage{caption}
 \captionsetup{font={small, sf}, labelfont={bf, color=meta}, format=plain, indention=4mm,labelsep=quad}
 
 % Spacing
 \usepackage{setspace}
 
-\newcommand\edmark[1]{\small\color{meta}\bfseries\sffamily #1}
+\input{"plmt/plmt-marks.tex"}
 
-\newcommand\add[2][]{%
-\ifstrempty{#1}{%
-    \textcolor{green}{#2}%
-}{%
-    \textcolor{green}{#2 \edmark{#1}}%
-}%
-}
-
-\newcommand\remove[2][]{%
-\ifstrempty{#1}{%
-    \textcolor{meta}{\st{#2}}%
-}{%
-    \textcolor{meta}{\st{#2} \edmark{#1}}%
-}%
-}
-
-\newcommand{\annote}[1]{\textcolor{red}{#1}}
-\newcommand{\note}[1]{\textcolor{red}{#1}}
-\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+\usepackage{booktabs, tabularx}
 
 $if(preprint)$
 \setcounter{secnumdepth}{0}
@@ -61,16 +44,21 @@ $endif$
 {\bfseries\sffamily\color{accent}\uppercase}{\mdseries{\thesection}}{0.6em}{}
 
 \titleformat{\subsection}[runin]%
-{\bfseries\color{accent}\sffamily}{\mdseries{\small \thesubsection}}{0.6em}{}[.]
+{\bfseries\color{accent}\sffamily}{\mdseries{\small \thesubsection}}{0.6em}{}[\quad]
 
 \titleformat{\subsubsection}[runin]%
-{\itshape\color{accent}\sffamily}{\mdseries{\small\upshape \thesubsubsection}}{0.6em}{}[.]
+{\itshape\color{accent}\rmfamily}{\mdseries{\small\upshape \thesubsubsection}}{0.6em}{}[\quad\quad]
 
+% Geometry block
 \usepackage[letterpaper]{geometry}
-$if(draft)$\geometry{margin=2.5cm}$endif$
+
+$if(draft)$
+\geometry{margin=2.5cm}
+$endif$
+
 $if(preprint)$
 \geometry{margin=1.8cm}
-\setlength{\columnsep}{7.5mm}
+\setlength{\columnsep}{5.5mm}
 $endif$
 
 $if(preprint)$
@@ -87,12 +75,10 @@ $endif$
 $if(draft)$
 \usepackage{lineno}
 \linenumbers
+\usepackage{endfloat}
 $endif$
 
-
-
-\providecommand{\tightlist}{%
-	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
 
@@ -107,16 +93,16 @@ $endif$
 $if(title)$
 
 $if(draft)$%
-{\Large\bfseries\sffamily $title$}
+{\Large\bfseries\sffamily $title$ }
 \vskip 2em
 $endif$
 
 $if(preprint)$
 \begin{tikzpicture}[remember picture,overlay]
 \node[yshift=-8cm] at (current page.north west)
-{\begin{tikzpicture}[remember picture, overlay]
-\draw[bg, fill=bg] (0,0) rectangle
-(\paperwidth,8cm);
+{
+\begin{tikzpicture}[remember picture, overlay]
+\draw[bg, fill=bg] (0,0) rectangle (\paperwidth,8cm);
 \end{tikzpicture}
 };
 \node[
@@ -124,10 +110,6 @@ $if(preprint)$
     xshift=1.9cm,
     anchor=west,
     text width=15cm] at (current page.north west){\sffamily\huge\mdseries\baselineskip=22pt {\color{meta}$title$}\par};
-%\node[
-    %yshift=-7.8cm,
-    %xshift=-0.3cm,
-    %anchor=south east] at (current page.north east){\includegraphics[width=8em]{plmt/logo}};
 \end{tikzpicture}
 \vskip 8cm
 $endif$
@@ -180,10 +162,12 @@ $endif$
 $endif$
 
 $if(date)$
-{\sffamily\small
-\color{accent}Date 
-\color{meta}$date$
-}\vskip 1em
+{
+  \sffamily\small
+  \color{accent}Date
+  \color{meta} $date$
+}
+\vskip 1em
 $endif$
 
 $if(draft)$
@@ -193,7 +177,10 @@ $endif$
 
 $if(preprint)$
 $if(abstract)$
-{\small\sffamily\bfseries $abstract$}
+{\small\sffamily\bfseries $abstract$}{\small%
+\vskip 1em {\color{accent}\ccby}\quad{\sffamily\color{meta} This work is licensed under a %
+Creative Commons Attribution 3.0 Unported License.}%
+}%
 \vskip 1em
 $endif$
 $if(keyword)$
@@ -209,25 +196,5 @@ $endif$
 $endif$
 
 $body$
-
-$if(draft)$
-\singlespacing
-
-$if(figure)$
-\clearpage
-\listoffigures
-\clearpage
-$for(figure)$
-\begin{figure}[p!]
-  \centering
-  \includegraphics[width=\textwidth]{figures/$figure.file$}
-	\caption$if(figure.short)$[$figure.short$]$endif${$figure.caption$}
-	\label{$figure.id$}
-\end{figure}
-\cleardoublepage
-$endfor$
-$endif$
-
-$endif$
 
 \end{document}

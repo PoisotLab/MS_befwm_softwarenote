@@ -1,45 +1,34 @@
 SOURCE=ms.md
-HTML=ms.html
-TYPE=preprint# alt. value: preprint
+TYPE=draft# alt. value: preprint
 TITLE=befwm
 MARKED= plmt/$(TITLE)_temp.md
 PFLAGS= --variable=$(TYPE) --filter pandoc-citeproc
 OUTPUT= $(TITLE)_$(TYPE)_version.pdf
 BIB=default.json
 
-PHONY: all prepare
+TABLES = $(wildcard tables/*.md)
+TABLESLATEX = $(TABLES:.md=.tex)
 
-prepare:
-	chmod +x plmt/*.{sh,py}
-	mkdir -p figures
+PHONY: all
 
-all: prepare $(OUTPUT)
+all: $(OUTPUT)
 
 clean:
 	rm $(MARKED)
-	rm plmt/bib.keys
 
-$(BIB): plmt/bib.keys
-	chmod +x plmt/generatebib.py
-	./plmt/generatebib.py
-	cat $@ | json_reformat > tmp.json
-	mv tmp.json $@
+$(BIB): $(SOURCE)
+	node plmt/index.js $(SOURCE)
 
-plmt/bib.keys: $(MARKED)
-	grep @[a-zA-Z0-9_:]* $< -oh --color=never | sort  | uniq | sed 's/@//g' > $@
-
-$(MARKED): $(SOURCE)
-	# Removes critic marks
-	./plmt/critic.sh $< $@
-	# Get yaml
-	grep -Pzo '\-\-\-\n((.+)\n)+\-\-\-' $@ > paper.yaml
-	# Replaces figures marks
-	./plmt/figures.py $@ paper.yaml $(TYPE)
-	mv $@_NEW $@
-	# Remove yaml
-	rm paper.yaml
+$(MARKED): $(SOURCE) $(TABLESLATEX)
+	node plmt/critic.js $< plmt/tmp1
+	node plmt/figures.js plmt/tmp1 plmt/tmp2
+	node plmt/tables.js plmt/tmp2 $@
+	rm plmt/tmp*
 
 $(OUTPUT): $(MARKED)
-	pandoc $< -o $@ $(PFLAGS) --template plmt/plmt.tex
-	rm $(MARKED)
+	pandoc $< -o $@ $(PFLAGS) --template plmt/plmt.tex plmt.yaml
+	-@rm $(MARKED)
+	-@rm tables/*tex
 
+tables/%.tex: tables/%.md
+	pandoc $< -o $@
