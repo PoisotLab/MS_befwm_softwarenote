@@ -67,7 +67,7 @@ growth rate, $K$ is the carrying capacity, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
 metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
 population j and $F_{ij}$ is the multi-resources functional response of $i$
-consuming $j$:   
+consuming $j$:
 
 \begin{equation}\label{e:func_resp}
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
