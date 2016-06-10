@@ -35,9 +35,9 @@ figure:
     short: Example figure.
     file: scaling
 table:
-    caption: Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, this -- as long as the values of all parameters -- can be changed using the `make_initial_parameters` function.
-    id: parameters
-    file: parameters.md
+    - id: parameters
+      caption: Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, which can be changed using the \texttt{make\_initial\_parameters} function.
+      file: parameters.md
 date: \today
 abstract: ...
 ...
