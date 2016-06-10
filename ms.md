@@ -47,6 +47,8 @@ B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
+?{parameters}
+
 where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific
 maximum growth rate, $K$ is the carrying capacity, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
