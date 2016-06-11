@@ -145,7 +145,7 @@ immediately before, as well as on the current development version. `Julia`
 is an ideal platform for this type of models, since it is easy to write,
 designed for numerical computations, extremely fast, easily parallelized,
 and has good numerical integration libraries. The package can be installed
-from the `julia` REPL using
+from the `Julia` REPL using
 
 {== note to reviewers -- the code will be uploaded to the Julia packages repository upon acceptance ==}
 
@@ -240,5 +240,28 @@ is called. This is because `make_parameters` will calculate the allometry
 for the different populations based on $Z$, their trophic rank, etc. These
 parameters are calculated only once, which allows an efficient implementation
 of the model.
+
+# Conclusions
+
+We presented `befwm`, a reference implementation of the bio-energetic model
+applied to food webs. The two examples given can serve as templates to develop
+future studies. Taking a broader perspective, we argue that providing the
+community with reference implementations of common models is an important
+task. First, implementing complex models can be a difficult task, in which
+programming mistakes will bias the output of the simulations, and therefore
+the ecological interpretations we draw from them. Simulation-based studies
+are more at risk than analytical-based ones, since the computational aspect is
+an additional layer of complexity on the mathematical one. Second, reference
+implementations facilitate the comparison of studies. Currently, comparing
+studies mean not only comparing results, but also comparing implementations --
+because not all code is public, a difference in results cannot be properly
+explained as an error in either studies, and this eventually generates more
+uncertainty than it does answers. Finally, reference implementation ease
+reproducibility a lot. Specifically, it becomes enough to specify which version
+of the package was used, and to publish the script used to run the simulations
+(as we, for example, do in this manuscript). We fervently believe that more
+effort invested in providing the community with reference implementation
+of models representing cornerstones of our ecological understanding is an
+important effort.
 
 # References
