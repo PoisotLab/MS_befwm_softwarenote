@@ -86,44 +86,77 @@ the allometric constant (see \autoref{tab::parameters}).
 ## Measures on output
 
 The `befwm` package implements a variety of measures that can be applied on
-the output of simulations.
+the objects returned by simulations. All measures take an optional keyword
+argument `last`, indicating over how many timesteps before the end of the
+simulations the results should be averaged.
 
-Shannon's entropy
+Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
+food web. This measure is corrected for the total number of populations. This
+returns values in $]0;1]$, where $1$ indicates that all populations have
+the same biomass. It is measured as 
 
-: Diversity within the community is measured through
-  Shannon's entropy, corrected for the total number of populations. This
-  returns values in $]0;1]$, where $1$ indicates that all populations have
-  the same biomass.
+\begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
+\,, \end{equation}
 
-Total biomass
+where $n$ is the number of populations, and $b$ are the relative biomasses
+($b_i = B_i / \sum B$).
 
-: The total biomass within the community is simply defined as the sum of
-  all biomasses at a given time.
+Total biomass (`total_biomass`) is the sum of the biomasses across
+all populations. It is measured based on the populations biomasses
+(`population_biomass`).
 
-Stability
+Finally, we used the negative size-corrected coefficient of variation
+to assess the temporal stability of biomass stocks across populations
+(`population_stability`). This function accepts an additional `threshold`
+argument, specifying the biomass below which populations are excluded from
+the analysis. Since `befwm` uses robust numerical integrators, we suggest
+that this value be set to either the machine's $\epsilon(0.0)$ (*i.e.*
+the smallest value immediately above 0.0 that the machine can represent),
+or to $0.0$. We found that using either of these values had no qualitative
+bearing on the results. Values close to 0 indicate little variation over time,
+and increasingly negative values indicate larger fluctuations (relative to
+the mean standing biomass).
 
-: As in @brose_ase, we measure stability as being the negative of the
-  coefficient of variation of biomasses of each population over a fixed
-  number of timesteps. These are averaged, to give a measure representing
-  the overall fluctuation of biomasses within the community. Values close
-  to 0 are stable, and increasingly negative values are unstable.
+## Saving simulations and output format
+
+The core function (`simulate`) returns objects with a fixed format, made
+of three fields: `:p` has all the parameters used to start the simulation
+(including the food web itself), `:t` has a list of all timesteps (including
+intermediate integration points), and `:B` is is a matrix of biomasses for
+each population (columns) over time (rows). All measures on output described
+above operate on this object.
+
+The output of simulations can be saved to disk in either the `JSON`
+(javascript object notation) format, or in the native `jld` format. The `jld`
+option should be preferred since it preserves the structure of all objects
+(`JSON` should be used when the results will be analyzed outside of `Julia`,
+for example in `R`). The function to save results is called `befwm.save`
+(note that `befwm.` in front is mandatory, to avoid clashes with other
+functions called `save` in base `Julia` or other packages).
+
+Since running simulations is usually the more time-consuming thing, we
+recommend that simulation results be saved, and analyzed later on.
 
 # Implementation and availability
 
-The `befwm` package is available for the `julia` programming language, and
-has been tested with releases `0.3` (legacy), `0.4` (current as of writing),
-and `0.5` (development) on Linux and Mac OS X. The package can be installed
-from the `julia` REPL using
+The `befwm` package is available for the `julia` programming language,
+and is continuously tested on the current version of `Julia`, as well as the
+release immediately before, as well as on the current development version. The
+package can be installed from the `julia` REPL using
+
+{== note to reviewers -- the code will be uploaded to the Julia packages repository upon acceptance ==}
 
 ~~~ julia
 Pkg.add("befwm")
 ~~~
 
-The code is released under the MIT license. This software
-note describes version `0.1.0`. The code is mirrored at
-`https://github.com/PoisotLab/befwm.jl`, and we welcome potential
-contributions. The code is version-controlled, undergoes continuous
-integration, and has a code coverage of approx. 90% to this date.
+The code is released under the MIT license. This software note describes
+version `0.1.0`. The source code of the package can be viewed, downloaded,
+and worked on at `http://poisotlab.biol.umontreal.ca/XXX` {>>@tp todo <<}. The
+code is also mirrored at `https://github.com/PoisotLab/befwm.jl`. Potential
+issues with the code or package can be reported at either places. The code
+is version-controlled, undergoes continuous integration, and has a code
+coverage of approx. 90% to this date.
 
 # Use cases
 
@@ -131,7 +164,8 @@ Documentation is available online at
 [https://www.gitbook.com/book/poisotlab/befwm/details], and can be downloaded
 as a printable PDF. The documentation includes several use-cases, as well
 as discussion of some design choices. All functions in the package have an
-in-line documentation, available from the `julia` interface.
+in-line documentation, available from the `julia` interface by typing `?`
+followed by the name of the function.
 
 [https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
 

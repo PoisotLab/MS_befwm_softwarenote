@@ -4,17 +4,17 @@ short: The befwm package
 bibliography: default.json
 csl: plmt/plab.csl
 author:
+  - family: Delmas
+    given: Eva
+    affiliation: 1, 2
+    id: ed
+    orcid: 0000-0002-6238-229X
   - family: Poisot
     given: Timothée
     affiliation: 1, 2
     email: tim@poisotlab.io
     id: tp
     orcid: 0000-0002-0735-5184
-  - family: Delmas
-    given: Eva
-    affiliation: 1, 2
-    id: ed
-    orcid: 0000-0002-6238-229X
 affiliation:
   - id: 1
     text: Université de Montréal, Département de Sciences Biologiques
@@ -25,6 +25,7 @@ keyword:
   - k: bio-energetic model
   - k: allometric scaling
   - k: food webs
+  - k: community ecology 
 figure:
   - id: temporal
     caption: With the default parameters, a food web with 20 populations and a connectance of 0.25 reaches a stable state within the first 100 timesteps. The solid line represents the average value across 50 independant runs, and the ribbon around it is the standard deviation.
