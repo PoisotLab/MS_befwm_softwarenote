@@ -139,10 +139,13 @@ recommend that simulation results be saved, and analyzed later on.
 
 # Implementation and availability
 
-The `befwm` package is available for the `julia` programming language,
-and is continuously tested on the current version of `Julia`, as well as the
-release immediately before, as well as on the current development version. The
-package can be installed from the `julia` REPL using
+The `befwm` package is available for the `julia` programming language, and is
+continuously tested on the current version of `Julia`, as well as the release
+immediately before, as well as on the current development version. `Julia`
+is an ideal platform for this type of models, since it is easy to write,
+designed for numerical computations, extremely fast, easily parallelized,
+and has good numerical integration libraries. The package can be installed
+from the `julia` REPL using
 
 {== note to reviewers -- the code will be uploaded to the Julia packages repository upon acceptance ==}
 
