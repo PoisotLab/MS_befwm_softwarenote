@@ -14,6 +14,13 @@ allometric scaling of metabolic and assimilation rates, meaning that the flow of
 biomass from a resource to its consumer thus depends on the body-mass ratio
 between them.
 
+{>>@tp This needs an additional paragraph to explain the need to change
+perspective from one interaction to a whole community. Needs to cite Berlow,
+at least, but also Holt, Payne, etc. Key message: there is a level of structure
+in food webs that matters beyond pairwise interactions. See also Stouffer
+on motifs to explain why larger scale is necessary. Finish by presenting
+the bioenergetic model applied to food webs.<<}
+
 Adaptations of this model have been use to show that allometric scaling enhances
 predictions regarding stability (Brose et al., 2006, Otto et al., 2007),
 interaction strength (Berlow et al., 2009, Boit et al., 2012, Iles et Novak, 2016)
