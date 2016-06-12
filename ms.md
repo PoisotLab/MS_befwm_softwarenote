@@ -200,7 +200,8 @@ while abs(befwm.connectance(A) - 0.25) > 0.01
 end
 
 # Prepare the simulation parameters
-p = A |> make_initial_parameters |> make_parameters
+p = make_initial_parameters(A)
+p = make_parameters(p)
 
 # We start each simulation with random biomasses
 # in ]0;1[
