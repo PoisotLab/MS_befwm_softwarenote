@@ -7,7 +7,7 @@ species influence one another through direct, and indirect, ecological
 interactions. Seeing that the coexistence of populations is constrained in
 part by feeding interactions, models of the relationship between resources
 and consumers have been a useful and frequent tool in studying the theory
-of community dynamics.  Although this modelling effort started from simple,
+of community dynamics. Although this modelling effort started from simple,
 abstracted models like the Lotka-Volterra family [@baca11lvp], more tailored
 and parameterized models emerged whose goal was to include a broader range of
 ecological and biological mechanisms, thus hopefully providing more realistic
