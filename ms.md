@@ -1,18 +1,22 @@
 # Introduction
 
-Research in ecology has long seek to understand the processes influencing the
-diversity and stability of natural communities. These communities are formed by
-populations whose dynamics of persistence and extinction depends on resource
-availability. Seeing that the coexistence of populations is thus constrained by
-feeding interactions, models have been created equating the relationship between
-resources and consumers, from the simplest, most generalist models -- such as
-the Lotka-Volterra model @lotka1926,@volterra1928 -- to more tailored and
-parametrized ones. Among these, @yodzis_bsc generalist resource-consumer model
-has the advantage of yielding results close to the empirical observations while
-needing only few, easy to assess parameters. To achieve this purpose, it uses
-allometric scaling of metabolic and assimilation rates, meaning that the flow of
-biomass from a resource to its consumer thus depends on the body-mass ratio
-between them.
+Community and ecosystem ecologists have long sought to understand the
+diversity, properties, and dynamics of multi-species assemblages. The
+characteristics of communities emerges in unpredictable ways because
+species influence one another through direct, and indirect, ecological
+interactions. Seeing that the coexistence of populations is constrained in
+part by feeding interactions, models of the relationship between resources
+and consumers have been a useful and frequent tool in studying the theory
+of community dynamics.  Although this modelling effort started from simple,
+abstracted models like the Lotka-Volterra family [@baca11lvp], more tailored
+and parameterized models emerged whose goal was to include a broader range of
+ecological and biological mechanisms, thus hopefully providing more realistic
+representations of empirical systems. Among these, the "bio-energetic" model
+of @yodz92bsc is a general representation of resource-consumer dynamics,
+yielding results comparable to empirical systems {>>REF<<}, while needing
+minimal parameters. To achieve this purpose, it uses allometric scaling of
+metabolic and assimilation rates, meaning that the flow of biomass from a
+resource to its consumer depends on the body-mass ratio between them.
 
 {>>@tp This needs an additional paragraph to explain the need to change
 perspective from one interaction to a whole community. Needs to cite Berlow,
@@ -27,7 +31,7 @@ interaction strength (Berlow et al., 2009, Boit et al., 2012, Iles et Novak, 201
 and perturbation spread (Iles et Novak, 2016) within large, realistic food
 webs. Yet, although these authors used the same model, they used personal
 adaptation and implementation of it. Here we present `befwm`, a Julia package
-implementing @brose_ase adaptation of @yodzis_bsc bio-energetic model for
+implementing @bros06ase adaptation of @yodz92bsc bio-energetic model for
 food-webs (@williams_hyi) with updated allometric coefficients. This package
 aims at offering an efficient common ground for modeling food-webs dynamics
 using this particular model.

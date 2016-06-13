@@ -1,107 +1,85 @@
 [
-    {
-        "DOI": "10.2307/2462335",
-        "abstract": "“Plausible” consumer-resource empiricism, are formulated and their dynamics investigated. Most of the parameters in these models are determined therm, invertebrate by the body sizes and metabolic categories (endotherm, ecto- ectotherm, or plant) of the populations in question. The remaining models, based on energetic reasoning and allometric vertebrate parame- ters have clear biological meanings. The intent of these models is to provide maximum realism from minimum data when needed because of constraints of time or of resources for empirical research. The models also demonstrate the influence of physiological power and body size on consumer-resource ratio of maximal ingestion rate to respiration cal scope than do vertebrate ectotherms, dynamics. For a given metabolic type, we define ecological scope as the rate. Invertebrate ectotherms which have greater scope than do endotherms. have greater ecologi- Greater ecological scope implies ability to subsist on scarcer resources and a tendency to more stable dynamics. Changes in dynamics associated with increased resource carrying capacity K (the “paradox of enrichment”) are investigated. Robust limit cycles (sustained oscillations) require a Type III functional response, but even in this case the cycles quickly “implode” (with respect to changes in K) to extremely small densities if the resource-consumer body mass ratio is too high. Estimates are given for resource-consumer body mass ratios that permit robust limit cycles, and some pertinent cycles is derived. In terms of body mass, the periods scale as (consumer body mass)\"l8 body mass",
-        "author": [
-            {
-                "family": "Yodzis",
-                "given": "P"
-            },
-            {
-                "family": "Innes",
-                "given": "S"
-            }
-        ],
-        "container-title": "The American Naturalist",
-        "id": "yodzis_bsc",
-        "issue": "6",
-        "issued": {
-            "date-parts": [
-                [
-                    1992
-                ]
-            ]
-        },
-        "page": "1151-1175",
-        "title": "Body size and consumer-resource dynamics",
-        "type": "article-journal",
-        "volume": "139"
+  {
+    "publisher": "Springer Science + Business Media",
+    "DOI": "10.1007/978-0-85729-115-8_13",
+    "type": "chapter",
+    "page": "71-76",
+    "title": "Lotka, Volterra and the predator–prey system (1920–1926)",
+    "author": [
+      {
+        "family": "Bacaër",
+        "given": "Nicolas"
+      }
+    ],
+    "container-title": "A Short History of Mathematical Population Dynamics",
+    "issued": {
+      "date-parts": [
+        [
+          2011
+        ]
+      ]
     },
-    {
-        "DOI": "10.1111/j.1461-0248.2006.00978.x",
-        "abstract": "Classic local stability theory predicts that complex ecological networks are unstable and are unlikely to persist despite empiricists’ abundant documentation of such complexity in nature. This contradiction has puzzled biologists for decades. While some have explored how stability may be achieved in small modules of a few interacting species, rigorous demonstrations of how large complex and ecologically realistic networks dynamically persist remain scarce and inadequately understood. Here, we help fill this void by combining structural models of complex food webs with nonlinear bioenergetic models of population dynamics parameterized by biological rates that are allometrically scaled to populations’ average body masses. Increasing predator-prey body mass ratios increase population persistence up to a saturation level that is reached by invertebrate and ectotherm vertebrate predators when being 10 or 100 times larger than their prey respectively. These values are corroborated by empirical predator-prey body mass ratios from a global data base. Moreover, negative effects of diversity (i.e. species richness) on stability (i.e. population persistence) become neutral or positive relationships at these empirical ratios. These results demonstrate that the predator-prey body mass ratios found in nature may be key to enabling persistence of populations in complex food webs and stabilizing the diversity of natural ecosystems.",
-        "author": [
-            {
-                "family": "Brose",
-                "given": "Ulrich"
-            },
-            {
-                "family": "Williams",
-                "given": "Richard J"
-            },
-            {
-                "family": "Martinez",
-                "given": "Néo D"
-            }
-        ],
-        "container-title": "Ecol. Lett.",
-        "id": "brose_ase",
-        "issue": "11",
-        "issued": {
-            "date-parts": [
-                [
-                    2006,
-                    11
-                ]
-            ]
-        },
-        "page": "1228-1236",
-        "title": "Allometric scaling enhances stability in complex food webs.",
-        "type": "article-journal",
-        "volume": "9"
+    "ISBN": "http://id.crossref.org/isbn/978-0-85729-114-1",
+    "URL": "http://dx.doi.org/10.1007/978-0-85729-115-8_13",
+    "id": "baca11lvp"
+  },
+  {
+    "DOI": "10.1111/j.1461-0248.2006.00978.x",
+    "author": [
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Williams",
+        "given": "Richard J"
+      },
+      {
+        "family": "Martinez",
+        "given": "Néo D"
+      }
+    ],
+    "container-title": "Ecol. Lett.",
+    "issue": "11",
+    "issued": {
+      "date-parts": [
+        [
+          2006,
+          11
+        ]
+      ]
     },
-    {
-        "author": [
-            {
-                "family": "Williams",
-                "given": "Richard J"
-            },
-            {
-                "family": "Brose",
-                "given": "Ulrich"
-            },
-            {
-                "family": "Martinez",
-                "given": "Néo D"
-            }
-        ],
-        "container-title": "From Energetics to Ecosystems: The Dynamics and Structure of Ecological Systems",
-        "editor": [
-            {
-                "family": "Rooney",
-                "given": "Neil"
-            },
-            {
-                "family": "Mc Cann",
-                "given": "Kevin S"
-            },
-            {
-                "family": "Noakes",
-                "given": "David L G"
-            }
-        ],
-        "id": "williams_hyi",
-        "issued": {
-            "date-parts": [
-                [
-                    2007
-                ]
-            ]
-        },
-        "page": "37-51",
-        "publisher": "Springer",
-        "title": "Homage to Yodzis and Innes 1992 : scaling up feeding-based population dynamics to complex ecological networks",
-        "title-short": "Homage to Yodzis and Innes 1992",
-        "type": "chapter"
-    }
+    "page": "1228-1236",
+    "title": "Allometric scaling enhances stability in complex food webs.",
+    "type": "article-journal",
+    "volume": "9",
+    "id": "bros06ase"
+  },
+  {
+    "DOI": "10.2307/2462335",
+    "author": [
+      {
+        "family": "Yodzis",
+        "given": "P"
+      },
+      {
+        "family": "Innes",
+        "given": "S"
+      }
+    ],
+    "container-title": "The American Naturalist",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          1992
+        ]
+      ]
+    },
+    "page": "1151-1175",
+    "title": "Body size and consumer-resource dynamics",
+    "type": "article-journal",
+    "volume": "139",
+    "id": "yodz92bsc"
+  }
 ]
