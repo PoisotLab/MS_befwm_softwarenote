@@ -1,5 +1,5 @@
 ---
-title: Modelling biomass dynamics in food webs with `befwm`
+title: Simulations of biomass dynamics in community food webs
 short: The befwm package
 bibliography: default.json
 csl: plmt/plab.csl

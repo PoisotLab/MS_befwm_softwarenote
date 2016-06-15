@@ -24,6 +24,82 @@
     "id": "baca11lvp"
   },
   {
+    "DOI": "10.1111/j.0021-8790.2004.00833.x",
+    "author": [
+      {
+        "family": "Berlow",
+        "given": "Eric L."
+      },
+      {
+        "family": "Neutel",
+        "given": "Anje-Margiet"
+      },
+      {
+        "family": "Cohen",
+        "given": "Joel E."
+      },
+      {
+        "family": "Ruiter",
+        "given": "Peter C. de"
+      },
+      {
+        "family": "Ebenman",
+        "given": "Bo"
+      },
+      {
+        "family": "Emmerson",
+        "given": "Mark"
+      },
+      {
+        "family": "Fox",
+        "given": "Jeremy W."
+      },
+      {
+        "family": "Jansen",
+        "given": "Vincent a. a."
+      },
+      {
+        "family": "Iwan Jones",
+        "given": "J."
+      },
+      {
+        "family": "Kokkoris",
+        "given": "Giorgos D."
+      },
+      {
+        "family": "Logofet",
+        "given": "Dmitrii O."
+      },
+      {
+        "family": "McKane",
+        "given": "Alan J"
+      },
+      {
+        "family": "Montoya",
+        "given": "Jose M."
+      },
+      {
+        "family": "Petchey",
+        "given": "Owen"
+      }
+    ],
+    "container-title": "J. Anim. Ecol.",
+    "issue": "3",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          5
+        ]
+      ]
+    },
+    "page": "585-598",
+    "title": "Interaction strengths in food webs: issues and opportunities",
+    "type": "article-journal",
+    "volume": "73",
+    "id": "berl04isf"
+  },
+  {
     "DOI": "10.1111/j.1461-0248.2006.00978.x",
     "author": [
       {
@@ -54,6 +130,186 @@
     "type": "article-journal",
     "volume": "9",
     "id": "bros06ase"
+  },
+  {
+    "URL": "http://www.esajournals.org/doi/abs/10.1890/03-9000",
+    "author": [
+      {
+        "family": "Brown",
+        "given": "J.H."
+      },
+      {
+        "family": "Gillooly",
+        "given": "J.F."
+      },
+      {
+        "family": "Allen",
+        "given": "Andrew P"
+      },
+      {
+        "family": "Savage",
+        "given": "V.M."
+      },
+      {
+        "family": "West",
+        "given": "G.B."
+      }
+    ],
+    "container-title": "Ecology",
+    "issue": "7",
+    "issued": {
+      "date-parts": [
+        [
+          2004
+        ]
+      ]
+    },
+    "page": "1771-1789",
+    "title": "Toward a metabolic theory of ecology",
+    "type": "article-journal",
+    "volume": "85",
+    "id": "brow04mte"
+  },
+  {
+    "DOI": "10.1038/nature07248",
+    "author": [
+      {
+        "family": "Chesson",
+        "given": "Peter"
+      },
+      {
+        "family": "Kuang",
+        "given": "Jessica J"
+      }
+    ],
+    "container-title": "Nature",
+    "issue": "7219",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          11
+        ]
+      ]
+    },
+    "page": "235-238",
+    "title": "The interaction between predation and competition.",
+    "type": "article-journal",
+    "volume": "456",
+    "id": "ches08ipc"
+  },
+  {
+    "DOI": "10.1038/nature06359",
+    "author": [
+      {
+        "family": "Otto",
+        "given": "Sonja B"
+      },
+      {
+        "family": "Rall",
+        "given": "Björn C"
+      },
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      }
+    ],
+    "container-title": "Nature",
+    "issue": "7173",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          12
+        ]
+      ]
+    },
+    "page": "1226-9",
+    "title": "Allometric degree distributions facilitate food-web stability.",
+    "type": "article-journal",
+    "volume": "450",
+    "id": "otto07add"
+  },
+  {
+    "issue": "1621",
+    "DOI": "10.1098/rspb.2007.0571",
+    "type": "article-journal",
+    "page": "1931-1940",
+    "title": "Evidence for the existence of a robust pattern of prey selection in food webs",
+    "volume": "274",
+    "author": [
+      {
+        "family": "Stouffer",
+        "given": "D. B"
+      },
+      {
+        "family": "Camacho",
+        "given": "J."
+      },
+      {
+        "family": "Jiang",
+        "given": "W."
+      },
+      {
+        "family": "Nunes Amaral",
+        "given": "L. A"
+      }
+    ],
+    "container-title": "Proceedings of the Royal Society B: Biological Sciences",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          8,
+          22
+        ]
+      ]
+    },
+    "id": "stou07eer"
+  },
+  {
+    "author": [
+      {
+        "family": "Williams",
+        "given": "Richard J"
+      },
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Martinez",
+        "given": "Néo D"
+      }
+    ],
+    "container-title": "From Energetics to Ecosystems: The Dynamics and Structure of Ecological Systems",
+    "editor": [
+      {
+        "family": "Rooney",
+        "given": "Neil"
+      },
+      {
+        "family": "Mc Cann",
+        "given": "Kevin S"
+      },
+      {
+        "family": "Noakes",
+        "given": "David L G"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2007
+        ]
+      ]
+    },
+    "page": "37-51",
+    "publisher": "Springer",
+    "title": "Homage to Yodzis and Innes 1992 : scaling up feeding-based population dynamics to complex ecological networks",
+    "title-short": "Homage to Yodzis and Innes 1992",
+    "type": "chapter",
+    "id": "will07hyi"
   },
   {
     "DOI": "10.2307/2462335",

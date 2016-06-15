@@ -1,4 +1,4 @@
-var hylla = require('/home/tpoisot/Code/packages/node/hylla/hylla.js');
+var hylla = require('/home/tpoisot/code/packages/node/hylla/hylla.js');
 var fs = require('fs');
 var path = require('path');
 
