@@ -18,23 +18,31 @@ minimal parameters. To achieve this purpose, it uses allometric scaling of
 metabolic and assimilation rates, meaning that the flow of biomass from a
 resource to its consumer depends on the body-mass ratio between them.
 
-{>>@tp This needs an additional paragraph to explain the need to change
-perspective from one interaction to a whole community. Needs to cite Berlow,
-at least, but also Holt, Payne, etc. Key message: there is a level of structure
-in food webs that matters beyond pairwise interactions. See also Stouffer
-on motifs to explain why larger scale is necessary. Finish by presenting
-the bioenergetic model applied to food webs.<<}
+Seeing that the dynamics of ecological communities are driven not only
+by pairwise interactions, but also by the fact that these interactions are
+embeded in larger networks [@ches08ipc], there is a need for models that work
+at higher organisational scales. @stou07eer report that there exists robust
+and conserved motifs of prey selection in food webs. Likewise, @berl04isf
+show how disturbances affecting species biomass or density cascade up,
+not only to the species that they interact with, but with species up to
+two degrees of separation from the original perturbation. In this context,
+models of energy transfer through trophic interactions are better justified
+when they account for the entire food web structure.
 
-Adaptations of this model have been use to show that allometric scaling enhances
-predictions regarding stability (Brose et al., 2006, Otto et al., 2007),
-interaction strength (Berlow et al., 2009, Boit et al., 2012, Iles et Novak, 2016)
-and perturbation spread (Iles et Novak, 2016) within large, realistic food
-webs. Yet, although these authors used the same model, they used personal
-adaptation and implementation of it. Here we present `befwm`, a Julia package
-implementing @bros06ase adaptation of @yodz92bsc bio-energetic model for
-food-webs (@williams_hyi) with updated allometric coefficients. This package
-aims at offering an efficient common ground for modeling food-webs dynamics
-using this particular model.
+@will07hyi developed an adaptation of the bio-energetic model applied
+to food web, building on allometric scaling regulation of consumptive
+interactions and metabolic theory of ecology [@brow04mte]. This model
+has been used, for example, to show how food web stability can emerge
+from allometric scaling [@bros06ase] or allometry-constrained degree
+distributions [@otto07add]. Yet, although these and other studies used the
+same mathematical model, implementations differ (and have not been released
+thus far). Motivated by the fact that this model addresses mechanisms that
+are fundamental to our understanding of energy flow throughout food webs,
+we present `befwm` (Bio-Energetic Food Webs Model), a *Julia* package
+implementing the bio-energetic model for food-webs with updated allometric
+coefficients. This package aims at offering an efficient common ground for
+modeling food-webs dynamics, making investigations of this model easier,
+and facilitating reproducibility and transparency of modeling efforts.
 
 # The model
 
