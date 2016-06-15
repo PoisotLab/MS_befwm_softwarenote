@@ -48,15 +48,15 @@ and facilitating reproducibility and transparency of modeling efforts.
 
 ## Biomass dynamics
 
-We implement the model as described by @brose_ase, which is itself explained in
-greater detail in @williams_hyi. This model describes the flows of biomass
+We implement the model as described by @brose_ase, which is itself explained
+in greater detail in @williams_hyi. This model describes the flows of biomass
 across trophic levels, primarily defined by body size. It distinguishes
 population based on two highly influential variables for the metabolism and
-assimilation rates, body-mass and metabolic type. Once this distinction made, it
-model populations as simple stocks of biomass growing and shrinking through
-consumer-resources interactions (@williams_hyi). The governing equations below
-describe the changes in relative density of producers and consumers
-respectively.
+assimilation rates, body-mass and metabolic type. Once this distinction made,
+it models populations as simple stocks of biomass growing and shrinking
+through consumer-resources interactions (@williams_hyi). The governing
+equations below describe the changes in relative density of producers and
+consumers respectively.
 
 \begin{equation}\label{e:producer}
 B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
