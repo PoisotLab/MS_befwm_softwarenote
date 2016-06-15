@@ -5,8 +5,10 @@ preprint:
     stage: runs
     script:
         - make TITLE=befwm TYPE=preprint
+        - make TITLE=befwm TYPE=draft
     artifacts: 
         paths:
             - befwm_preprint_version.pdf
+            - befwm_draft_version.pdf
 
 

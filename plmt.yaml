@@ -39,6 +39,7 @@ table:
     - id: parameters
       caption: Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, which can be changed using the \texttt{make\_initial\_parameters} function.
       file: parameters.md
+      wide: true
 date: \today
 abstract: ...
 ...
