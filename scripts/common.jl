@@ -11,7 +11,7 @@ function distrmin(x)
     return mean(x) .- std(x)
 end
 
-gfont = "Noto Sans UI"
+gfont = "Liberation Sans"
 
 plab_theme = Theme(
     default_color = RGB(0.1, 0.1, 0.1),
