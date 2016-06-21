@@ -48,13 +48,13 @@ and facilitating reproducibility and transparency of modeling efforts.
 
 ## Biomass dynamics
 
-We implement the model as described by @brose_ase, which is itself explained
-in greater detail in @williams_hyi. This model describes the flows of biomass
+We implement the model as described by @bros06ase, which is itself explained
+in greater detail in @will07hyi. This model describes the flows of biomass
 across trophic levels, primarily defined by body size. It distinguishes
 population based on two highly influential variables for the metabolism and
 assimilation rates, body-mass and metabolic type. Once this distinction made,
 it models populations as simple stocks of biomass growing and shrinking
-through consumer-resources interactions (@williams_hyi). The governing
+through consumer-resources interactions [@will07hyi]. The governing
 equations below describe the changes in relative density of producers and
 consumers respectively.
 
@@ -65,8 +65,6 @@ B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{
 \begin{equation}\label{e:consumer}
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
-
-?{parameters}
 
 where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific
 maximum growth rate, $K$ is the carrying capacity, $x_i$ is $i$'s mass-specific
@@ -79,28 +77,36 @@ consuming $j$:
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
-Depending on the parameters $h$ and $c$ the functional response can take several
-forms (see \autoref{tab:parameters}).
+In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
+rate when consuming $j$, $h$ is the Hill coefficient which is responsible for
+the shape of the functional response (REF Real 1977, The Kinetics of Functional
+Response), $B_0$ is the half saturation density and $c$ quantifies the predator
+interference the degree to which increasing the predator population's biomass
+negatively affect the feeding rates (REF Beddington 1975, Mutual Interference
+Between Parasites or Predators and its Effect on Searching Efficiency, DeAngelis
+et al., 1975 A Model for Tropic Interaction). Depending on the parameters $h$
+and $c$ the functional response can take several forms such as type II ($h = 1$
+and $c = 0$), type III ($h = 2$ and $c = 0$), or predator interference ($h = 1$
+and $c = 1$).  
 
 As almost all organism metabolic characteristics vary predictably with body-mass
 (@brown_tmt), these variations can be described by allometric relationships as
-described in @williams_hyi and @brose_ase. Hence, the biological rates of
+described in @will07hyi and @bros06ase. Hence, the biological rates of
 production, metabolism and maximum consumption follow negative power-law
 relationships with the typical adult body-mass (@enquist_asp,@brown_tmt). After
 normalizing and simplifying these relationships, it results that the
 mass-specific metabolic rate $x_i$ is a function of both metabolic type and
-body-mass (see \autoref{}), while the maximum consumption rate $y_i$ is
+body-mass (see \autoref{e:metab_rate}), while the maximum consumption rate $y_i$ is
 influenced only by the metabolic type and the assimilation efficiency $e_{ij}$
 is function of $i$'s diet (herbivore or carnivore).
 
-$$
+\begin{equation}\label{e:metab_rate}
 x_i = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{-0.25}
-$$
+\end{equation}
 
 The subscripts P and C refer to producers and consumers populations
 respectively, M is the typical adult body-mass and $a_r$, $a_x$ and $a_y$ are
 the allometric constant (see \autoref{tab::parameters}).
-
 
 ## Measures on output
 
@@ -112,7 +118,7 @@ simulations the results should be averaged.
 Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
 returns values in $]0;1]$, where $1$ indicates that all populations have
-the same biomass. It is measured as 
+the same biomass. It is measured as
 
 \begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
 \,, \end{equation}
@@ -164,7 +170,7 @@ immediately before, as well as on the current development version. `Julia`
 is an ideal platform for this type of models, since it is easy to write,
 designed for numerical computations, extremely fast, easily parallelized,
 and has good numerical integration libraries. The package can be installed
-from the `Julia` REPL using 
+from the `Julia` REPL using
 
 {==Note to reviewers: the code will be uploaded to the Julia packages
 repository upon acceptance; meanwhile, please use the development version.==}
