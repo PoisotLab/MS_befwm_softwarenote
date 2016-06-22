@@ -24,6 +24,30 @@
     "id": "baca11lvp"
   },
   {
+    "issue": "1",
+    "DOI": "10.2307/3866",
+    "type": "article-journal",
+    "page": "331",
+    "title": "Mutual Interference Between Parasites or Predators and its Effect on Searching Efficiency",
+    "volume": "44",
+    "author": [
+      {
+        "family": "Beddington",
+        "given": "J. R."
+      }
+    ],
+    "container-title": "The Journal of Animal Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          1975,
+          2
+        ]
+      ]
+    },
+    "id": "bedd75mip"
+  },
+  {
     "DOI": "10.1111/j.0021-8790.2004.00833.x",
     "author": [
       {
@@ -199,6 +223,38 @@
     "id": "ches08ipc"
   },
   {
+    "issue": "4",
+    "DOI": "10.2307/1936298",
+    "type": "article-journal",
+    "page": "881-892",
+    "title": "A Model for Tropic Interaction",
+    "volume": "56",
+    "author": [
+      {
+        "family": "DeAngelis",
+        "given": "D. L."
+      },
+      {
+        "family": "Goldstein",
+        "given": "R. A."
+      },
+      {
+        "family": "O'Neill",
+        "given": "R. V."
+      }
+    ],
+    "container-title": "Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          1975,
+          7
+        ]
+      ]
+    },
+    "id": "dean75mti"
+  },
+  {
     "DOI": "10.1038/nature06359",
     "author": [
       {
@@ -229,6 +285,147 @@
     "type": "article-journal",
     "volume": "450",
     "id": "otto07add"
+  },
+  {
+    "DOI": "10.1111/j.1461-0248.2012.01860.x",
+    "author": [
+      {
+        "family": "Price",
+        "given": "Charles a."
+      },
+      {
+        "family": "Weitz",
+        "given": "Joshua S"
+      },
+      {
+        "family": "Savage",
+        "given": "Van M."
+      },
+      {
+        "family": "Stegen",
+        "given": "James"
+      },
+      {
+        "family": "Clarke",
+        "given": "Andrew"
+      },
+      {
+        "family": "Coomes",
+        "given": "David a."
+      },
+      {
+        "family": "Dodds",
+        "given": "Peter S."
+      },
+      {
+        "family": "Etienne",
+        "given": "Rampal S."
+      },
+      {
+        "family": "Kerkhoff",
+        "given": "Andrew J."
+      },
+      {
+        "family": "McCulloh",
+        "given": "Katherine"
+      },
+      {
+        "family": "Niklas",
+        "given": "Karl J."
+      },
+      {
+        "family": "Olff",
+        "given": "Han"
+      },
+      {
+        "family": "Swenson",
+        "given": "Nathan G."
+      }
+    ],
+    "container-title": "Ecol. Lett.",
+    "editor": [
+      {
+        "family": "Chave",
+        "given": "Jerome"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          8
+        ]
+      ]
+    },
+    "page": "n/a-n/a",
+    "title": "Testing the metabolic theory of ecology",
+    "type": "article-journal",
+    "id": "pric12tmt"
+  },
+  {
+    "URL": "http://www.jstor.org/stable/2460064",
+    "author": [
+      {
+        "family": "Real",
+        "given": "Leslie A"
+      }
+    ],
+    "container-title": "Am. Nat.",
+    "issue": "978",
+    "issued": {
+      "date-parts": [
+        [
+          1977
+        ]
+      ]
+    },
+    "page": "289-300",
+    "title": "The Kinetics of Functional Response",
+    "type": "article-journal",
+    "volume": "111",
+    "id": "real77kfr"
+  },
+  {
+    "author": [
+      {
+        "family": "Savage",
+        "given": "Author Van M"
+      },
+      {
+        "family": "Gillooly",
+        "given": "James F"
+      },
+      {
+        "family": "Brown",
+        "given": "James H"
+      },
+      {
+        "family": "West",
+        "given": "Geoffrey B"
+      },
+      {
+        "family": "Charnov",
+        "given": "Eric L"
+      },
+      {
+        "family": "Savage",
+        "given": "Van M"
+      }
+    ],
+    "container-title": "Am. Nat.",
+    "issue": "3",
+    "issued": {
+      "date-parts": [
+        [
+          2004
+        ]
+      ]
+    },
+    "page": "429-441",
+    "title": "Effects of Body Size and Temperature on Population Growth",
+    "type": "article-journal",
+    "volume": "163",
+    "id": "sava04ebs"
   },
   {
     "issue": "1621",

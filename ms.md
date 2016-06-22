@@ -13,18 +13,18 @@ and parameterized models emerged whose goal was to include a broader range of
 ecological and biological mechanisms, thus hopefully providing more realistic
 representations of empirical systems. Among these, the "bio-energetic" model
 of @yodz92bsc is a general representation of resource-consumer dynamics,
-yielding results comparable to empirical systems {>>REF<<}, while needing
-minimal parameters. To achieve this purpose, it uses allometric scaling of
-metabolic and assimilation rates, meaning that the flow of biomass from a
-resource to its consumer depends on the body-mass ratio between them.
+yielding results comparable to empirical systems, while needing minimal
+parameters. To achieve this purpose, it uses allometric scaling of metabolic
+and assimilation rates, meaning that the flow of biomass from a resource to
+its consumer depends on the body-mass ratio between them.
 
 Seeing that the dynamics of ecological communities are driven not only
-by pairwise interactions, but also by the fact that these interactions are
-embeded in larger networks [@ches08ipc], there is a need for models that work
-at higher organisational scales. @stou07eer report that there exists robust
-and conserved motifs of prey selection in food webs. Likewise, @berl04isf
-show how disturbances affecting species biomass or density cascade up,
-not only to the species that they interact with, but with species up to
+by pairwise interactions, but also by the fact that these interactions
+are embedded in larger networks [@ches08ipc], there is a need for models
+that work at higher organisational scales. @stou07eer report that there
+exists robust and conserved motifs of prey selection in food webs. Likewise,
+@berl04isf show how disturbances affecting species biomass or density cascade
+up, not only to the species that they interact with, but with species up to
 two degrees of separation from the original perturbation. In this context,
 models of energy transfer through trophic interactions are better justified
 when they account for the entire food web structure.
@@ -78,27 +78,25 @@ F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}
 \end{equation}
 
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
-rate when consuming $j$, $h$ is the Hill coefficient which is responsible for
-the shape of the functional response (REF Real 1977, The Kinetics of Functional
-Response), $B_0$ is the half saturation density and $c$ quantifies the predator
-interference the degree to which increasing the predator population's biomass
-negatively affect the feeding rates (REF Beddington 1975, Mutual Interference
-Between Parasites or Predators and its Effect on Searching Efficiency, DeAngelis
-et al., 1975 A Model for Tropic Interaction). Depending on the parameters $h$
-and $c$ the functional response can take several forms such as type II ($h = 1$
-and $c = 0$), type III ($h = 2$ and $c = 0$), or predator interference ($h = 1$
-and $c = 1$).  
+rate when consuming $j$, $h$ is the Hill coefficient which is responsible
+for the shape of the functional response [@real77kfr], $B_0$ is the half
+saturation density and $c$ quantifies the predator interference the degree
+to which increasing the predator population's biomass negatively affect
+the feeding rates [@bedd75mip; @dean75mti]. Depending on the parameters $h$
+and $c$ the functional response can take several forms such as type II ($h =
+1$ and $c = 0$), type III ($h = 2$ and $c = 0$), or predator interference
+($h = 1$ and $c = 1$).
 
-As almost all organism metabolic characteristics vary predictably with body-mass
-(@brown_tmt), these variations can be described by allometric relationships as
-described in @will07hyi and @bros06ase. Hence, the biological rates of
-production, metabolism and maximum consumption follow negative power-law
-relationships with the typical adult body-mass (@enquist_asp,@brown_tmt). After
-normalizing and simplifying these relationships, it results that the
-mass-specific metabolic rate $x_i$ is a function of both metabolic type and
-body-mass (see \autoref{e:metab_rate}), while the maximum consumption rate $y_i$ is
-influenced only by the metabolic type and the assimilation efficiency $e_{ij}$
-is function of $i$'s diet (herbivore or carnivore).
+As almost all organism metabolic characteristics vary predictably with
+body-mass [@brow04mte], these variations can be described by allometric
+relationships as described in @will07hyi and @bros06ase. Hence, the
+biological rates of production, metabolism and maximum consumption follow
+negative power-law relationships with the typical adult body-mass [@pric12tmt;
+@sava04ebs]. After normalizing and simplifying these relationships, it results
+that the mass-specific metabolic rate $x_i$ is a function of both metabolic
+type and body-mass (see \autoref{e:metab_rate}), while the maximum consumption
+rate $y_i$ is influenced only by the metabolic type and the assimilation
+efficiency $e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
 
 \begin{equation}\label{e:metab_rate}
 x_i = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{-0.25}
@@ -220,8 +218,8 @@ with the niche model, 20 species, connectance of $0.25 \pm 0.01$).
 !{temporal}
 
 We run the simulations with the default parameters (given in
-`?make_initial_parameters`, and in the manual). Each simulation consists of
-the following code:
+`?model_parameters`, and in the manual). Each simulation consists of the
+following code:
 
 ~~~ julia
 # We generate a random food web
@@ -235,8 +233,7 @@ while abs(befwm.connectance(A) - 0.25) > 0.01
 end
 
 # Prepare the simulation parameters
-p = make_initial_parameters(A)
-p = make_parameters(p)
+p = model_parameters(A)
 
 # We start each simulation with random biomasses
 # in ]0;1[
@@ -259,23 +256,16 @@ results are presented in \autoref{scaling}.
 
 !{scaling}
 
-The allometric scaling is controlled by the parameter $Z$ (field `:Z` in
-the code), and can be changed in the following way:
+The allometric scaling is controlled by the parameter $Z$ (field `Z` in the
+code), and can be changed in the following way:
 
 ~~~ julia
 # Prepare the simulation parameters
-p = make_initial_parameters(A)
-# Change the scaling
-p[:Z] = scaling[i]
-# Finishes the simulation parameters
-p = make_parameters(p)
+p = model_parameters(A, Z=scaling[i])
 ~~~
 
-Note that the value of `:Z` *has* to be changed before `make_parameters`
-is called. This is because `make_parameters` will calculate the allometry
-for the different populations based on $Z$, their trophic rank, etc. These
-parameters are calculated only once, which allows an efficient implementation
-of the model.
+All model parameters can be used this way, and explained in the documentation
+of `?model_parameters`.
 
 # Conclusions
 
