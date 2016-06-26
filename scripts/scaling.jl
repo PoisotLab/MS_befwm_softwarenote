@@ -14,9 +14,7 @@ for i in eachindex(scaling)
         A = nichemodel(20, 0.12)
     end
     # Prepare the simulation parameters
-    p = make_initial_parameters(A)
-    p[:Z] = scaling[i]
-    p = make_parameters(p)
+    p = model_parameters(A, Z=scaling[i])
     bm = rand(size(A, 1))
     # Simulate!
     out = simulate(p, bm, start=0, stop=2000, steps=1000, use=:ode45)
