@@ -35,11 +35,6 @@ figure:
     caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
     short: Diversity and stability as a function of allometric scaling.
     file: scaling
-table:
-    - id: parameters
-      caption: Summary of the parameters used in the bio-energetic food-web model. The default implementation of the model correspond to all organisms in the networks being invertebrate, which can be changed using the \texttt{make\_initial\_parameters} function.
-      file: parameters.md
-      wide: true
 date: \today
 abstract: ...
 ...
