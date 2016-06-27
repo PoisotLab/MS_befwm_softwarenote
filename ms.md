@@ -196,12 +196,10 @@ coverage of approx. 90% to this date.
 
 # Use cases
 
-Documentation is available online at
-[https://www.gitbook.com/book/poisotlab/befwm/details], and can be downloaded
-as a printable PDF. The documentation includes several use-cases, as well
-as discussion of some design choices. All functions in the package have an
-in-line documentation, available from the `julia` interface by typing `?`
-followed by the name of the function.
+Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
+documentation includes several use-cases, as well as discussion of some design
+choices. All functions in the package have an in-line documentation, available
+from the `julia` interface by typing `?` followed by the name of the function.
 
 [https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
 
