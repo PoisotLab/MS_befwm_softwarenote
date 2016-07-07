@@ -2,7 +2,7 @@
 
 Community and ecosystem ecologists have long sought to understand the
 diversity, properties, and dynamics of multi-species assemblages. The
-characteristics of communities emerges in unpredictable ways because
+characteristics of communities emerge in unpredictable ways because
 species influence one another through direct, and indirect, ecological
 interactions. Seeing that the coexistence of populations is constrained in
 part by feeding interactions, models of the relationship between resources
@@ -15,21 +15,21 @@ representations of empirical systems. Among these, the "bio-energetic" model
 of @yodz92bsc is a general representation of resource-consumer dynamics,
 yielding results comparable to empirical systems, while needing minimal
 parameters. To achieve this purpose, it uses allometric scaling of metabolic
-and assimilation rates, meaning that the flow of biomass from a resource to
-its consumer depends on the body-mass ratio between them.
+biomass production and feeding rates, meaning that the flow of biomass from a resource to
+its consumer depends on their body-mass.
 
 Seeing that the dynamics of ecological communities are driven not only
 by pairwise interactions, but also by the fact that these interactions
 are embedded in larger networks [@ches08ipc], there is a need for models
 that work at higher organisational scales. @stou07eer report that there
-exists robust and conserved motifs of prey selection in food webs. Likewise,
+exist robust and conserved motifs of prey selection in food webs. Likewise,
 @berl04isf show how disturbances affecting species biomass or density cascade
 up, not only to the species that they interact with, but with species up to
 two degrees of separation from the original perturbation. In this context,
 models of energy transfer through trophic interactions are better justified
 when they account for the entire food web structure.
 
-@will07hyi developed an adaptation of the bio-energetic model applied
+@will07hyi developed an adaptation of the bio-energetic food-web model applied
 to food web, building on allometric scaling regulation of consumptive
 interactions and metabolic theory of ecology [@brow04mte]. This model
 has been used, for example, to show how food web stability can emerge
@@ -51,8 +51,8 @@ and facilitating reproducibility and transparency of modeling efforts.
 We implement the model as described by @bros06ase, which is itself explained
 in greater detail in @will07hyi. This model describes the flows of biomass
 across trophic levels, primarily defined by body size. It distinguishes
-population based on two highly influential variables for the metabolism and
-assimilation rates, body-mass and metabolic type. Once this distinction made,
+population based on two highly influential variables for the biological rates,
+body-mass and metabolic type. Once this distinction made,
 it models populations as simple stocks of biomass growing and shrinking
 through consumer-resources interactions [@will07hyi]. The governing
 equations below describe the changes in relative density of producers and
@@ -80,7 +80,7 @@ F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, $h$ is the Hill coefficient which is responsible
 for the shape of the functional response [@real77kfr], $B_0$ is the half
-saturation density and $c$ quantifies the predator interference the degree
+saturation density and $c$ quantifies the predator interference -- the degree
 to which increasing the predator population's biomass negatively affect
 the feeding rates [@bedd75mip; @dean75mti]. Depending on the parameters $h$
 and $c$ the functional response can take several forms such as type II ($h =
@@ -89,22 +89,57 @@ and $c$ the functional response can take several forms such as type II ($h =
 
 As almost all organism metabolic characteristics vary predictably with
 body-mass [@brow04mte], these variations can be described by allometric
-relationships as described in @will07hyi and @bros06ase. Hence, the
+relationships as described in @will07hyi and @bros06ase. Hence, the per unit biomass
 biological rates of production, metabolism and maximum consumption follow
 negative power-law relationships with the typical adult body-mass [@pric12tmt;
-@sava04ebs]. After normalizing and simplifying these relationships, it results
-that the mass-specific metabolic rate $x_i$ is a function of both metabolic
-type and body-mass (see \autoref{e:metab_rate}), while the maximum consumption
-rate $y_i$ is influenced only by the metabolic type and the assimilation
-efficiency $e_{ij}$ is function of $i$'s diet (herbivore or carnivore).
+@sava04ebs].
 
-\begin{equation}\label{e:metab_rate}
-x_i = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{-0.25}
+\begin{equation}\label{e:production_rate}
+R_P =  a_r M_P^{-0.25}
 \end{equation}
 
-The subscripts P and C refer to producers and consumers populations
+\begin{equation}\label{e:metab_rate}
+X_C =  a_x M_C^{-0.25}
+\end{equation}
+
+\begin{equation}\label{e:maxcons_rate}
+Y_C =  a_y M_P^{-0.25}
+\end{equation}
+
+Where the subscripts P and C refer to producers and consumers populations
 respectively, M is the typical adult body-mass and $a_r$, $a_x$ and $a_y$ are
-the allometric constant (see \autoref{tab::parameters}).
+the allometric constant. To resolve the dynamics of the system, it is necessary
+to define a timescale. To do so, these biological rates are normalized by the
+growth rate of the producers population (c.f. \autoref{e:production_rate}) (ref.
+Brose 2008, @will07hyi and @bros06ase).  
+
+\begin{equation}\label{e:norm_production_rate}
+r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
+\end{equation}
+
+\begin{equation}\label{e:norm_metab_rate}
+x_i =  \frac {a_x M_C^{-0.25}} {a_r M_P^{-0.25}} = \frac {a_x} {a_r} (\frac {M_C} {M_P})^0.25
+\end{equation}
+
+In equations \autoref{e:producer} and \autoref{e:consumer}, $y_{i}$ refer to the
+maximum consumption rate of population $i$ relative to its metabolic rate. $y_i$
+thus become a non-dimensional rate:
+
+\begin{equation}\label{e:norm_maxcons_rate}
+y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} {{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
+\end{equation}
+
+Assuming that most natural food-webs have a constant size structure (ref Brose
+et al., 2006a Comsumer-resource body-size relationships in natural food webs;
+ref Hatton et al., 2015 The predator-prey power law: Biomass scaling across
+terrestrial and aquatic biomes), the consumer-resource body-mass ratio ($Z$) is
+also constant. The body-mass of consumers is then a function of their mean
+trophic level ($T$), it increases with trophic level when $Z>1$ and decrease
+when $Z<1$:
+
+\begin{equation}\label{e:z_ratio}
+M_C =  Z^T
+\end{equation}
 
 ## Measures on output
 
