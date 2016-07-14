@@ -1,22 +1,22 @@
 # Introduction
 
-Community and ecosystem ecologists have long sought to understand the
-diversity, properties, and dynamics of multi-species assemblages. The
-characteristics of communities emerge in unpredictable ways because
-species influence one another through direct, and indirect, ecological
-interactions. Seeing that the coexistence of populations is constrained in
-part by feeding interactions, models of the relationship between resources
-and consumers have been a useful and frequent tool in studying the theory
-of community dynamics. Although this modelling effort started from simple,
-abstracted models like the Lotka-Volterra family [@baca11lvp], more tailored
-and parameterized models emerged whose goal was to include a broader range of
-ecological and biological mechanisms, thus hopefully providing more realistic
-representations of empirical systems. Among these, the "bio-energetic" model
-of @yodz92bsc is a general representation of resource-consumer dynamics,
-yielding results comparable to empirical systems, while needing minimal
-parameters. To achieve this purpose, it uses allometric scaling of metabolic
-biomass production and feeding rates, meaning that the flow of biomass from a resource to
-its consumer depends on their body-mass.
+Community and ecosystem ecologists have long sought to understand the diversity,
+properties, and dynamics of multi-species assemblages. The characteristics of
+communities emerge in unpredictable ways because species influence one another
+through direct, and indirect, ecological interactions. Seeing that the
+coexistence of populations is constrained at least by feeding interactions,
+models of the relationship between resources and consumers have provided a
+useful and frequent tool in studying the theory of community dynamics. Although
+these modeling efforts started from simple, abstract models like those from the
+Lotka-Volterra family [@baca11lvp], more tailored and parameterized models have
+emerged whose goal was to include a broader range of ecological and biological
+mechanisms, thus hopefully providing more realistic representations of empirical
+systems. Among these, the "bio-energetic" model of @yodz92bsc is a general
+representation of resource-consumer dynamics, yielding results comparable to
+empirical systems, while needing minimal parameters. To achieve this purpose, it
+uses allometric scaling of metabolic biomass production and feeding rates,
+meaning that the flow of biomass from a resource to its consumer depends on
+their body-mass.
 
 Seeing that the dynamics of ecological communities are driven not only
 by pairwise interactions, but also by the fact that these interactions
@@ -29,20 +29,20 @@ two degrees of separation from the original perturbation. In this context,
 models of energy transfer through trophic interactions are better justified
 when they account for the entire food web structure.
 
-@will07hyi developed an adaptation of the bio-energetic food-web model applied
-to food web, building on allometric scaling regulation of consumptive
-interactions and metabolic theory of ecology [@brow04mte]. This model
-has been used, for example, to show how food web stability can emerge
-from allometric scaling [@bros06ase] or allometry-constrained degree
-distributions [@otto07add]. Yet, although these and other studies used the
-same mathematical model, implementations differ (and have not been released
-thus far). Motivated by the fact that this model addresses mechanisms that
-are fundamental to our understanding of energy flow throughout food webs,
-we present `befwm` (Bio-Energetic Food Webs Model), a *Julia* package
-implementing the bio-energetic model for food-webs with updated allometric
-coefficients. This package aims at offering an efficient common ground for
-modeling food-webs dynamics, making investigations of this model easier,
-and facilitating reproducibility and transparency of modeling efforts.
+@will07hyi developed an adaptation of the bio-energetic consumer-resource model
+applied to food webs, building on allometric scaling regulation of consumptive
+interactions and metabolic theory of ecology [@brow04mte]. This model has been
+used, for example, to show how food web stability can emerge from allometric
+scaling [@bros06ase] or allometry-constrained degree distributions [@otto07add].
+Yet, although these and other studies used the same mathematical model,
+implementations differ from study to study and none  have been released.
+Motivated by the fact that this model addresses mechanisms that are fundamental
+to our understanding of energy flow throughout food webs, we present `befwm`
+(Bio-Energetic Food Webs Model), a *Julia* package implementing @yodz92bsc
+bio-energetic model adapted for food-webs [@will07hyi] with updated allometric
+coefficients [@bros06ase]. This package aims to offer an efficient common
+ground for modeling food-web dynamics, to make investigations of this model
+easier, and to facilitate reproducibility and transparency of modeling efforts.
 
 # The model
 
