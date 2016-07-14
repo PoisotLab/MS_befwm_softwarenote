@@ -37,7 +37,7 @@ flow throughout food webs, we present `befwm` (Bio-Energetic Food Webs Model), a
 food-webs [@will07hyi] with updated allometric coefficients [@bros06ase;
 @brow04mte]. This package aims to offer an efficient common ground for modeling
 food-web dynamics, to make investigations of this model easier, and to
-facilitate reproducibility and transparency of modeling efforts.  
+facilitate reproducibility and transparency of modeling efforts.
 
 # The model
 
@@ -97,7 +97,7 @@ for this effect. Then, the carrying capacity of the basal species can be $K_i =
 possibility is to have $G_i$ being a Lotka-Volterra competition system where the
 producers compete for the system-wide carrying capacity. Then $G_i =
 1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}$ where $\alpha_{ij}$
-defines the competition rates between the basal species.   
+defines the competition rates between the basal species.
 
 As almost all organism metabolic characteristics vary predictably with
 body-mass [@brow04mte], these variations can be described by allometric
@@ -123,7 +123,7 @@ respectively, M is the typical adult body-mass and $a_r$, $a_x$ and $a_y$ are
 the allometric constant. To resolve the dynamics of the system, it is necessary
 to define a timescale. To do so, these biological rates are normalized by the
 growth rate of the producers population (c.f. \autoref{e:production_rate}) (ref.
-Brose 2008, @will07hyi and @bros06ase).  
+Brose 2008, @will07hyi and @bros06ase).
 
 \begin{equation}\label{e:norm_production_rate}
 r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
@@ -146,8 +146,8 @@ et al., 2006a Comsumer-resource body-size relationships in natural food webs;
 ref Hatton et al., 2015 The predator-prey power law: Biomass scaling across
 terrestrial and aquatic biomes), the consumer-resource body-mass ratio ($Z$) is
 also constant. The body-mass of consumers is then a function of their mean
-trophic level ($T$), it increases with trophic level when $Z>1$ and decrease
-when $Z<1$:
+trophic level ($T$), it increases with trophic level when $Z\geq 1$ and
+decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
 M_C =  Z^T
@@ -160,6 +160,10 @@ the objects returned by simulations. All measures take an optional keyword
 argument `last`, indicating over how many timesteps before the end of the
 simulations the results should be averaged.
 
+Total biomass (`total_biomass`) is the sum of the biomasses across
+all populations. It is measured based on the populations biomasses
+(`population_biomass`).
+
 Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
 returns values in $]0;1]$, where $1$ indicates that all populations have
@@ -171,9 +175,13 @@ the same biomass. It is measured as
 where $n$ is the number of populations, and $b$ are the relative biomasses
 ($b_i = B_i / \sum B$).
 
-Total biomass (`total_biomass`) is the sum of the biomasses across
-all populations. It is measured based on the populations biomasses
-(`population_biomass`).
+
+The number of remaining species (`species_richness`) is measured as the number
+of species whose biomass is larger than an arbitrary threshold. By default, the
+threshold is $\epsilon$, *i.e.* the upper bound of the relative error due to
+rounding in floating point arithmetic. In short, species are considered extinct
+when their biomass is smaller than the rounding error. For floating point values
+encoded over 64 bits (IEEE 754), this is around $10^{-16}$.
 
 Finally, we used the negative size-corrected coefficient of variation
 to assess the temporal stability of biomass stocks across populations
@@ -189,33 +197,33 @@ the mean standing biomass).
 
 ## Saving simulations and output format
 
-The core function (`simulate`) returns objects with a fixed format, made
-of three fields: `:p` has all the parameters used to start the simulation
+The core function (`simulate`) returns objects with a fixed format, made of
+three fields: `:p` has all the parameters used to start the simulation
 (including the food web itself), `:t` has a list of all timesteps (including
-intermediate integration points), and `:B` is is a matrix of biomasses for
-each population (columns) over time (rows). All measures on output described
-above operate on this object.
+intermediate integration points), and `:B` is is a matrix of biomasses for each
+population (columns) over time (rows). All measures on output described above
+operate on this object.
 
-The output of simulations can be saved to disk in either the `JSON`
-(javascript object notation) format, or in the native `jld` format. The `jld`
-option should be preferred since it preserves the structure of all objects
-(`JSON` should be used when the results will be analyzed outside of `Julia`,
-for example in `R`). The function to save results is called `befwm.save`
-(note that `befwm.` in front is mandatory, to avoid clashes with other
-functions called `save` in base `Julia` or other packages).
+The output of simulations can be saved to disk in either the `JSON` (javascript
+object notation) format, or in the native `jld` format. The `jld` option should
+be preferred since it preserves the structure of all objects (`JSON` should be
+used when the results will be analyzed outside of `Julia`, for example in `R`).
+The function to save results is called `befwm.save` (note that `befwm.` in front
+is mandatory, to avoid clashes with other functions called `save` in base
+`Julia` or other packages).
 
-Since running simulations is usually the more time-consuming thing, we
-recommend that simulation results be saved, and analyzed later on.
+Since running simulations is usually the more time-consuming thing, we recommend
+that simulation results be saved, and analyzed later on.
 
 # Implementation and availability
 
 The `befwm` package is available for the `julia` programming language, and is
 continuously tested on the current version of `Julia`, as well as the release
-immediately before, as well as on the current development version. `Julia`
-is an ideal platform for this type of models, since it is easy to write,
-designed for numerical computations, extremely fast, easily parallelized,
-and has good numerical integration libraries. The package can be installed
-from the `Julia` REPL using
+immediately before, as well as on the current development version. `Julia` is an
+ideal platform for this type of models, since it is easy to write, designed for
+numerical computations, extremely fast, easily parallelized, and has good
+numerical integration libraries. The package can be installed from the `Julia`
+REPL using
 
 {==Note to reviewers: the code will be uploaded to the Julia packages
 repository upon acceptance; meanwhile, please use the development version.==}
@@ -232,14 +240,13 @@ Pkg.clone("http://poisotlab.biol.umontreal.ca/julia-packages/befwm.git")
 
 for the current development release.
 
-The code is released under the MIT license. This
-software note describes version `0.1.0`. The source code
-of the package can be viewed, downloaded, and worked on at
-`http://poisotlab.biol.umontreal.ca/julia-packages/befwm`. The code is also
+The code is released under the MIT license. This software note describes version
+`0.1.0`. The source code of the package can be viewed, downloaded, and worked on
+at `http://poisotlab.biol.umontreal.ca/julia-packages/befwm`. The code is also
 mirrored (read-only) at `https://github.com/PoisotLab/befwm.jl`. Potential
-issues with the code or package can be reported at either places. The code
-is version-controlled, undergoes continuous integration, and has a code
-coverage of approx. 90% to this date.
+issues with the code or package can be reported at either places throug the
+*Issues* system. The code is version-controlled, undergoes continuous
+integration, and has a code coverage of approx. 90% to this date.
 
 # Use cases
 
@@ -255,10 +262,10 @@ is given in the manual, and is attached as Supp. Mat. to this paper).
 
 ## Illustration of the temporal dynamics
 
-We will investigate the temporal dynamics of total biomass (sum of biomasses
-of all populations), and of diversity (Shannon's index of biomasses) across
-50 replicate simulations. Every simulation uses a different network (generated
-with the niche model, 20 species, connectance of $0.25 \pm 0.01$).
+We will investigate the temporal dynamics of total biomass (sum of biomasses of
+all populations), and of diversity (Shannon's index of biomasses) across 50
+replicate simulations. Every simulation uses a different network (generated with
+the niche model, 20 species, connectance of $0.25 \pm 0.01$).
 
 !{temporal}
 
