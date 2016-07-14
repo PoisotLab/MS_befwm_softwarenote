@@ -130,7 +130,7 @@ r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
 \end{equation}
 
 \begin{equation}\label{e:norm_metab_rate}
-x_i =  \frac {a_x M_C^{-0.25}} {a_r M_P^{-0.25}} = \frac {a_x} {a_r} (\frac {M_C} {M_P})^0.25
+x_i =  \frac {a_x M_C^{-0.25}} {a_r M_P^{-0.25}} = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{0.25}
 \end{equation}
 
 In equations \autoref{e:producer} and \autoref{e:consumer}, $y_{i}$ refer to the
@@ -138,7 +138,7 @@ maximum consumption rate of population $i$ relative to its metabolic rate. $y_i$
 thus become a non-dimensional rate:
 
 \begin{equation}\label{e:norm_maxcons_rate}
-y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} {{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
+y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
 Assuming that most natural food-webs have a constant size structure (ref Brose
