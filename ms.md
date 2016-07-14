@@ -77,13 +77,13 @@ rate when consuming $j$, or the relative preference of consumer $i$ for $j$
 (refs. Chesson 1983; McCann and Hastings 1997). We have chosen to implement its
 simplest formulation: $\omega_{ij} = 1/n_i$, where $n_i$ is the number of
 resources of consumer $j$. $h$ is the Hill coefficient which is responsible for
-the shape of the functional response [@real77kfr], $B_0$ is the half saturation
-density and $c$ quantifies the strength of the intra-specific predator
-interference -- the degree to which increasing the predator population's biomass
-negatively affect its feeding rates [@bedd75mip; @dean75mti]. Depending on the
-parameters $h$ and $c$ the functional response can take several forms such as
-type II ($h = 1$ and $c = 0$), type III ($h > 1$ and $c = 0$), or predator
-interference ($h = 1$ and $c > 0$).
+the hyperbolic or sigmoïdal shape of the functional response [@real77kfr], $B_0$
+is the half saturation density and $c$ quantifies the strength of the
+intra-specific predator interference -- the degree to which increasing the
+predator population's biomass negatively affect its feeding rates [@bedd75mip;
+@dean75mti]. Depending on the parameters $h$ and $c$ the functional response can
+take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
+$c = 0$), or predator interference ($h = 1$ and $c > 0$).
 
 The formulation of the growth rate $G_i$ can be chosen among three possibilities
 (ref William 2008). The first is the same as used by @bros06ase, a simple
