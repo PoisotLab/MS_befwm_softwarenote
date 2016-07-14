@@ -49,7 +49,7 @@ across trophic levels, primarily defined by body size. It distinguishes
 populations based on two highly influential variables for the biological rates,
 body mass and metabolic type. Once this distinction made,
 it models populations as simple stocks of biomass growing and shrinking
-through consumer-resources interactions [@will07hyi]. The governing
+through consumer-resources interactions. The governing
 equations below describe the changes in relative density of producers and
 consumers respectively.
 
@@ -57,16 +57,12 @@ consumers respectively.
 B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
-$$
-G_i = 1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}
-$$
-
 \begin{equation}\label{e:consumer}
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
 where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific
-maximum growth rate, $K$ is the carrying capacity, $x_i$ is $i$'s mass-specific
+maximum growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
 metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
 population j and $F_{ij}$ is the multi-resources functional response of $i$
@@ -77,18 +73,35 @@ F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}
 \end{equation}
 
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
-rate when consuming $j$, $h$ is the Hill coefficient which is responsible
-for the shape of the functional response [@real77kfr], $B_0$ is the half
-saturation density and $c$ quantifies the predator interference -- the degree
-to which increasing the predator population's biomass negatively affect
-the feeding rates [@bedd75mip; @dean75mti]. Depending on the parameters $h$
-and $c$ the functional response can take several forms such as type II ($h =
-1$ and $c = 0$), type III ($h = 2$ and $c = 0$), or predator interference
-($h = 1$ and $c = 1$).
+rate when consuming $j$, or the relative preference of consumer $i$ for $j$
+(refs. Chesson 1983; McCann and Hastings 1997). We have chosen to implement its
+simplest formulation: $\omega_{ij} = 1/n_i$, where $n_i$ is the number of
+resources of consumer $j$. $h$ is the Hill coefficient which is responsible for
+the shape of the functional response [@real77kfr], $B_0$ is the half saturation
+density and $c$ quantifies the strength of the intra-specific predator
+interference -- the degree to which increasing the predator population's biomass
+negatively affect its feeding rates [@bedd75mip; @dean75mti]. Depending on the
+parameters $h$ and $c$ the functional response can take several forms such as
+type II ($h = 1$ and $c = 0$), type III ($h > 1$ and $c = 0$), or predator
+interference ($h = 1$ and $c > 0$).
+
+The formulation of the growth rate $G_i$ can be chosen among three possibilities
+(ref William 2008). The first is the same as used by @bros06ase, a simple
+logistic growth rate model where each producer have its own carrying capacity
+($K_i = K = 1$ in @bros06ase model), then $G_i = 1 - \frac {B_i} {K}$. Choosing
+this model yield the issue of having both the total biomass and primary
+productivity of the system increasing with the number of producer in the system
+(ref. Kondoh 2003). Choosing a system-wide carrying capacity allows to control
+for this effect. Then, the carrying capacity of the basal species can be $K_i =
+\frac {K} {n_p}$ where $n_p$ is the number of producers. Or a second
+possibility is to have $G_i$ being a Lotka-Volterra competition system where the
+producers compete for the system-wide carrying capacity. Then $G_i =
+1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}$ where $\alpha_{ij}$
+defines the competition rates between the basal species.   
 
 As almost all organism metabolic characteristics vary predictably with
 body-mass [@brow04mte], these variations can be described by allometric
-relationships as described in @will07hyi and @bros06ase. Hence, the per unit biomass
+relationships as described in @bros06ase. Hence, the per unit biomass
 biological rates of production, metabolism and maximum consumption follow
 negative power-law relationships with the typical adult body-mass [@pric12tmt;
 @sava04ebs].
