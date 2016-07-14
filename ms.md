@@ -18,31 +18,26 @@ uses allometric scaling of metabolic biomass production and feeding rates,
 meaning that the flow of biomass from a resource to its consumer depends on
 their body-mass.
 
-Seeing that the dynamics of ecological communities are driven not only
-by pairwise interactions, but also by the fact that these interactions
-are embedded in larger networks [@ches08ipc], there is a need for models
-that work at higher organisational scales. @stou07eer report that there
-exist robust and conserved motifs of prey selection in food webs. Likewise,
-@berl04isf show how disturbances affecting species biomass or density cascade
-up, not only to the species that they interact with, but with species up to
-two degrees of separation from the original perturbation. In this context,
-models of energy transfer through trophic interactions are better justified
-when they account for the entire food web structure.
-
-@will07hyi developed an adaptation of the bio-energetic consumer-resource model
-applied to food webs, building on allometric scaling regulation of consumptive
-interactions and metabolic theory of ecology [@brow04mte]. This model has been
-used, for example, to show how food web stability can emerge from allometric
-scaling [@bros06ase] or allometry-constrained degree distributions [@otto07add].
-Yet, although these and other studies used the same mathematical model,
-implementations differ from study to study and none  have been released.
-Motivated by the fact that this model addresses mechanisms that are fundamental
-to our understanding of energy flow throughout food webs, we present `befwm`
-(Bio-Energetic Food Webs Model), a *Julia* package implementing @yodz92bsc
-bio-energetic model adapted for food-webs [@will07hyi] with updated allometric
-coefficients [@bros06ase]. This package aims to offer an efficient common
-ground for modeling food-web dynamics, to make investigations of this model
-easier, and to facilitate reproducibility and transparency of modeling efforts.
+Since the work of @yodz92bsc, @ches08ipc have shown that the dynamics of
+ecological communities are driven not only by pairwise interactions, but also by
+the fact that these interactions are embedded in larger networks, and @berl04isf
+show how disturbances affecting species biomass or density cascade up, not only
+to the species that they interact with, but with species up to two degrees of
+separation from the original perturbation. In this context, models of energy
+transfer through trophic interactions are better justified when they account for
+the entire food web structure, such as @will07hyi adaptation to food-webs of
+@yodz92bsc model. This food-web bio-energetic model has been used, for example,
+to show how food web stability can emerge from allometric scaling [@bros06ase]
+or allometry-constrained degree distributions [@otto07add]. Yet, although these
+and other studies used the same mathematical model, implementations differ from
+study to study and none have been released. Motivated by the fact that this
+model addresses mechanisms that are fundamental to our understanding of energy
+flow throughout food webs, we present `befwm` (Bio-Energetic Food Webs Model), a
+*Julia* package implementing @yodz92bsc bio-energetic model adapted for
+food-webs [@will07hyi] with updated allometric coefficients [@bros06ase;
+@brow04mte]. This package aims to offer an efficient common ground for modeling
+food-web dynamics, to make investigations of this model easier, and to
+facilitate reproducibility and transparency of modeling efforts.  
 
 # The model
 
@@ -51,16 +46,20 @@ easier, and to facilitate reproducibility and transparency of modeling efforts.
 We implement the model as described by @bros06ase, which is itself explained
 in greater detail in @will07hyi. This model describes the flows of biomass
 across trophic levels, primarily defined by body size. It distinguishes
-population based on two highly influential variables for the biological rates,
-body-mass and metabolic type. Once this distinction made,
+populations based on two highly influential variables for the biological rates,
+body mass and metabolic type. Once this distinction made,
 it models populations as simple stocks of biomass growing and shrinking
 through consumer-resources interactions [@will07hyi]. The governing
 equations below describe the changes in relative density of producers and
 consumers respectively.
 
 \begin{equation}\label{e:producer}
-B'_i = r_i(1-\frac{B_i}{K}) B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
+B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
+
+$$
+G_i = 1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}
+$$
 
 \begin{equation}\label{e:consumer}
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
