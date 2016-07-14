@@ -9,20 +9,20 @@ z_values = collect(logspace(-3, 3, steps))
 scaling = vec(hcat([z_values for i in 1:replicates]...))
 
 for i in eachindex(scaling)
+  A = nichemodel(20, 0.12)
+  while abs(befwm.connectance(A) - 0.12) > 0.01
     A = nichemodel(20, 0.12)
-    while abs(befwm.connectance(A) - 0.12) > 0.01
-        A = nichemodel(20, 0.12)
-    end
-    # Prepare the simulation parameters
-    p = model_parameters(A, Z=scaling[i])
-    bm = rand(size(A, 1))
-    # Simulate!
-    out = simulate(p, bm, start=0, stop=2000, steps=1000, use=:ode45)
-    d = foodweb_diversity(out, last=1000)
-    s = population_stability(out, last=1000, threshold=-0.01)
-    df[:scaling][i] = p[:Z]
-    df[:diversity][i] = d
-    df[:stability][i] = s
+  end
+  # Prepare the simulation parameters
+  p = model_parameters(A, Z=scaling[i], productivity=:system)
+  bm = rand(size(A, 1))
+  # Simulate!
+  out = simulate(p, bm, start=0, stop=2000, use=:ode45)
+  d = foodweb_diversity(out, last=1000)
+  s = population_stability(out, last=1000, threshold=-0.01)
+  df[:scaling][i] = p[:Z]
+  df[:diversity][i] = d
+  df[:stability][i] = s
 end
 
 # Filter results
@@ -37,8 +37,8 @@ for_plot = aggregate(df, :scaling, [mean, std, distrmin, distrmax])
 for_plot[:stability_distrmax][for_plot[:stability_distrmax].>0.0] = 0.0
 
 pl_div = plot(for_plot, x=:scaling, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax,
-    Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
+Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
 pl_sta = plot(for_plot, x=:scaling, y=:stability_mean, ymin=:stability_distrmin, ymax=:stability_distrmax,
-    Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
+Geom.point, Geom.errorbar, Scale.x_log10, plab_theme);
 
 draw(PDF("figures/scaling.pdf", 14cm, 17cm), vstack(pl_div, pl_sta))
