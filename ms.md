@@ -251,17 +251,21 @@ Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
 documentation includes several use-cases, as well as discussion of some design
 choices. All functions in the package have an in-line documentation, available
 from the `julia` interface by typing `?` followed by the name of the function.
-In this section, we will describe three of the aforementionned use-cases (the
-code to execute them is attached as Supp. Mat. to this paper).
+In this section, we will describe three of the aforementionned use-cases. The
+code to execute them is attached as Supp. Mat. to this paper. As all code in the
+supplementary material uses `Julia`'s parallel computing abilities, it will
+differ slightly from the examples given in the paper. For all figures, each
+point is the average of 80 replicates.
 
-## Illustration of the temporal dynamics
+## Effect of increasing carrying capacity
 
-We will investigate the temporal dynamics of total biomass (sum of biomasses of
-all populations), and of diversity (Shannon's index of biomasses) across 50
-replicate simulations. Every simulation uses a different network (generated with
-the niche model, 20 species, connectance of $0.25 \pm 0.01$).
+Starting from networks generated with the niche model, with 20 species,
+connectance of $0.15 \pm 0.01$, we investigate the effect of increasing the
+carrying capacity of the resource (on a log scale from 0.1 to 10). We use three
+values of the $\alpha_{ij}$ parameter, ranging from favoring coexistence (0.92),
+neutrally stable (1.0), to weak competitive exclusion (1.08).
 
-!{temporal}
+!{carrying}
 
 We run the simulations with the default parameters (given in
 `?model_parameters`, and in the manual). Each simulation consists of the
@@ -279,19 +283,25 @@ while abs(befwm.connectance(A) - 0.25) > 0.01
 end
 
 # Prepare the simulation parameters
-p = model_parameters(A)
-
-# We start each simulation with random biomasses
-# in ]0;1[
-bm = rand(size(A, 1))
-
-# And finally, we simulate over 500 timesteps
-out = simulate(p, bm, start=0, stop=500,
-        steps=1500, use=:ode45)
+for α in linspace(0.92, 1.08, 3)
+  for K in logspace(-1, 1, 9)
+    p = model_parameters(A, α=α, K=K)
+    # We start each simulation with random biomasses
+    # in ]0;1[
+    bm = rand(size(A, 1))
+    # And finally, we simulate over 500 timesteps
+    out = simulate(p, bm, start=0, stop=2000,
+          use=:ode45)
+    # And measure the output
+    persistence = species_richness(out, last=1000,
+                    threshold=eps()) / 20
+  end
+end
 ~~~
 
-The results are presented in \autoref{temporal}. With this choice of
-parameters, the community reaches stability within 100 timesteps.
+The results are presented in \autoref{carrying}. The persistence is the number
+of remaining species (*i.e.* with a biomass larger than `eps()`), divided by the
+initial number of species (20).
 
 ## Effect of allometric scaling on stability and diversity
 

@@ -25,16 +25,20 @@ keyword:
   - k: bio-energetic model
   - k: allometric scaling
   - k: food webs
-  - k: community ecology 
+  - k: community ecology
 figure:
-  - id: temporal
-    caption: With the default parameters, a food web with 20 populations and a connectance of 0.25 reaches a stable state within the first 100 timesteps. The solid line represents the average value across 50 independant runs, and the ribbon around it is the standard deviation.
-    short: Example timecourse of biomass and diversity.
-    file: temporal_dynamics.pdf
-  - id: scaling
+  - id: carrying
+    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in [0.92, 1.0, 1.08]$).
+    short: Effect of varying the carrying capacity.
+    file: carryingcapacity.pdf
+  - id: vertebrate
     caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
     short: Diversity and stability as a function of allometric scaling.
     file: scaling
+  - id: connectance
+    caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
+    short: Diversity and stability as a function of allometric scaling.
+    file: connectance
 date: \today
 abstract: ...
 ...

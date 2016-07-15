@@ -9,7 +9,7 @@ palette(brewer.pal(3, "Set2"))
 
 plot(0, pch=NA, xlim=range(d$K), ylim=range(d$diversity),
       xlab = "Carrying capacity", ylab = "Diversity",
-      las = 1)
+      las = 1, log='x')
 
 i <- 1
 for(comp in unique(d$competition)) {
