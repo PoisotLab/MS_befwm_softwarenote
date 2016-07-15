@@ -4,10 +4,10 @@ addprocs(51)
 
 @everywhere using befwm
 
-@everywhere competition = linspace(0.8, 1.2, 7)
-@everywhere connectance = linspace(0.05, 0.25, 3)
+@everywhere competition = linspace(0.8, 1.2, 9)
+@everywhere connectance = linspace(0.05, 0.25, 5)
 
-@everywhere replicates = 100
+@everywhere replicates = 250
 @everywhere conditions = vcat([[[con, com] for com in competition] for con in connectance]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 

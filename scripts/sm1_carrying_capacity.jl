@@ -5,9 +5,9 @@ addprocs(51)
 @everywhere using befwm
 
 @everywhere competition = linspace(0.92, 1.08, 3)
-@everywhere k = logspace(-1, 1, 9)
+@everywhere k = logspace(-1, 1, 15)
 
-@everywhere replicates = 100
+@everywhere replicates = 250
 @everywhere conditions = vcat([[[K, com] for com in competition] for K in k]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 

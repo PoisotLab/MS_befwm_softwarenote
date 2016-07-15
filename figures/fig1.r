@@ -14,7 +14,7 @@ plot(0, pch=NA, xlim=range(d$K), ylim=range(d$diversity),
 i <- 1
 for(comp in unique(d$competition)) {
   x <- subset(d, competition == comp)
-  lines(diversity~K, x, col = i, type='o', pch=19, lwd=3)
+  lines(diversity~K, x, col = i, type='l', pch=19, lwd=3)
   i <- i + 1
 }
 
