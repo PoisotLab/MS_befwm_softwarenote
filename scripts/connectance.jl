@@ -2,7 +2,7 @@ include("common.jl")
 
 @everywhere using befwm
 
-@everywhere competition = linspace(0.8, 1.2, 5)
+@everywhere competition = linspace(0.8, 1.2, 7)
 @everywhere connectance = linspace(0.05, 0.25, 3)
 
 @everywhere conditions = vcat([[[con, com] for com in competition] for con in connectance]...)
