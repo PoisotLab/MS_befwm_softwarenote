@@ -43,15 +43,14 @@ facilitate reproducibility and transparency of modeling efforts.
 
 ## Biomass dynamics
 
-We implement the model as described by @bros06ase, which is itself explained
-in greater detail in @will07hyi. This model describes the flows of biomass
-across trophic levels, primarily defined by body size. It distinguishes
-populations based on two highly influential variables for the biological rates,
-body mass and metabolic type. Once this distinction made,
-it models populations as simple stocks of biomass growing and shrinking
-through consumer-resources interactions. The governing
-equations below describe the changes in relative density of producers and
-consumers respectively.
+We implement the model as described by @bros06ase, which is itself explained in
+greater detail in @will07hyi. This model describes the flows of biomass across
+trophic levels, primarily defined by body size. It distinguishes populations
+based on two highly influential variables for the biological rates, body mass
+and metabolic type. Once this distinction made, it models populations as simple
+stocks of biomass growing and shrinking through consumer-resources interactions.
+The governing equations below describe the changes in relative density of
+producers and consumers respectively.
 
 \begin{equation}\label{e:producer}
 B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
@@ -61,8 +60,8 @@ B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
-where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific
-maximum growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
+where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
+growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
 metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
 population j and $F_{ij}$ is the multi-resources functional response of $i$
@@ -99,12 +98,11 @@ predator population's biomass negatively affect its feeding rates [@bedd75mip;
 take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
 $c = 0$), or predator interference ($h = 1$ and $c > 0$).
 
-As almost all organism metabolic characteristics vary predictably with
-body-mass [@brow04mte], these variations can be described by allometric
-relationships as described in @bros06ase. Hence, the per unit biomass
-biological rates of production, metabolism and maximum consumption follow
-negative power-law relationships with the typical adult body-mass [@pric12tmt;
-@sava04ebs].
+As almost all organism metabolic characteristics vary predictably with body-mass
+[@brow04mte], these variations can be described by allometric relationships as
+described in @bros06ase. Hence, the per unit biomass biological rates of
+production, metabolism and maximum consumption follow negative power-law
+relationships with the typical adult body-mass [@pric12tmt; @sava04ebs].
 
 \begin{equation}\label{e:production_rate}
 R_P =  a_r M_P^{-0.25}
@@ -240,10 +238,11 @@ for the current development release.
 The code is released under the MIT license. This software note describes version
 `0.1.0`. The source code of the package can be viewed, downloaded, and worked on
 at [http://poisotlab.biol.umontreal.ca/julia-packages/befwm]. The code is also
-mirrored (read-only for stable versions) at [https://github.com/PoisotLab/befwm.jl]. Potential
-issues with the code or package can be reported at either places throug the
-*Issues* system. The code is version-controlled, undergoes continuous
-integration, and has a code coverage of approx. 90% to this date.
+mirrored (read-only for stable versions) at
+[https://github.com/PoisotLab/befwm.jl]. Potential issues with the code or
+package can be reported at either places throug the *Issues* system. The code is
+version-controlled, undergoes continuous integration, and has a code coverage of
+approx. 90% to this date.
 
 # Use cases
 
