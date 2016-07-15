@@ -72,6 +72,20 @@ consuming $j$:
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
+The formulation of the growth rate $G_i$ can be chosen among three possibilities
+[@will08end] that all share the general equation of $G_i = 1 - p/k$, where $p$
+is the sum of biomass of populations in competition for a ressource with
+carrying capacity $k$. The first scenario, used by @bros06ase, sets $p = B_i$
+and $k = K$: species only compete with themselves for independant resources. The
+issue with this formulation [@kond03far] is that the biomass and productivity of
+the system scales linearly with the number of primary producers. The second
+formulation "shares" the resource across primary producers, with $p = B_i$ and
+$k = K/n_P$, wherein $n_p$ is the number of primary producers. Finally, a more
+general solution is $p = \sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific
+competition) set to unity and $\alpha_{ij}$ (inter-specific competition) taking
+values greater than or equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to
+$k = K$ and $p = B_i$.
+
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, or the relative preference of consumer $i$ for $j$
 (refs. Chesson 1983; McCann and Hastings 1997). We have chosen to implement its
@@ -84,20 +98,6 @@ predator population's biomass negatively affect its feeding rates [@bedd75mip;
 @dean75mti]. Depending on the parameters $h$ and $c$ the functional response can
 take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
 $c = 0$), or predator interference ($h = 1$ and $c > 0$).
-
-The formulation of the growth rate $G_i$ can be chosen among three possibilities
-(ref William 2008). The first is the same as used by @bros06ase, a simple
-logistic growth rate model where each producer have its own carrying capacity
-($K_i = K = 1$ in @bros06ase model), then $G_i = 1 - \frac {B_i} {K}$. Choosing
-this model yield the issue of having both the total biomass and primary
-productivity of the system increasing with the number of producer in the system
-(ref. Kondoh 2003). Choosing a system-wide carrying capacity allows to control
-for this effect. Then, the carrying capacity of the basal species can be $K_i =
-\frac {K} {n_p}$ where $n_p$ is the number of producers. Or a second
-possibility is to have $G_i$ being a Lotka-Volterra competition system where the
-producers compete for the system-wide carrying capacity. Then $G_i =
-1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}$ where $\alpha_{ij}$
-defines the competition rates between the basal species.
 
 As almost all organism metabolic characteristics vary predictably with
 body-mass [@brow04mte], these variations can be described by allometric
