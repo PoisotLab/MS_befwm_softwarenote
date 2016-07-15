@@ -4,7 +4,7 @@ addprocs(3)
 
 @everywhere using befwm
 
-@everywhere Z = logspace(-2, 3, 5)
+@everywhere Z = logspace(-2, 2, 7)
 @everywhere V = vec([true false])
 
 @everywhere conditions = vcat([[(z, v) for z in Z] for v in V]...)

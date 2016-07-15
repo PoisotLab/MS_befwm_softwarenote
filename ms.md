@@ -231,9 +231,7 @@ Pkg.add("befwm")
 for the last stable release, or
 
 ~~~ julia
-Pkg.clone("http://poisotlab.biol.
-    umontreal.ca/julia-packages/
-    befwm.git")
+Pkg.clone("http://poisotlab.biol.umontreal.ca/julia-packages/befwm.git")
 ~~~
 
 for the current development release.
