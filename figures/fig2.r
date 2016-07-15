@@ -10,7 +10,7 @@ pdf("figures/vertebrate.pdf")
 palette(brewer.pal(3, "Set2"))
 
 plot(0, pch=NA, xlim=range(d$Z), ylim=range(d$stability),
-      xlab = "Carrying capacity", ylab = "Temporal stability",
+      xlab = "Scaling (log)", ylab = "Temporal stability",
       las = 1, log='x')
 
 abline(v=1, col='grey')

@@ -21,7 +21,7 @@ addprocs(3)
   out = simulate(p, bm, start=0, stop=2000, use=:ode45)
   # Get results
   d = foodweb_diversity(out, last=1000)
-  s = population_stability(out, last=1000, threshold=-0.001)
+  s = population_stability(out, last=1000, threshold=eps())
   b = total_biomass(out, last=1000)
   r = species_richness(out, last=1000, threshold=eps()) / 20.0
   # Return
