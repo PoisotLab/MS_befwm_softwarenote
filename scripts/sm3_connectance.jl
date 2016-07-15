@@ -1,4 +1,6 @@
-include("common.jl")
+using DataFrames
+
+addprocs(3)
 
 @everywhere using befwm
 
@@ -19,14 +21,14 @@ include("common.jl")
   out = simulate(p, bm, start=0, stop=2000, use=:ode45)
   # Get results
   d = foodweb_diversity(out, last=1000)
-  s = population_stability(out, last=1000, threshold=-0.001)
+  s = population_stability(out, last=1000, threshold=eps())
   b = total_biomass(out, last=1000)
   r = species_richness(out, last=1000, threshold=eps()) / 20.0
   # Return
   return (d, s, b, r)
 end
 
-replicates = 20
+replicates = 80
 df = DataFrame([Float64, Float64, Float64, Float64, Float64, Float64], [:competition, :connectance, :diversity, :stability, :richness, :biomass], replicates * length(conditions))
 
 cursor = 1
@@ -50,12 +52,4 @@ df = df[!isna(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
 #df = df[df[:stability] .>= -5.0,:]
 
-# Melt data frame
-agr = aggregate(df, [:connectance, :competition], [mean, std, distrmin, distrmax])
-
-agr[:stability_distrmax][agr[:stability_distrmax].>0.0] = 0.0
-
-p1 = plot(agr, x=:competition, color=:connectance, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p2 = plot(agr, x=:competition, color=:connectance, y=:richness_mean, ymin=:richness_distrmin, ymax=:richness_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p3 = plot(agr, x=:competition, color=:connectance, y=:biomass_mean, ymin=:biomass_distrmin, ymax=:biomass_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p4 = plot(agr, x=:competition, color=:connectance, y=:stability_mean, ymin=:stability_distrmin, ymax=:stability_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
+writetable("./figures/sm3.dat", df, separator='\t', header=true)
