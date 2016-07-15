@@ -245,6 +245,9 @@ package can be reported at either places throug the *Issues* system. The code is
 version-controlled, undergoes continuous integration, and has a code coverage of
 approx. 90% to this date.
 
+[http://poisotlab.biol.umontreal.ca/julia-packages/befwm]: http://poisotlab.biol.umontreal.ca/julia-packages/befwm
+[https://github.com/PoisotLab/befwm.jl]: https://github.com/PoisotLab/befwm.jl
+
 # Use cases
 
 Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
@@ -275,25 +278,28 @@ following code:
 # We generate a random food web
 A = nichemodel(20, 0.25)
 
-# This loop will keep on trying food webs until
-# one with a connectance close enough to 0.25
-# is found
-while abs(befwm.connectance(A) - 0.25) > 0.01
-    A = nichemodel(20, 0.25)
+# This loop will keep on trying food webs
+# until one with a connectance close enough
+# to 0.15 is found
+while abs(befwm.connectance(A)-0.15)>0.01
+    A = nichemodel(20, 0.15)
 end
 
 # Prepare the simulation parameters
 for α in linspace(0.92, 1.08, 3)
   for K in logspace(-1, 1, 9)
-    p = model_parameters(A, α=α, K=K, productivity=:competitive)
-    # We start each simulation with random biomasses
-    # in ]0;1[
+    p = model_parameters(A, α=α,
+        K=K,
+        productivity=:competitive)
+    # We start each simulation with
+    # random biomasses in ]0;1[
     bm = rand(size(A, 1))
-    # And finally, we simulate over 500 timesteps
-    out = simulate(p, bm, start=0, stop=2000,
-          use=:ode45)
+    # And finally, we simulate.
+    out = simulate(p, bm, start=0,
+          stop=2000, use=:ode45)
     # And measure the output
-    diversity = foodweb_diversity(out, last=1000,
+    diversity = foodweb_diversity(out,
+                    last=1000,
                     threshold=eps())
   end
 end
@@ -332,21 +338,21 @@ scenarios of inter-specific competition rates (\autoref{connectance}).
 for co in vec([0.05 0.15 0.25])
   # We generate a random food web
   A = nichemodel(co, 0.25)
-  while abs(befwm.connectance(A) - co) > 0.01
+  while abs(befwm.connectance(A)-co)>0.01
       A = nichemodel(co, 0.25)
   end
   # Prepare the simulation parameters
   for α in linspace(0.8, 1.2 , 7)
-    p = model_parameters(A, α=α, productivity=:competitive)
-    # We start each simulation with random biomasses
-    # in ]0;1[
+    p = model_parameters(A, α=α,
+    productivity=:competitive)
     bm = rand(size(A, 1))
-    # And finally, we simulate over 500 timesteps
-    out = simulate(p, bm, start=0, stop=2000,
-          use=:ode45)
+    # And finally, we simulate.
+    out = simulate(p, bm, start=0,
+          stop=2000, use=:ode45)
     # And measure the output
-    persistence = species_richness(out, last=1000,
-                    threshold=eps()) / 20
+    persistence = species_richness(out,
+                  last=1000,
+                  threshold=eps()) / 20
   end
 end
 ~~~
