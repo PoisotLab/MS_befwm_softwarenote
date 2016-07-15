@@ -175,8 +175,9 @@ food web. This measure is corrected for the total number of populations. This
 returns values in $]0;1]$, where $1$ indicates that all populations have the
 same biomass. It is measured as
 
-\begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
-\,, \end{equation}
+\begin{equation}
+H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}\,,
+\end{equation}
 
 where $n$ is the number of populations, and $b$ are the relative biomasses ($b_i =
 B_i / \sum B$).
