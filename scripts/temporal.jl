@@ -1,6 +1,6 @@
 include("common.jl")
 
-steps = 300
+steps = 100
 replicates = 50
 
 df = DataFrame([Int64, Int64, Float64, Float64], [:time, :replicate, :diversity, :biomass], (steps+1) * replicates)
@@ -11,11 +11,10 @@ for i in 1:replicates
         A = nichemodel(20, 0.25)
     end
     # Prepare the simulation parameters
-    p = make_initial_parameters(A)
-    p = make_parameters(p)
+    p = model_parameters(A, productivity=:system)
     bm = rand(size(A, 1))
     # Simulate!
-    out = simulate(p, bm, start=0, stop=steps, steps=1500, use=:ode45)
+    out = simulate(p, bm, start=0, stop=steps, use=:ode45)
     t = out[:t]
     d = mapslices(befwm.shannon, out[:B], 2)
     b = sum(out[:B], 2)
