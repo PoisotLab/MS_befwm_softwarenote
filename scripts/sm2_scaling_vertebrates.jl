@@ -26,7 +26,7 @@ addprocs(3)
     # If not, all are invertebrates
     vertebrates = falses(size(A, 1))
   end
-  p = model_parameters(A, productivity=:system, vertebrates=round(Bool, vertebrates))
+  p = model_parameters(A, productivity=:species, vertebrates=round(Bool, vertebrates))
   bm = rand(size(A, 1))
   out = simulate(p, bm, start=0, stop=2000, use=:ode45)
   # Get results

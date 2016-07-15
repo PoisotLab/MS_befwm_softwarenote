@@ -285,7 +285,7 @@ end
 # Prepare the simulation parameters
 for α in linspace(0.92, 1.08, 3)
   for K in logspace(-1, 1, 9)
-    p = model_parameters(A, α=α, K=K)
+    p = model_parameters(A, α=α, K=K, productivity=:competitive)
     # We start each simulation with random biomasses
     # in ]0;1[
     bm = rand(size(A, 1))
@@ -293,15 +293,13 @@ for α in linspace(0.92, 1.08, 3)
     out = simulate(p, bm, start=0, stop=2000,
           use=:ode45)
     # And measure the output
-    persistence = species_richness(out, last=1000,
-                    threshold=eps()) / 20
+    diversity = foodweb_diversity(out, last=1000,
+                    threshold=eps())
   end
 end
 ~~~
 
-The results are presented in \autoref{carrying}. The persistence is the number
-of remaining species (*i.e.* with a biomass larger than `eps()`), divided by the
-initial number of species (20).
+The results are presented in \autoref{carrying}.
 
 ## Effect of allometric scaling on stability and diversity
 
@@ -323,14 +321,43 @@ p = model_parameters(A, Z=scaling[i])
 All model parameters can be used this way, and explained in the documentation
 of `?model_parameters`.
 
-## Competition rate and connectance
+## Connectance effect on coexistence
 
-We finally show the species richness in the model is affected by competition
-rates and connectance of the initial network. This example also illustrates how
-`befwm` can be ran in parallel to leverage mutliple cores availables on most
-machines.
+We investigate the effect of connectance on species coexistence under different
+scenarios of inter-specific competition rates (\autoref{connectance}).
 
-{==TODO==}
+!{connectance}
+
+~~~ julia
+
+for co in vec([0.05 0.15 0.25])
+  # We generate a random food web
+  A = nichemodel(co, 0.25)
+  while abs(befwm.connectance(A) - co) > 0.01
+      A = nichemodel(co, 0.25)
+  end
+  # Prepare the simulation parameters
+  for α in linspace(0.8, 1.2 , 7)
+    p = model_parameters(A, α=α, productivity=:competitive)
+    # We start each simulation with random biomasses
+    # in ]0;1[
+    bm = rand(size(A, 1))
+    # And finally, we simulate over 500 timesteps
+    out = simulate(p, bm, start=0, stop=2000,
+          use=:ode45)
+    # And measure the output
+    persistence = species_richness(out, last=1000,
+                    threshold=eps()) / 20
+  end
+end
+~~~
+
+ Values of $\alpha$ larger than 0 should result in competitive exclusion in the
+ absence of trophic interactions [@will08end]. Indeed, this is the case when $Co =
+ 0.05$ (only a single consumer remains). Increasing connectance results in more
+ species persisting.  The persistence is the number of remaining species (*i.e.*
+ with a biomass larger than `eps()`), divided by the initial number of species
+ (20).
 
 # Conclusions
 
