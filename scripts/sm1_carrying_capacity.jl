@@ -1,9 +1,11 @@
-include("common.jl")
+using DataFrames
+
+addprocs(3)
 
 @everywhere using befwm
 
-@everywhere competition = linspace(0.95, 1.05, 3)
-@everywhere k = logspace(-1, 1, 5)
+@everywhere competition = linspace(0.92, 1.08, 3)
+@everywhere k = logspace(-1, 1, 9)
 
 @everywhere conditions = vcat([[[K, com] for com in competition] for K in k]...)
 
@@ -26,7 +28,7 @@ include("common.jl")
   return (d, s, b, r)
 end
 
-replicates = 20
+replicates = 40
 df = DataFrame(
   [Float64, Float64, Float64, Float64, Float64, Float64],
   [:competition, :K, :diversity, :stability, :richness, :biomass],
@@ -53,14 +55,4 @@ df = df[!isna(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
 #df = df[df[:stability] .>= -5.0,:]
 
-writetable("sm1.dat", df, separator='\t', header=true)
-
-# Melt data frame
-agr = aggregate(df, [:K, :competition], [mean, std, distrmin, distrmax])
-
-agr[:stability_distrmax][agr[:stability_distrmax].>0.0] = 0.0
-
-p1 = plot(agr, x=:competition, color=:connectance, y=:diversity_mean, ymin=:diversity_distrmin, ymax=:diversity_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p2 = plot(agr, x=:competition, color=:connectance, y=:richness_mean, ymin=:richness_distrmin, ymax=:richness_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p3 = plot(agr, x=:competition, color=:connectance, y=:biomass_mean, ymin=:biomass_distrmin, ymax=:biomass_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
-p4 = plot(agr, x=:competition, color=:connectance, y=:stability_mean, ymin=:stability_distrmin, ymax=:stability_distrmax, Geom.point, Geom.errorbar, Scale.color_discrete(), Geom.line)
+writetable("./figures/sm1.dat", df, separator='\t', header=true)
