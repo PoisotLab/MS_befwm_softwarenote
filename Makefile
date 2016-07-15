@@ -26,7 +26,7 @@ $(MARKED): $(SOURCE) $(TABLESLATEX)
 	rm plmt/tmp*
 
 $(OUTPUT): $(MARKED)
-	pandoc $< -o $@ $(PFLAGS) --template plmt/plmt.tex plmt.yaml
+	pandoc $< -o $@ $(PFLAGS) --template plmt/plmt.tex plmt.yaml --latex-engine=xelatex
 	-@rm $(MARKED)
 	-@rm tables/*tex
 

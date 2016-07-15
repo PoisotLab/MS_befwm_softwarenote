@@ -231,7 +231,9 @@ Pkg.add("befwm")
 for the last stable release, or
 
 ~~~ julia
-Pkg.clone("http://poisotlab.biol.umontreal.ca/julia-packages/befwm.git")
+Pkg.clone("http://poisotlab.biol.
+    umontreal.ca/julia-packages/
+    befwm.git")
 ~~~
 
 for the current development release.
@@ -329,7 +331,6 @@ scenarios of inter-specific competition rates (\autoref{connectance}).
 !{connectance}
 
 ~~~ julia
-
 for co in vec([0.05 0.15 0.25])
   # We generate a random food web
   A = nichemodel(co, 0.25)
