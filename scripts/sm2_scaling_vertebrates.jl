@@ -4,10 +4,10 @@ addprocs(3)
 
 @everywhere using befwm
 
-@everywhere Z = logspace(-3, 3, 9)
+@everywhere Z = logspace(-3, 3, 7)
 @everywhere V = vec([true false])
 
-@everywhere conditions = vcat([[[z, v] for z in Z] for v in V]...)
+@everywhere conditions = vcat([[(z, v) for z in Z] for v in V]...)
 
 @everywhere function makesim(z, v)
   # Generate a niche model
@@ -26,7 +26,7 @@ addprocs(3)
     # If not, all are invertebrates
     vertebrates = falses(size(A, 1))
   end
-  p = model_parameters(A, productivity=:competitive, α=0.95, vertebrates=vertebrates)
+  p = model_parameters(A, productivity=:competitive, α=0.95, vertebrates=round(Bool, vertebrates))
   bm = rand(size(A, 1))
   out = simulate(p, bm, start=0, stop=2000, use=:ode45)
   # Get results
@@ -40,8 +40,8 @@ end
 
 replicates = 40
 df = DataFrame(
-  [Float64, Float64, Float64, Float64, Float64, Float64],
-  [:competition, :K, :diversity, :stability, :richness, :biomass],
+  [Float64, Bool, Float64, Float64, Float64, Float64],
+  [:Z, :vertebrates, :diversity, :stability, :richness, :biomass],
   replicates * length(conditions))
 
 cursor = 1
@@ -49,8 +49,8 @@ for replicate in 1:replicates
   println("Starting replicate $replicate")
   output = pmap((x) -> makesim(x...), conditions)
   for k in eachindex(output)
-    df[:competition][cursor] = conditions[k][2]
-    df[:K][cursor] = conditions[k][1]
+    df[:Z][cursor] = conditions[k][1]
+    df[:vertebrates][cursor] = conditions[k][2]
     df[:diversity][cursor] = output[k][1]
     df[:stability][cursor] = output[k][2]
     df[:biomass][cursor] = output[k][3]
@@ -65,4 +65,4 @@ df = df[!isna(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
 #df = df[df[:stability] .>= -5.0,:]
 
-writetable("./figures/sm1.dat", df, separator='\t', header=true)
+writetable("./figures/sm2.dat", df, separator='\t', header=true)
