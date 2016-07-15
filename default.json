@@ -1,5 +1,29 @@
 [
   {
+    "publisher": "Springer Science + Business Media",
+    "DOI": "10.1007/978-0-85729-115-8_13",
+    "type": "chapter",
+    "page": "71-76",
+    "title": "Lotka, Volterra and the predator–prey system (1920–1926)",
+    "author": [
+      {
+        "family": "Bacaër",
+        "given": "Nicolas"
+      }
+    ],
+    "container-title": "A Short History of Mathematical Population Dynamics",
+    "issued": {
+      "date-parts": [
+        [
+          2011
+        ]
+      ]
+    },
+    "ISBN": "http://id.crossref.org/isbn/978-0-85729-114-1",
+    "URL": "http://dx.doi.org/10.1007/978-0-85729-115-8_13",
+    "id": "baca11lvp"
+  },
+  {
     "issue": "1",
     "DOI": "10.2307/3866",
     "type": "article-journal",
@@ -412,6 +436,38 @@
     "id": "ches08ipc"
   },
   {
+    "issue": "4",
+    "DOI": "10.2307/1936298",
+    "type": "article-journal",
+    "page": "881-892",
+    "title": "A Model for Tropic Interaction",
+    "volume": "56",
+    "author": [
+      {
+        "family": "DeAngelis",
+        "given": "D. L."
+      },
+      {
+        "family": "Goldstein",
+        "given": "R. A."
+      },
+      {
+        "family": "O'Neill",
+        "given": "R. V."
+      }
+    ],
+    "container-title": "Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          1975,
+          7
+        ]
+      ]
+    },
+    "id": "dean75mti"
+  },
+  {
     "issue": "6252",
     "DOI": "10.1126/science.aac6284",
     "type": "article-journal",
@@ -461,6 +517,253 @@
     "id": "hatt15ppl"
   },
   {
+    "issue": "7173",
+    "DOI": "10.1038/nature06359",
+    "type": "article-journal",
+    "page": "1226-1229",
+    "title": "Allometric degree distributions facilitate food-web stability",
+    "volume": "450",
+    "author": [
+      {
+        "family": "Otto",
+        "given": "Sonja B."
+      },
+      {
+        "family": "Rall",
+        "given": "Björn C."
+      },
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      }
+    ],
+    "container-title": "Nature",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          12,
+          20
+        ]
+      ]
+    },
+    "id": "otto07add"
+  },
+  {
+    "issue": "12",
+    "funder": [
+      {
+        "award": [
+          "IBN 09-19871"
+        ],
+        "doi-asserted-by": "crossref",
+        "name": "National Science Foundation",
+        "DOI": "10.13039/100000001"
+      },
+      {
+        "award": [],
+        "doi-asserted-by": "crossref",
+        "name": "Burroughs Wellcome Fund",
+        "DOI": "10.13039/100000861"
+      },
+      {
+        "award": [],
+        "doi-asserted-by": "crossref",
+        "name": "Australian Research Council",
+        "DOI": "10.13039/501100000923"
+      },
+      {
+        "award": [
+          "1021010"
+        ],
+        "name": "NSF DEB"
+      },
+      {
+        "award": [
+          "DBI-0906005"
+        ],
+        "name": "NSF Postdoctoral Fellowship in Biological Informatics"
+      },
+      {
+        "award": [
+          "DMS-0827208"
+        ],
+        "name": "Netherlands Organization for Scientific Research (NWO)"
+      }
+    ],
+    "DOI": "10.1111/j.1461-0248.2012.01860.x",
+    "type": "article-journal",
+    "page": "1465-1474",
+    "title": "Testing the metabolic theory of ecology",
+    "volume": "15",
+    "author": [
+      {
+        "family": "Price",
+        "given": "Charles A."
+      },
+      {
+        "family": "Weitz",
+        "given": "Joshua S"
+      },
+      {
+        "family": "Savage",
+        "given": "Van M."
+      },
+      {
+        "family": "Stegen",
+        "given": "James"
+      },
+      {
+        "family": "Clarke",
+        "given": "Andrew"
+      },
+      {
+        "family": "Coomes",
+        "given": "David A."
+      },
+      {
+        "family": "Dodds",
+        "given": "Peter S."
+      },
+      {
+        "family": "Etienne",
+        "given": "Rampal S."
+      },
+      {
+        "family": "Kerkhoff",
+        "given": "Andrew J."
+      },
+      {
+        "family": "McCulloh",
+        "given": "Katherine"
+      },
+      {
+        "family": "Niklas",
+        "given": "Karl J."
+      },
+      {
+        "family": "Olff",
+        "given": "Han"
+      },
+      {
+        "family": "Swenson",
+        "given": "Nathan G."
+      }
+    ],
+    "container-title": "Ecology Letters",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          8,
+          30
+        ]
+      ]
+    },
+    "id": "pric12tmt"
+  },
+  {
+    "issue": "978",
+    "DOI": "10.1086/283161",
+    "type": "article-journal",
+    "page": "289-300",
+    "title": "The Kinetics of Functional Response",
+    "volume": "111",
+    "author": [
+      {
+        "family": "Real",
+        "given": "Leslie A."
+      }
+    ],
+    "container-title": "The American Naturalist",
+    "issued": {
+      "date-parts": [
+        [
+          1977,
+          3
+        ]
+      ]
+    },
+    "id": "real77kfr"
+  },
+  {
+    "issue": "3",
+    "DOI": "10.1086/381872",
+    "type": "article-journal",
+    "page": "429-441",
+    "title": "Effects of Body Size and Temperature on Population Growth",
+    "volume": "163",
+    "author": [
+      {
+        "family": "Savage",
+        "given": "Van M."
+      },
+      {
+        "family": "Gillooly",
+        "given": "James F."
+      },
+      {
+        "family": "Brown",
+        "given": "James H."
+      },
+      {
+        "family": "West",
+        "given": "Geoffrey B."
+      },
+      {
+        "family": "Charnov",
+        "given": "Eric L."
+      }
+    ],
+    "container-title": "The American Naturalist",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          3
+        ]
+      ]
+    },
+    "id": "sava04ebs"
+  },
+  {
+    "issue": "1621",
+    "DOI": "10.1098/rspb.2007.0571",
+    "type": "article-journal",
+    "page": "1931-1940",
+    "title": "Evidence for the existence of a robust pattern of prey selection in food webs",
+    "volume": "274",
+    "author": [
+      {
+        "family": "Stouffer",
+        "given": "D. B"
+      },
+      {
+        "family": "Camacho",
+        "given": "J."
+      },
+      {
+        "family": "Jiang",
+        "given": "W."
+      },
+      {
+        "family": "Nunes Amaral",
+        "given": "L. A"
+      }
+    ],
+    "container-title": "Proceedings of the Royal Society B: Biological Sciences",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          8,
+          22
+        ]
+      ]
+    },
+    "id": "stou07eer"
+  },
+  {
     "issue": "3",
     "DOI": "10.1007/s12080-008-0013-5",
     "type": "article-journal",
@@ -484,6 +787,38 @@
       ]
     },
     "id": "will08end"
+  },
+  {
+    "publisher": "Springer Science + Business Media",
+    "DOI": "10.1007/978-1-4020-5337-5_2",
+    "type": "chapter",
+    "page": "37-51",
+    "title": "Homage to Yodzis and Innes 1992: Scaling up Feeding-Based Population Dynamics to Complex Ecological Networks",
+    "author": [
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      },
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Martinez",
+        "given": "Neo D."
+      }
+    ],
+    "container-title": "From Energetics to Ecosystems: The Dynamics and Structure of Ecological Systems",
+    "issued": {
+      "date-parts": [
+        [
+          null
+        ]
+      ]
+    },
+    "ISBN": "http://id.crossref.org/isbn/978-1-4020-5336-8",
+    "URL": "http://dx.doi.org/10.1007/978-1-4020-5337-5_2",
+    "id": "willllhyi"
   },
   {
     "issue": "6",

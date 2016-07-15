@@ -1,0 +1,300 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2016,
+        7,
+        7
+      ]
+    ],
+    "date-time": "2016-07-07T04:40:45Z",
+    "timestamp": 1467866445619
+  },
+  "reference-count": 97,
+  "publisher": "Wiley-Blackwell",
+  "issue": "12",
+  "license": [
+    {
+      "content-version": "tdm",
+      "delay-in-days": 0,
+      "start": {
+        "date-parts": [
+          [
+            2012,
+            8,
+            30
+          ]
+        ],
+        "date-time": "2012-08-30T00:00:00Z",
+        "timestamp": 1346284800000
+      },
+      "URL": "http://doi.wiley.com/10.1002/tdm_license_1"
+    },
+    {
+      "content-version": "vor",
+      "delay-in-days": 0,
+      "start": {
+        "date-parts": [
+          [
+            2012,
+            8,
+            30
+          ]
+        ],
+        "date-time": "2012-08-30T00:00:00Z",
+        "timestamp": 1346284800000
+      },
+      "URL": "http://onlinelibrary.wiley.com/termsAndConditions"
+    }
+  ],
+  "funder": [
+    {
+      "award": [
+        "IBN 09-19871"
+      ],
+      "doi-asserted-by": "crossref",
+      "name": "National Science Foundation",
+      "DOI": "10.13039/100000001"
+    },
+    {
+      "award": [],
+      "doi-asserted-by": "crossref",
+      "name": "Burroughs Wellcome Fund",
+      "DOI": "10.13039/100000861"
+    },
+    {
+      "award": [],
+      "doi-asserted-by": "crossref",
+      "name": "Australian Research Council",
+      "DOI": "10.13039/501100000923"
+    },
+    {
+      "award": [
+        "1021010"
+      ],
+      "name": "NSF DEB"
+    },
+    {
+      "award": [
+        "DBI-0906005"
+      ],
+      "name": "NSF Postdoctoral Fellowship in Biological Informatics"
+    },
+    {
+      "award": [
+        "DMS-0827208"
+      ],
+      "name": "Netherlands Organization for Scientific Research (NWO)"
+    }
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2012,
+        12
+      ]
+    ]
+  },
+  "DOI": "10.1111/j.1461-0248.2012.01860.x",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2012,
+        8,
+        30
+      ]
+    ],
+    "date-time": "2012-08-30T05:52:35Z",
+    "timestamp": 1346305955000
+  },
+  "page": "1465-1474",
+  "source": "CrossRef",
+  "title": "Testing the metabolic theory of ecology",
+  "prefix": "http://id.crossref.org/prefix/10.1111",
+  "volume": "15",
+  "author": [
+    {
+      "affiliation": [
+        {
+          "name": "School of Plant Biology; University of Western Australia; Crawley Perth 6009 Western Australia"
+        }
+      ],
+      "family": "Price",
+      "given": "Charles A."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "School of Biology; Georgia Institute of Technology; Atlanta GA 30332 USA"
+        },
+        {
+          "name": "School of Physics; Georgia Institute of Technology; Atlanta GA 30332 USA"
+        }
+      ],
+      "family": "Weitz",
+      "given": "Joshua S"
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Biomathematics and Department of Ecology and Evolutionary Biology; David Geffen School of Medicine at UCLA; Los Angeles CA 90095 USA"
+        },
+        {
+          "name": "Santa Fe Institute; Santa Fe NM 87501 USA"
+        }
+      ],
+      "family": "Savage",
+      "given": "Van M."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Biological Sciences Division; Pacific Northwest National Laboratory; Richland WA 99352 USA"
+        }
+      ],
+      "family": "Stegen",
+      "given": "James"
+    },
+    {
+      "affiliation": [
+        {
+          "name": "British Antarctic Survey; High Cross, Madingley Road Cambridge CB3 0ET UK"
+        }
+      ],
+      "family": "Clarke",
+      "given": "Andrew"
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Plant Sciences; University of Cambridge; Downing Street Cambridge CB2 3EA UK"
+        }
+      ],
+      "family": "Coomes",
+      "given": "David A."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Mathematics and Statistics; University of Vermont; Burlington VT 05401 USA"
+        }
+      ],
+      "family": "Dodds",
+      "given": "Peter S."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Centre for Ecological and Evolutionary Studies; University of Groningen; Postbox 11103 9700 CC Groningen the Netherlands"
+        }
+      ],
+      "family": "Etienne",
+      "given": "Rampal S."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Departments of Biology and Mathematics; Kenyon College; Gambier OH 43022 USA"
+        }
+      ],
+      "family": "Kerkhoff",
+      "given": "Andrew J."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Forest Ecosystems and Society; Oregon State University; Corvallis OR 97331 USA"
+        }
+      ],
+      "family": "McCulloh",
+      "given": "Katherine"
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Plant Biology; Cornell University; Ithaca NY 14853 USA"
+        }
+      ],
+      "family": "Niklas",
+      "given": "Karl J."
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Centre for Ecological and Evolutionary Studies; University of Groningen; Postbox 11103 9700 CC Groningen the Netherlands"
+        }
+      ],
+      "family": "Olff",
+      "given": "Han"
+    },
+    {
+      "affiliation": [
+        {
+          "name": "Department of Plant Biology; Michigan State University; East Lansing Michigan 48824 USA"
+        }
+      ],
+      "family": "Swenson",
+      "given": "Nathan G."
+    }
+  ],
+  "member": "http://id.crossref.org/member/311",
+  "published-online": {
+    "date-parts": [
+      [
+        2012,
+        8,
+        30
+      ]
+    ]
+  },
+  "container-title": "Ecology Letters",
+  "link": [
+    {
+      "intended-application": "text-mining",
+      "content-version": "vor",
+      "content-type": "application/pdf",
+      "URL": "http://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.1461-0248.2012.01860.x"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2016,
+        7,
+        7
+      ]
+    ],
+    "date-time": "2016-07-07T02:58:29Z",
+    "timestamp": 1467860309000
+  },
+  "score": 1,
+  "subtitle": [],
+  "editor": [
+    {
+      "affiliation": [],
+      "family": "Chave",
+      "given": "Jerome"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2012,
+        8,
+        30
+      ]
+    ]
+  },
+  "URL": "http://dx.doi.org/10.1111/j.1461-0248.2012.01860.x",
+  "archive": [
+    "Portico"
+  ],
+  "ISSN": [
+    "1461-023X"
+  ],
+  "subject": [
+    "Ecology, Evolution, Behavior and Systematics"
+  ],
+  "id": "pric12tmt"
+}
