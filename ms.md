@@ -35,9 +35,9 @@ model addresses mechanisms that are fundamental to our understanding of energy
 flow throughout food webs, we present `befwm` (Bio-Energetic Food Webs Model), a
 *Julia* package implementing @yodz92bsc bio-energetic model adapted for
 food-webs [@will07hyi] with updated allometric coefficients [@bros06ase;
-@brow04mte; @brow12mte]. This package aims to offer an efficient common ground
-for modeling food-web dynamics, to make investigations of this model easier, and
-to facilitate reproducibility and transparency of modeling efforts.
+@brow04mte]. This package aims to offer an efficient common ground for modeling
+food-web dynamics, to make investigations of this model easier, and to
+facilitate reproducibility and transparency of modeling efforts.
 
 # The model
 
