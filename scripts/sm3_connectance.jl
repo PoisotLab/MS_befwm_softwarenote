@@ -28,7 +28,7 @@ addprocs(3)
   return (d, s, b, r)
 end
 
-replicates = 20
+replicates = 80
 df = DataFrame([Float64, Float64, Float64, Float64, Float64, Float64], [:competition, :connectance, :diversity, :stability, :richness, :biomass], replicates * length(conditions))
 
 cursor = 1
