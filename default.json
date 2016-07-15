@@ -377,36 +377,6 @@
     "id": "brow04mte"
   },
   {
-    "publisher": "Wiley-Blackwell",
-    "DOI": "10.1002/9781119968535.ch2",
-    "type": "chapter",
-    "page": "21-33",
-    "title": "The Metabolic Theory of Ecology and Its Central Equation",
-    "author": [
-      {
-        "family": "Brown",
-        "given": "James H."
-      },
-      {
-        "family": "Sibly",
-        "given": "Richard M."
-      }
-    ],
-    "container-title": "A Scaling Approach",
-    "issued": {
-      "date-parts": [
-        [
-          2012,
-          3,
-          27
-        ]
-      ]
-    },
-    "ISBN": "http://id.crossref.org/isbn/9781119968535",
-    "URL": "http://dx.doi.org/10.1002/9781119968535.ch2",
-    "id": "brow12mte"
-  },
-  {
     "issue": "7219",
     "DOI": "10.1038/nature07248",
     "type": "article-journal",
@@ -551,46 +521,6 @@
   },
   {
     "issue": "12",
-    "funder": [
-      {
-        "award": [
-          "IBN 09-19871"
-        ],
-        "doi-asserted-by": "crossref",
-        "name": "National Science Foundation",
-        "DOI": "10.13039/100000001"
-      },
-      {
-        "award": [],
-        "doi-asserted-by": "crossref",
-        "name": "Burroughs Wellcome Fund",
-        "DOI": "10.13039/100000861"
-      },
-      {
-        "award": [],
-        "doi-asserted-by": "crossref",
-        "name": "Australian Research Council",
-        "DOI": "10.13039/501100000923"
-      },
-      {
-        "award": [
-          "1021010"
-        ],
-        "name": "NSF DEB"
-      },
-      {
-        "award": [
-          "DBI-0906005"
-        ],
-        "name": "NSF Postdoctoral Fellowship in Biological Informatics"
-      },
-      {
-        "award": [
-          "DMS-0827208"
-        ],
-        "name": "Netherlands Organization for Scientific Research (NWO)"
-      }
-    ],
     "DOI": "10.1111/j.1461-0248.2012.01860.x",
     "type": "article-journal",
     "page": "1465-1474",
