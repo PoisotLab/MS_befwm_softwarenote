@@ -26,8 +26,7 @@ include("common.jl")
   return (d, s, b, r)
 end
 
-
-replicates = 5
+replicates = 10
 df = DataFrame([Float64, Float64, Float64, Float64, Float64, Float64], [:competition, :connectance, :diversity, :stability, :richness, :biomass], replicates * length(conditions))
 
 cursor = 1
