@@ -1,0 +1,516 @@
+[
+  {
+    "issue": "1",
+    "DOI": "10.2307/3866",
+    "type": "article-journal",
+    "page": "331",
+    "title": "Mutual Interference Between Parasites or Predators and its Effect on Searching Efficiency",
+    "volume": "44",
+    "author": [
+      {
+        "family": "Beddington",
+        "given": "J. R."
+      }
+    ],
+    "container-title": "The Journal of Animal Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          1975,
+          2
+        ]
+      ]
+    },
+    "id": "bedd75mip"
+  },
+  {
+    "issue": "3",
+    "DOI": "10.1111/j.0021-8790.2004.00833.x",
+    "type": "article-journal",
+    "page": "585-598",
+    "title": "Interaction strengths in food webs: issues and opportunities",
+    "volume": "73",
+    "author": [
+      {
+        "family": "Berlow",
+        "given": "Eric L."
+      },
+      {
+        "family": "Neutel",
+        "given": "Anje-Margiet"
+      },
+      {
+        "family": "Cohen",
+        "given": "Joel E."
+      },
+      {
+        "family": "de Ruiter",
+        "given": "Peter C."
+      },
+      {
+        "family": "Ebenman",
+        "given": "Bo"
+      },
+      {
+        "family": "Emmerson",
+        "given": "Mark"
+      },
+      {
+        "family": "Fox",
+        "given": "Jeremy W."
+      },
+      {
+        "family": "Jansen",
+        "given": "Vincent A. A."
+      },
+      {
+        "family": "Iwan Jones",
+        "given": "J."
+      },
+      {
+        "family": "Kokkoris",
+        "given": "Giorgos D."
+      },
+      {
+        "family": "Logofet",
+        "given": "Dmitrii O."
+      },
+      {
+        "family": "McKane",
+        "given": "Alan J."
+      },
+      {
+        "family": "Montoya",
+        "given": "Jose M."
+      },
+      {
+        "family": "Petchey",
+        "given": "Owen"
+      }
+    ],
+    "container-title": "Journal of Animal Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          5
+        ]
+      ]
+    },
+    "id": "berl04isf"
+  },
+  {
+    "issue": "1",
+    "DOI": "10.1073/pnas.0806823106",
+    "type": "article-journal",
+    "page": "187-191",
+    "title": "Simple prediction of interaction strengths in complex food webs",
+    "volume": "106",
+    "author": [
+      {
+        "family": "Berlow",
+        "given": "E. L."
+      },
+      {
+        "family": "Dunne",
+        "given": "J. A."
+      },
+      {
+        "family": "Martinez",
+        "given": "N. D."
+      },
+      {
+        "family": "Stark",
+        "given": "P. B."
+      },
+      {
+        "family": "Williams",
+        "given": "R. J."
+      },
+      {
+        "family": "Brose",
+        "given": "U."
+      }
+    ],
+    "container-title": "Proceedings of the National Academy of Sciences",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          12,
+          29
+        ]
+      ]
+    },
+    "id": "berl08spi"
+  },
+  {
+    "issue": "11",
+    "DOI": "10.1111/j.1461-0248.2006.00978.x",
+    "type": "article-journal",
+    "page": "1228-1236",
+    "title": "Allometric scaling enhances stability in complex food webs",
+    "volume": "9",
+    "author": [
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      },
+      {
+        "family": "Martinez",
+        "given": "Neo D."
+      }
+    ],
+    "container-title": "Ecology Letters",
+    "issued": {
+      "date-parts": [
+        [
+          2006,
+          11
+        ]
+      ]
+    },
+    "id": "bros06ase"
+  },
+  {
+    "issue": "10",
+    "DOI": "10.1890/0012-9658(2006)87[2411:cbrinf]2.0.co;2",
+    "type": "article-journal",
+    "page": "2411-2417",
+    "title": "CONSUMER–RESOURCE BODY-SIZE RELATIONSHIPS IN NATURAL FOOD WEBS",
+    "volume": "87",
+    "author": [
+      {
+        "family": "Brose",
+        "given": "Ulrich"
+      },
+      {
+        "family": "Jonsson",
+        "given": "Tomas"
+      },
+      {
+        "family": "Berlow",
+        "given": "Eric L."
+      },
+      {
+        "family": "Warren",
+        "given": "Philip"
+      },
+      {
+        "family": "Banasek-Richter",
+        "given": "Carolin"
+      },
+      {
+        "family": "Bersier",
+        "given": "Louis-Félix"
+      },
+      {
+        "family": "Blanchard",
+        "given": "Julia L."
+      },
+      {
+        "family": "Brey",
+        "given": "Thomas"
+      },
+      {
+        "family": "Carpenter",
+        "given": "Stephen R."
+      },
+      {
+        "family": "Blandenier",
+        "given": "Marie-France Cattin"
+      },
+      {
+        "family": "Cushing",
+        "given": "Lara"
+      },
+      {
+        "family": "Dawah",
+        "given": "Hassan Ali"
+      },
+      {
+        "family": "Dell",
+        "given": "Tony"
+      },
+      {
+        "family": "Edwards",
+        "given": "Francois"
+      },
+      {
+        "family": "Harper-Smith",
+        "given": "Sarah"
+      },
+      {
+        "family": "Jacob",
+        "given": "Ute"
+      },
+      {
+        "family": "Ledger",
+        "given": "Mark E."
+      },
+      {
+        "family": "Martinez",
+        "given": "Neo D."
+      },
+      {
+        "family": "Memmott",
+        "given": "Jane"
+      },
+      {
+        "family": "Mintenbeck",
+        "given": "Katja"
+      },
+      {
+        "family": "Pinnegar",
+        "given": "John K."
+      },
+      {
+        "family": "Rall",
+        "given": "Björn C."
+      },
+      {
+        "family": "Rayner",
+        "given": "Thomas S."
+      },
+      {
+        "family": "Reuman",
+        "given": "Daniel C."
+      },
+      {
+        "family": "Ruess",
+        "given": "Liliane"
+      },
+      {
+        "family": "Ulrich",
+        "given": "Werner"
+      },
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      },
+      {
+        "family": "Woodward",
+        "given": "Guy"
+      },
+      {
+        "family": "Cohen",
+        "given": "Joel E."
+      }
+    ],
+    "container-title": "Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          2006,
+          10
+        ]
+      ]
+    },
+    "id": "bros06cbr"
+  },
+  {
+    "issue": "7",
+    "DOI": "10.1890/03-9000",
+    "type": "article-journal",
+    "page": "1771-1789",
+    "title": "TOWARD A METABOLIC THEORY OF ECOLOGY",
+    "volume": "85",
+    "author": [
+      {
+        "family": "Brown",
+        "given": "James H."
+      },
+      {
+        "family": "Gillooly",
+        "given": "James F."
+      },
+      {
+        "family": "Allen",
+        "given": "Andrew P."
+      },
+      {
+        "family": "Savage",
+        "given": "Van M."
+      },
+      {
+        "family": "West",
+        "given": "Geoffrey B."
+      }
+    ],
+    "container-title": "Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          7
+        ]
+      ]
+    },
+    "id": "brow04mte"
+  },
+  {
+    "publisher": "Wiley-Blackwell",
+    "DOI": "10.1002/9781119968535.ch2",
+    "type": "chapter",
+    "page": "21-33",
+    "title": "The Metabolic Theory of Ecology and Its Central Equation",
+    "author": [
+      {
+        "family": "Brown",
+        "given": "James H."
+      },
+      {
+        "family": "Sibly",
+        "given": "Richard M."
+      }
+    ],
+    "container-title": "A Scaling Approach",
+    "issued": {
+      "date-parts": [
+        [
+          2012,
+          3,
+          27
+        ]
+      ]
+    },
+    "ISBN": "http://id.crossref.org/isbn/9781119968535",
+    "URL": "http://dx.doi.org/10.1002/9781119968535.ch2",
+    "id": "brow12mte"
+  },
+  {
+    "issue": "7219",
+    "DOI": "10.1038/nature07248",
+    "type": "article-journal",
+    "page": "235-238",
+    "title": "The interaction between predation and competition",
+    "volume": "456",
+    "author": [
+      {
+        "family": "Chesson",
+        "given": "Peter"
+      },
+      {
+        "family": "Kuang",
+        "given": "Jessica J."
+      }
+    ],
+    "container-title": "Nature",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          11,
+          13
+        ]
+      ]
+    },
+    "id": "ches08ipc"
+  },
+  {
+    "issue": "6252",
+    "DOI": "10.1126/science.aac6284",
+    "type": "article-journal",
+    "page": "aac6284-aac6284",
+    "title": "The predator-prey power law: Biomass scaling across terrestrial and aquatic biomes",
+    "volume": "349",
+    "author": [
+      {
+        "family": "Hatton",
+        "given": "I. A."
+      },
+      {
+        "family": "McCann",
+        "given": "K. S."
+      },
+      {
+        "family": "Fryxell",
+        "given": "J. M."
+      },
+      {
+        "family": "Davies",
+        "given": "T. J."
+      },
+      {
+        "family": "Smerlak",
+        "given": "M."
+      },
+      {
+        "family": "Sinclair",
+        "given": "A. R. E."
+      },
+      {
+        "family": "Loreau",
+        "given": "M."
+      }
+    ],
+    "container-title": "Science",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          9,
+          3
+        ]
+      ]
+    },
+    "id": "hatt15ppl"
+  },
+  {
+    "issue": "3",
+    "DOI": "10.1007/s12080-008-0013-5",
+    "type": "article-journal",
+    "page": "141-151",
+    "title": "Effects of network and dynamical model structure on species persistence in large model food webs",
+    "volume": "1",
+    "author": [
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      }
+    ],
+    "container-title": "Theoretical Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          3,
+          14
+        ]
+      ]
+    },
+    "id": "will08end"
+  },
+  {
+    "issue": "6",
+    "DOI": "10.1086/285380",
+    "type": "article-journal",
+    "page": "1151-1175",
+    "title": "Body Size and Consumer-Resource Dynamics",
+    "volume": "139",
+    "author": [
+      {
+        "family": "Yodzis",
+        "given": "P."
+      },
+      {
+        "family": "Innes",
+        "given": "S."
+      }
+    ],
+    "container-title": "The American Naturalist",
+    "issued": {
+      "date-parts": [
+        [
+          1992,
+          6
+        ]
+      ]
+    },
+    "id": "yodz92bsc"
+  }
+]

@@ -35,9 +35,9 @@ model addresses mechanisms that are fundamental to our understanding of energy
 flow throughout food webs, we present `befwm` (Bio-Energetic Food Webs Model), a
 *Julia* package implementing @yodz92bsc bio-energetic model adapted for
 food-webs [@will07hyi] with updated allometric coefficients [@bros06ase;
-@brow04mte]. This package aims to offer an efficient common ground for modeling
-food-web dynamics, to make investigations of this model easier, and to
-facilitate reproducibility and transparency of modeling efforts.
+@brow04mte; @brow12mte]. This package aims to offer an efficient common ground
+for modeling food-web dynamics, to make investigations of this model easier, and
+to facilitate reproducibility and transparency of modeling efforts.
 
 # The model
 
@@ -141,13 +141,10 @@ thus become a non-dimensional rate:
 y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
-Assuming that most natural food-webs have a constant size structure (ref Brose
-et al., 2006a Comsumer-resource body-size relationships in natural food webs;
-ref Hatton et al., 2015 The predator-prey power law: Biomass scaling across
-terrestrial and aquatic biomes), the consumer-resource body-mass ratio ($Z$) is
-also constant. The body-mass of consumers is then a function of their mean
-trophic level ($T$), it increases with trophic level when $Z\geq 1$ and
-decreases when $Z\leq 1$:
+Assuming that most natural food-webs have a constant size structure [@bros06cbr;
+@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is also constant. The
+body-mass of consumers is then a function of their mean trophic level ($T$), it
+increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
 M_C =  Z^T
