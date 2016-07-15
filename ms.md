@@ -150,28 +150,20 @@ increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 M_C =  Z^T
 \end{equation}
 
+All of these parameters can be modified before running the simulations (see
+`?model_parameters`), and are saved alongside the simulation output for future
+analyses.
+
 ## Measures on output
 
-The `befwm` package implements a variety of measures that can be applied on
-the objects returned by simulations. All measures take an optional keyword
-argument `last`, indicating over how many timesteps before the end of the
-simulations the results should be averaged.
+The `befwm` package implements a variety of measures that can be applied on the
+objects returned by simulations. All measures take an optional keyword argument
+`last`, indicating over how many timesteps before the end of the simulations the
+results should be averaged.
 
-Total biomass (`total_biomass`) is the sum of the biomasses across
-all populations. It is measured based on the populations biomasses
+Total biomass (`total_biomass`) is the sum of the biomasses across all
+populations. It is measured based on the populations biomasses
 (`population_biomass`).
-
-Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
-food web. This measure is corrected for the total number of populations. This
-returns values in $]0;1]$, where $1$ indicates that all populations have
-the same biomass. It is measured as
-
-\begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
-\,, \end{equation}
-
-where $n$ is the number of populations, and $b$ are the relative biomasses
-($b_i = B_i / \sum B$).
-
 
 The number of remaining species (`species_richness`) is measured as the number
 of species whose biomass is larger than an arbitrary threshold. By default, the
@@ -180,17 +172,28 @@ rounding in floating point arithmetic. In short, species are considered extinct
 when their biomass is smaller than the rounding error. For floating point values
 encoded over 64 bits (IEEE 754), this is around $10^{-16}$.
 
-Finally, we used the negative size-corrected coefficient of variation
-to assess the temporal stability of biomass stocks across populations
+Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
+food web. This measure is corrected for the total number of populations. This
+returns values in $]0;1]$, where $1$ indicates that all populations have the
+same biomass. It is measured as
+
+\begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
+\,, \end{equation}
+
+where $n$ is the number of populations, and $b$ are the relative biomasses ($b_i =
+B_i / \sum B$).
+
+Finally, we used the negative size-corrected coefficient of variation to assess
+the temporal stability of biomass stocks across populations
 (`population_stability`). This function accepts an additional `threshold`
-argument, specifying the biomass below which populations are excluded from
-the analysis. Since `befwm` uses robust numerical integrators, we suggest
-that this value be set to either the machine's $\epsilon(0.0)$ (*i.e.*
-the smallest value immediately above 0.0 that the machine can represent),
-or to $0.0$. We found that using either of these values had no qualitative
-bearing on the results. Values close to 0 indicate little variation over time,
-and increasingly negative values indicate larger fluctuations (relative to
-the mean standing biomass).
+argument, specifying the biomass below which populations are excluded from the
+analysis. Since `befwm` uses robust adaptive numerical integrators (such as
+ODE45 and ODE78), we suggest that this value be set to either the machine's
+$\epsilon(0.0)$ (*i.e.* the smallest value immediately above 0.0 that the
+machine can represent), or to $0.0$. We found that using either of these values
+had no qualitative bearing on the results. Values close to 0 indicate little
+variation over time, and increasingly negative values indicate larger
+fluctuations (relative to the mean standing biomass).
 
 ## Saving simulations and output format
 
@@ -208,9 +211,6 @@ used when the results will be analyzed outside of `Julia`, for example in `R`).
 The function to save results is called `befwm.save` (note that `befwm.` in front
 is mandatory, to avoid clashes with other functions called `save` in base
 `Julia` or other packages).
-
-Since running simulations is usually the more time-consuming thing, we recommend
-that simulation results be saved, and analyzed later on.
 
 # Implementation and availability
 
@@ -239,8 +239,8 @@ for the current development release.
 
 The code is released under the MIT license. This software note describes version
 `0.1.0`. The source code of the package can be viewed, downloaded, and worked on
-at `http://poisotlab.biol.umontreal.ca/julia-packages/befwm`. The code is also
-mirrored (read-only) at `https://github.com/PoisotLab/befwm.jl`. Potential
+at [http://poisotlab.biol.umontreal.ca/julia-packages/befwm]. The code is also
+mirrored (read-only for stable versions) at [https://github.com/PoisotLab/befwm.jl]. Potential
 issues with the code or package can be reported at either places throug the
 *Issues* system. The code is version-controlled, undergoes continuous
 integration, and has a code coverage of approx. 90% to this date.
@@ -251,11 +251,8 @@ Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
 documentation includes several use-cases, as well as discussion of some design
 choices. All functions in the package have an in-line documentation, available
 from the `julia` interface by typing `?` followed by the name of the function.
-
-[https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
-
-In this section, we will describe two use-cases (the code to execute them
-is given in the manual, and is attached as Supp. Mat. to this paper).
+In this section, we will describe three of the aforementionned use-cases (the
+code to execute them is attached as Supp. Mat. to this paper).
 
 ## Illustration of the temporal dynamics
 
@@ -315,6 +312,15 @@ p = model_parameters(A, Z=scaling[i])
 
 All model parameters can be used this way, and explained in the documentation
 of `?model_parameters`.
+
+## Competition rate and connectance
+
+We finally show the species richness in the model is affected by competition
+rates and connectance of the initial network. This example also illustrates how
+`befwm` can be ran in parallel to leverage mutliple cores availables on most
+machines.
+
+{==TODO==}
 
 # Conclusions
 
