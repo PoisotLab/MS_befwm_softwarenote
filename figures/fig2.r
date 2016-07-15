@@ -1,4 +1,5 @@
 d <- read.table("./figures/sm2.dat", h=T)
+d <- subset(d, stability > -10)
 d <- aggregate(d, by=list(vert=d$vertebrates, d$Z), mean)
 
 d$vert <- as.vector(d$vert)

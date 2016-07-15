@@ -1,13 +1,15 @@
 using DataFrames
 
-addprocs(3)
+addprocs(51)
 
 @everywhere using befwm
 
 @everywhere competition = linspace(0.8, 1.2, 7)
 @everywhere connectance = linspace(0.05, 0.25, 3)
 
+@everywhere replicates = 100
 @everywhere conditions = vcat([[[con, com] for com in competition] for con in connectance]...)
+@everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
 @everywhere function makesim(co, α)
   # Generate a niche model
@@ -28,22 +30,20 @@ addprocs(3)
   return (d, s, b, r)
 end
 
-replicates = 80
-df = DataFrame([Float64, Float64, Float64, Float64, Float64, Float64], [:competition, :connectance, :diversity, :stability, :richness, :biomass], replicates * length(conditions))
 
-cursor = 1
-for replicate in 1:replicates
-  println("Starting replicate $replicate")
-  output = pmap((x) -> makesim(x...), conditions)
-  for k in eachindex(output)
-    df[:competition][cursor] = conditions[k][2]
-    df[:connectance][cursor] = conditions[k][1]
-    df[:diversity][cursor] = output[k][1]
-    df[:stability][cursor] = output[k][2]
-    df[:biomass][cursor] = output[k][3]
-    df[:richness][cursor] = output[k][4]
-    cursor += 1
-  end
+df = DataFrame(
+  [Float64, Float64, Float64, Float64, Float64, Float64],
+  [:competition, :connectance, :diversity, :stability, :richness, :biomass],
+  length(conditions))
+
+output = pmap((x) -> makesim(x...), conditions)
+for k in eachindex(output)
+  df[:competition][k] = conditions[k][2]
+  df[:connectance][k] = conditions[k][1]
+  df[:diversity][k] = output[k][1]
+  df[:stability][k] = output[k][2]
+  df[:biomass][k] = output[k][3]
+  df[:richness][k] = output[k][4]
 end
 
 # Filter results

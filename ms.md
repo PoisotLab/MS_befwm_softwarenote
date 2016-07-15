@@ -258,7 +258,7 @@ In this section, we will describe three of the aforementionned use-cases. The
 code to execute them is attached as Supp. Mat. to this paper. As all code in the
 supplementary material uses `Julia`'s parallel computing abilities, it will
 differ slightly from the examples given in the paper. For all figures, each
-point is the average of 80 replicates.
+point is the average of at least 100 replicates.
 
 ## Effect of increasing carrying capacity
 

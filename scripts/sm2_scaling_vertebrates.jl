@@ -4,10 +4,10 @@ addprocs(51)
 
 @everywhere using befwm
 
-@everywhere Z = logspace(-2, 2, 7)
+@everywhere Z = logspace(-3, 3, 15)
 @everywhere V = vec([true false])
 
-@everywhere replicates = 100
+@everywhere replicates = 200
 @everywhere conditions = vcat([[(z, v) for z in Z] for v in V]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
