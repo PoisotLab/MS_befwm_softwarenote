@@ -487,6 +487,31 @@
     "id": "hatt15ppl"
   },
   {
+    "issue": "5611",
+    "DOI": "10.1126/science.1079154",
+    "type": "article-journal",
+    "page": "1388-1391",
+    "title": "Foraging Adaptation and the Relationship Between Food-Web Complexity and Stability",
+    "volume": "299",
+    "author": [
+      {
+        "family": "Kondoh",
+        "given": "M."
+      }
+    ],
+    "container-title": "Science",
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          2,
+          28
+        ]
+      ]
+    },
+    "id": "kond03far"
+  },
+  {
     "issue": "7173",
     "DOI": "10.1038/nature06359",
     "type": "article-journal",
