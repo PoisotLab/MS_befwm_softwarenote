@@ -38,7 +38,7 @@ figure:
     short: Effect of varying the carrying capacity.
     file: carryingcapacity.pdf
   - id: vertebrate
-    caption: The peak of stability, in terms of allometric scaling, differs between vetebrates and invertebrates.
+    caption: The peak of stability, in terms of allometric scaling, differs between vetebrates and invertebrates. Note that the \emph{y} axis is reversed, since more negative values indicate less variation, and therefore more temporal stability.
     short: Stability as a function of organism type and allometric scaling.
     file: vertebrate.pdf
   - id: connectance

@@ -219,22 +219,11 @@ immediately before, as well as on the current development version. `Julia` is an
 ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
-REPL using
+REPL using `Pkg.add("befwm")`.
 
-{==Note to reviewers: the code will be uploaded to the Julia packages
-repository upon acceptance; meanwhile, please use the development version.==}
-
-~~~ julia
-Pkg.add("befwm")
-~~~
-
-for the last stable release, or
-
-~~~ julia
-Pkg.clone("http://poisotlab.biol.umontreal.ca/julia-packages/befwm.git")
-~~~
-
-for the current development release.
+{==Note to reviewers: the code will be uploaded to the Julia packages repository
+upon acceptance; meanwhile, the development version can be downloaded from the
+URL given below using `Pkg.clone`, and has been attached to this submission.==}
 
 The code is released under the MIT license. This software note describes version
 `0.1.0`. The source code of the package can be viewed, downloaded, and worked on
