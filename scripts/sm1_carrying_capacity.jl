@@ -7,7 +7,7 @@ addprocs(51)
 @everywhere competition = linspace(0.92, 1.08, 3)
 @everywhere k = logspace(-1, 1, 15)
 
-@everywhere replicates = 250
+@everywhere replicates = 500
 @everywhere conditions = vcat([[[K, com] for com in competition] for K in k]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 

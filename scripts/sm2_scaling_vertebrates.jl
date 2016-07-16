@@ -4,10 +4,10 @@ addprocs(51)
 
 @everywhere using befwm
 
-@everywhere Z = logspace(-3, 3, 15)
+@everywhere Z = logspace(-2, 2, 13)
 @everywhere V = vec([true false])
 
-@everywhere replicates = 50
+@everywhere replicates = 500
 @everywhere conditions = vcat([[(z, v) for z in Z] for v in V]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
@@ -28,7 +28,7 @@ addprocs(51)
     # If not, all are invertebrates
     vertebrates = falses(size(A, 1))
   end
-  p = model_parameters(A, productivity=:species, Z=z, vertebrates=round(Bool, vertebrates))
+  p = model_parameters(A, productivity=:system, Z=z, vertebrates=round(Bool, vertebrates))
   bm = rand(size(A, 1))
   out = simulate(p, bm, start=0, stop=2000, use=:ode45)
   # Get results
