@@ -247,7 +247,9 @@ In this section, we will describe three of the aforementionned use-cases. The
 code to execute them is attached as Supp. Mat. to this paper. As all code in the
 supplementary material uses `Julia`'s parallel computing abilities, it will
 differ slightly from the examples given in the paper. For all figures, each
-point is the average of at least 100 replicates.
+point is the average of at least 500 replicates. We conducted the simulations in
+parallel on 50 Intel Xeon cores at 2.00 Ghz; the runtime of examples varied
+between a few minutes (SM2, SM3) and one hour (SM3).
 
 ## Effect of increasing carrying capacity
 
@@ -387,5 +389,9 @@ of the package was used, and to publish the script used to run the simulations
 effort invested in providing the community with reference implementation
 of models representing cornerstones of our ecological understanding is an
 important effort.
+
+**Acknowledgements** TP acknowledges financial support from NSERC, and an
+equipment grant from FRQNT. We thank the developers and maintainers of
+`ODE.jl`.
 
 # References
