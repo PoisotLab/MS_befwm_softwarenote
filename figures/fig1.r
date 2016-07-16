@@ -3,7 +3,7 @@ d <- aggregate(d, by=list(d$competition, d$K), mean)
 
 library(RColorBrewer)
 
-pdf("figures/carryingcapacity.pdf")
+pdf("figures/carryingcapacity.pdf", height=5)
 
 palette(brewer.pal(5, "PRGn"))
 

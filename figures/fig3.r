@@ -4,7 +4,7 @@ d <- aggregate(d, by=list(d$competition, d$connectance), mean)
 
 library(RColorBrewer)
 
-pdf("figures/connectance.pdf")
+pdf("figures/connectance.pdf", height=5)
 
 palette(brewer.pal(6, "PuBuGn")[-1])
 
