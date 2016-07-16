@@ -4,7 +4,7 @@ addprocs(51)
 
 @everywhere using befwm
 
-@everywhere Z = logspace(-2, 2, 9)
+@everywhere Z = logspace(-2, 4, 19)
 @everywhere V = vec([true false])
 
 @everywhere replicates = 500
