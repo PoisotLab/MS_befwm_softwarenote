@@ -8,11 +8,11 @@ library(RColorBrewer)
 
 pdf("figures/vertebrate.pdf")
 
-palette(brewer.pal(3, "Set2"))
+palette(brewer.pal(3, "BrBG")[-2])
 
-plot(0, pch=NA, xlim=range(d$Z), ylim=range(d$stability),
-      xlab = "Scaling (log)", ylab = "Temporal stability",
-      las = 1, log='x')
+plot(0, pch=NA, xlim=range(d$Z), ylim=c(0, -7),
+      xlab = "Allometric scaling (log)", ylab = "Temporal stability",
+      las = 1, log='x', xaxs='i', yaxs='i')
 
 abline(v=1, col='grey')
 
@@ -26,5 +26,7 @@ for(v in unique(d$vert)) {
 legend("bottomleft", fill=c(1:3),
       legend=c("Vertebrate consumers", "Invertebrate consumers"),
       bty='n')
+
+box()
 
 dev.off()
