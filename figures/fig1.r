@@ -5,11 +5,11 @@ library(RColorBrewer)
 
 pdf("figures/carryingcapacity.pdf")
 
-palette(brewer.pal(3, "Set2"))
+palette(brewer.pal(3, "Dark2"))
 
-plot(0, pch=NA, xlim=range(d$K), ylim=range(d$diversity),
+plot(0, pch=NA, xlim=range(d$K), ylim=c(0, 0.6),
       xlab = "Carrying capacity", ylab = "Diversity",
-      las = 1, log='x')
+      las = 1, log='x', xaxs='i', yaxs='i')
 
 i <- 1
 for(comp in unique(d$competition)) {

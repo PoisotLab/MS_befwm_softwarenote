@@ -307,14 +307,12 @@ end
 
 The results are presented in \autoref{carrying}.
 
-## Effect of allometric scaling on stability and diversity
+## Effect of allometric scaling on stability
 
-We now illustrate how the package can be used to explore responses of the
-system to changes in parameters. In particular, we explore how diversity
-and population stability are affected by an increase in connectance. The
-results are presented in \autoref{scaling}.
+In \autoref{vertebrate}, we illustrate how the effect of scaling differs between
+food webs with invertebrates and vertebrate consumers.
 
-!{scaling}
+!{vertebrate}
 
 The allometric scaling is controlled by the parameter $Z$ (field `Z` in the
 code), and can be changed in the following way:
@@ -324,8 +322,22 @@ code), and can be changed in the following way:
 p = model_parameters(A, Z=scaling[i])
 ~~~
 
-All model parameters can be used this way, and explained in the documentation
-of `?model_parameters`.
+Which species is a vertebrate is controlled by the parameter `vertebrate` of
+`model_parameters`, which is an array of boolean (true/false) values. In order
+to have all consumers be vertebrates, we use
+
+~~~ julia
+vert = round(Bool,trophic_rank(A).>1.0)
+~~~
+
+so that for each network, we prepare the simulations with
+
+~~~ julia
+# Prepare the simulation parameters
+p = model_parameters(A,
+      Z=scaling[i],
+      vertebrates=vert)
+~~~
 
 ## Connectance effect on coexistence
 

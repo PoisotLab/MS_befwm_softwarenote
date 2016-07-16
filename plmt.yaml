@@ -34,17 +34,17 @@ keyword:
   - k: community ecology
 figure:
   - id: carrying
-    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in [0.92, 1.0, 1.08]$).
+    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in [0.9, 1.1]$).
     short: Effect of varying the carrying capacity.
     file: carryingcapacity.pdf
   - id: vertebrate
-    caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
-    short: Diversity and stability as a function of allometric scaling.
-    file: scaling
+    caption: The peak of stability, in terms of allometric scaling, differs between vetebrates and invertebrates.
+    short: Stability as a function of organism type and allometric scaling.
+    file: vertebrate.pdf
   - id: connectance
-    caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
-    short: Diversity and stability as a function of allometric scaling.
-    file: connectance
+    caption: Although maximal species persistence is reach for values of inter-specific competition lower than unity, the increased trophic control at higher connectances allow coexistence even under stronger competition.
+    short: Connectance and competition affect species persistence.
+    file: connectance.pdf
 date: \today
 abstract: ...
 ...
