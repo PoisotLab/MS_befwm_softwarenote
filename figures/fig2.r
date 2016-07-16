@@ -10,7 +10,7 @@ pdf("figures/vertebrate.pdf")
 
 palette(brewer.pal(3, "Set2"))
 
-plot(0, pch=NA, xlim=range(d$Z), ylim=range(d$stability),
+plot(0, pch=NA, xlim=range(d$Z), ylim=range(d$biomass),
       xlab = "Scaling (log)", ylab = "Temporal stability",
       las = 1, log='x')
 
@@ -19,7 +19,7 @@ abline(v=1, col='grey')
 i <- 1
 for(v in unique(d$vert)) {
   x <- subset(d, vert == v)
-  lines(stability~Z, x, col = i, type='o', pch=19, lwd=3)
+  lines(biomass~Z, x, col = i, type='o', pch=19, lwd=3)
   i <- i + 1
 }
 
