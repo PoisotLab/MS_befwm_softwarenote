@@ -34,7 +34,7 @@ keyword:
   - k: community ecology
 figure:
   - id: carrying
-    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in [0.9, 1.1]$).
+    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in \left[0.9, 1.1\right]$). For conditions of neutral coexistence or coexistence ($\alpha \leq 1$), diversity is stable until $K \approx 5$. For conditions of competition exclusion ($\alpha > 1$), diversity increases for $K < 5$, and decreases after.
     short: Effect of varying the carrying capacity.
     file: carryingcapacity.pdf
   - id: vertebrate
