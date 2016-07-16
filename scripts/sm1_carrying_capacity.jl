@@ -4,8 +4,8 @@ addprocs(51)
 
 @everywhere using befwm
 
-@everywhere competition = linspace(0.90, 1.10, 11)
-@everywhere k = logspace(-1, 1, 10)
+@everywhere competition = linspace(0.90, 1.10, 3)
+@everywhere k = logspace(-1, 1, 19)
 
 @everywhere replicates = 500
 @everywhere conditions = vcat([[[K, com] for com in competition] for K in k]...)
@@ -26,7 +26,7 @@ addprocs(51)
   s = population_stability(out, last=1000, threshold=eps())
   b = total_biomass(out, last=1000)
   r = species_richness(out, last=1000, threshold=eps()) / 20.0
-  # Return
+  # Return20
   return (d, s, b, r)
 end
 
