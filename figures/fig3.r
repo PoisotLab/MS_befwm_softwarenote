@@ -20,8 +20,8 @@ i <- 1
 for(co in unique(d$connectance)) {
   x <- subset(d, connectance ==  co)
   cex = 1.0
-  if (i == 1) cex <- 2
-  lines(richness~competition, x, col = i, type='l', pch=NA, lwd=1, lty = lt)
+  if (i == 1) cex <- 1
+  lines(richness~competition, x, col = i, type='l', pch=NA, lwd=1)
   lines(richness~competition, x, col = i, type='p', pch=20+i, lwd=2, bg='white', cex=cex)
   i <- i + 1
 }
@@ -32,7 +32,7 @@ legend("topright",
       legend=c(unique(d$connectance)),
       col = c(1:5),
       pch = 20 + c(1:5),
-      pt.cex = c(2.0, rep(1, 4)),
+      pt.cex = c(1.0, rep(1, 4)),
       pt.lwd = 2,
       bty='n')
 
