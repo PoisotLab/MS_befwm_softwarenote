@@ -43,15 +43,14 @@ facilitate reproducibility and transparency of modeling efforts.
 
 ## Biomass dynamics
 
-We implement the model as described by @bros06ase, which is itself explained
-in greater detail in @will07hyi. This model describes the flows of biomass
-across trophic levels, primarily defined by body size. It distinguishes
-populations based on two highly influential variables for the biological rates,
-body mass and metabolic type. Once this distinction made,
-it models populations as simple stocks of biomass growing and shrinking
-through consumer-resources interactions. The governing
-equations below describe the changes in relative density of producers and
-consumers respectively.
+We implement the model as described by @bros06ase, which is itself explained in
+greater detail in @will07hyi. This model describes the flows of biomass across
+trophic levels, primarily defined by body size. It distinguishes populations
+based on two highly influential variables for the biological rates, body mass
+and metabolic type. Once this distinction made, it models populations as simple
+stocks of biomass growing and shrinking through consumer-resources interactions.
+The governing equations below describe the changes in relative density of
+producers and consumers respectively.
 
 \begin{equation}\label{e:producer}
 B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
@@ -61,8 +60,8 @@ B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 B'_i = -x_iB_i+\sum_{j \in \text{resources}} x_iy_iB_iF_{ij}-\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
 \end{equation}
 
-where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific
-maximum growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
+where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
+growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
 metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
 population j and $F_{ij}$ is the multi-resources functional response of $i$
@@ -71,6 +70,20 @@ consuming $j$:
 \begin{equation}\label{e:func_resp}
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
+
+The formulation of the growth rate $G_i$ can be chosen among three possibilities
+[@will08end] that all share the general equation of $G_i = 1 - p/k$, where $p$
+is the sum of biomass of populations in competition for a ressource with
+carrying capacity $k$. The first scenario, used by @bros06ase, sets $p = B_i$
+and $k = K$: species only compete with themselves for independant resources. The
+issue with this formulation [@kond03far] is that the biomass and productivity of
+the system scales linearly with the number of primary producers. The second
+formulation "shares" the resource across primary producers, with $p = B_i$ and
+$k = K/n_P$, wherein $n_p$ is the number of primary producers. Finally, a more
+general solution is $p = \sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific
+competition) set to unity and $\alpha_{ij}$ (inter-specific competition) taking
+values greater than or equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to
+$k = K$ and $p = B_i$.
 
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, or the relative preference of consumer $i$ for $j$
@@ -85,26 +98,11 @@ predator population's biomass negatively affect its feeding rates [@bedd75mip;
 take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
 $c = 0$), or predator interference ($h = 1$ and $c > 0$).
 
-The formulation of the growth rate $G_i$ can be chosen among three possibilities
-(ref William 2008). The first is the same as used by @bros06ase, a simple
-logistic growth rate model where each producer have its own carrying capacity
-($K_i = K = 1$ in @bros06ase model), then $G_i = 1 - \frac {B_i} {K}$. Choosing
-this model yield the issue of having both the total biomass and primary
-productivity of the system increasing with the number of producer in the system
-(ref. Kondoh 2003). Choosing a system-wide carrying capacity allows to control
-for this effect. Then, the carrying capacity of the basal species can be $K_i =
-\frac {K} {n_p}$ where $n_p$ is the number of producers. Or a second
-possibility is to have $G_i$ being a Lotka-Volterra competition system where the
-producers compete for the system-wide carrying capacity. Then $G_i =
-1-\frac{\sum_{j \in \text{producers}}\alpha_{ij}B_j}{K}$ where $\alpha_{ij}$
-defines the competition rates between the basal species.
-
-As almost all organism metabolic characteristics vary predictably with
-body-mass [@brow04mte], these variations can be described by allometric
-relationships as described in @bros06ase. Hence, the per unit biomass
-biological rates of production, metabolism and maximum consumption follow
-negative power-law relationships with the typical adult body-mass [@pric12tmt;
-@sava04ebs].
+As almost all organism metabolic characteristics vary predictably with body-mass
+[@brow04mte], these variations can be described by allometric relationships as
+described in @bros06ase. Hence, the per unit biomass biological rates of
+production, metabolism and maximum consumption follow negative power-law
+relationships with the typical adult body-mass [@pric12tmt; @sava04ebs].
 
 \begin{equation}\label{e:production_rate}
 R_P =  a_r M_P^{-0.25}
@@ -141,40 +139,29 @@ thus become a non-dimensional rate:
 y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
-Assuming that most natural food-webs have a constant size structure (ref Brose
-et al., 2006a Comsumer-resource body-size relationships in natural food webs;
-ref Hatton et al., 2015 The predator-prey power law: Biomass scaling across
-terrestrial and aquatic biomes), the consumer-resource body-mass ratio ($Z$) is
-also constant. The body-mass of consumers is then a function of their mean
-trophic level ($T$), it increases with trophic level when $Z\geq 1$ and
-decreases when $Z\leq 1$:
+Assuming that most natural food-webs have a constant size structure [@bros06cbr;
+@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is also constant. The
+body-mass of consumers is then a function of their mean trophic level ($T$), it
+increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
 M_C =  Z^T
 \end{equation}
 
+All of these parameters can be modified before running the simulations (see
+`?model_parameters`), and are saved alongside the simulation output for future
+analyses.
+
 ## Measures on output
 
-The `befwm` package implements a variety of measures that can be applied on
-the objects returned by simulations. All measures take an optional keyword
-argument `last`, indicating over how many timesteps before the end of the
-simulations the results should be averaged.
+The `befwm` package implements a variety of measures that can be applied on the
+objects returned by simulations. All measures take an optional keyword argument
+`last`, indicating over how many timesteps before the end of the simulations the
+results should be averaged.
 
-Total biomass (`total_biomass`) is the sum of the biomasses across
-all populations. It is measured based on the populations biomasses
+Total biomass (`total_biomass`) is the sum of the biomasses across all
+populations. It is measured based on the populations biomasses
 (`population_biomass`).
-
-Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
-food web. This measure is corrected for the total number of populations. This
-returns values in $]0;1]$, where $1$ indicates that all populations have
-the same biomass. It is measured as
-
-\begin{equation} H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}
-\,, \end{equation}
-
-where $n$ is the number of populations, and $b$ are the relative biomasses
-($b_i = B_i / \sum B$).
-
 
 The number of remaining species (`species_richness`) is measured as the number
 of species whose biomass is larger than an arbitrary threshold. By default, the
@@ -183,17 +170,29 @@ rounding in floating point arithmetic. In short, species are considered extinct
 when their biomass is smaller than the rounding error. For floating point values
 encoded over 64 bits (IEEE 754), this is around $10^{-16}$.
 
-Finally, we used the negative size-corrected coefficient of variation
-to assess the temporal stability of biomass stocks across populations
+Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
+food web. This measure is corrected for the total number of populations. This
+returns values in $]0;1]$, where $1$ indicates that all populations have the
+same biomass. It is measured as
+
+\begin{equation}
+H = - \frac{\sum b \times \text{log}(b)}{\text{log}(n)}\,,
+\end{equation}
+
+where $n$ is the number of populations, and $b$ are the relative biomasses ($b_i =
+B_i / \sum B$).
+
+Finally, we used the negative size-corrected coefficient of variation to assess
+the temporal stability of biomass stocks across populations
 (`population_stability`). This function accepts an additional `threshold`
-argument, specifying the biomass below which populations are excluded from
-the analysis. Since `befwm` uses robust numerical integrators, we suggest
-that this value be set to either the machine's $\epsilon(0.0)$ (*i.e.*
-the smallest value immediately above 0.0 that the machine can represent),
-or to $0.0$. We found that using either of these values had no qualitative
-bearing on the results. Values close to 0 indicate little variation over time,
-and increasingly negative values indicate larger fluctuations (relative to
-the mean standing biomass).
+argument, specifying the biomass below which populations are excluded from the
+analysis. Since `befwm` uses robust adaptive numerical integrators (such as
+ODE45 and ODE78), we suggest that this value be set to either the machine's
+$\epsilon(0.0)$ (*i.e.* the smallest value immediately above 0.0 that the
+machine can represent), or to $0.0$. We found that using either of these values
+had no qualitative bearing on the results. Values close to 0 indicate little
+variation over time, and increasingly negative values indicate larger
+fluctuations (relative to the mean standing biomass).
 
 ## Saving simulations and output format
 
@@ -212,9 +211,6 @@ The function to save results is called `befwm.save` (note that `befwm.` in front
 is mandatory, to avoid clashes with other functions called `save` in base
 `Julia` or other packages).
 
-Since running simulations is usually the more time-consuming thing, we recommend
-that simulation results be saved, and analyzed later on.
-
 # Implementation and availability
 
 The `befwm` package is available for the `julia` programming language, and is
@@ -223,30 +219,23 @@ immediately before, as well as on the current development version. `Julia` is an
 ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
-REPL using
+REPL using `Pkg.add("befwm")`.
 
-{==Note to reviewers: the code will be uploaded to the Julia packages
-repository upon acceptance; meanwhile, please use the development version.==}
-
-~~~ julia
-Pkg.add("befwm")
-~~~
-
-for the last stable release, or
-
-~~~ julia
-Pkg.clone("http://poisotlab.biol.umontreal.ca/julia-packages/befwm.git")
-~~~
-
-for the current development release.
+{==Note to reviewers: the code will be uploaded to the Julia packages repository
+upon acceptance; meanwhile, the development version can be downloaded from the
+URL given below using `Pkg.clone`, and has been attached to this submission.==}
 
 The code is released under the MIT license. This software note describes version
 `0.1.0`. The source code of the package can be viewed, downloaded, and worked on
-at `http://poisotlab.biol.umontreal.ca/julia-packages/befwm`. The code is also
-mirrored (read-only) at `https://github.com/PoisotLab/befwm.jl`. Potential
-issues with the code or package can be reported at either places throug the
-*Issues* system. The code is version-controlled, undergoes continuous
-integration, and has a code coverage of approx. 90% to this date.
+at [http://poisotlab.biol.umontreal.ca/julia-packages/befwm]. The code is also
+mirrored (read-only for stable versions) at
+[https://github.com/PoisotLab/befwm.jl]. Potential issues with the code or
+package can be reported at either places throug the *Issues* system. The code is
+version-controlled, undergoes continuous integration, and has a code coverage of
+approx. 90% to this date.
+
+[http://poisotlab.biol.umontreal.ca/julia-packages/befwm]: http://poisotlab.biol.umontreal.ca/julia-packages/befwm
+[https://github.com/PoisotLab/befwm.jl]: https://github.com/PoisotLab/befwm.jl
 
 # Use cases
 
@@ -254,20 +243,23 @@ Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
 documentation includes several use-cases, as well as discussion of some design
 choices. All functions in the package have an in-line documentation, available
 from the `julia` interface by typing `?` followed by the name of the function.
+In this section, we will describe three of the aforementionned use-cases. The
+code to execute them is attached as Supp. Mat. to this paper. As all code in the
+supplementary material uses `Julia`'s parallel computing abilities, it will
+differ slightly from the examples given in the paper. For all figures, each
+point is the average of at least 500 replicates. We conducted the simulations in
+parallel on 50 Intel Xeon cores at 2.00 Ghz; the runtime of examples varied
+between a few minutes (SM2, SM3) and one hour (SM3).
 
-[https://www.gitbook.com/book/poisotlab/befwm/details]: https://www.gitbook.com/book/poisotlab/befwm/details
+## Effect of increasing carrying capacity
 
-In this section, we will describe two use-cases (the code to execute them
-is given in the manual, and is attached as Supp. Mat. to this paper).
+Starting from networks generated with the niche model, with 20 species,
+connectance of $0.15 \pm 0.01$, we investigate the effect of increasing the
+carrying capacity of the resource (on a log scale from 0.1 to 10). We use three
+values of the $\alpha_{ij}$ parameter, ranging from favoring coexistence (0.92),
+neutrally stable (1.0), to weak competitive exclusion (1.08).
 
-## Illustration of the temporal dynamics
-
-We will investigate the temporal dynamics of total biomass (sum of biomasses of
-all populations), and of diversity (Shannon's index of biomasses) across 50
-replicate simulations. Every simulation uses a different network (generated with
-the niche model, 20 species, connectance of $0.25 \pm 0.01$).
-
-!{temporal}
+!{carrying}
 
 We run the simulations with the default parameters (given in
 `?model_parameters`, and in the manual). Each simulation consists of the
@@ -277,36 +269,41 @@ following code:
 # We generate a random food web
 A = nichemodel(20, 0.25)
 
-# This loop will keep on trying food webs until
-# one with a connectance close enough to 0.25
-# is found
-while abs(befwm.connectance(A) - 0.25) > 0.01
-    A = nichemodel(20, 0.25)
+# This loop will keep on trying food webs
+# until one with a connectance close enough
+# to 0.15 is found
+while abs(befwm.connectance(A)-0.15)>0.01
+    A = nichemodel(20, 0.15)
 end
 
 # Prepare the simulation parameters
-p = model_parameters(A)
-
-# We start each simulation with random biomasses
-# in ]0;1[
-bm = rand(size(A, 1))
-
-# And finally, we simulate over 500 timesteps
-out = simulate(p, bm, start=0, stop=500,
-        steps=1500, use=:ode45)
+for α in linspace(0.92, 1.08, 3)
+  for K in logspace(-1, 1, 9)
+    p = model_parameters(A, α=α,
+        K=K,
+        productivity=:competitive)
+    # We start each simulation with
+    # random biomasses in ]0;1[
+    bm = rand(size(A, 1))
+    # And finally, we simulate.
+    out = simulate(p, bm, start=0,
+          stop=2000, use=:ode45)
+    # And measure the output
+    diversity = foodweb_diversity(out,
+                    last=1000,
+                    threshold=eps())
+  end
+end
 ~~~
 
-The results are presented in \autoref{temporal}. With this choice of
-parameters, the community reaches stability within 100 timesteps.
+The results are presented in \autoref{carrying}.
 
-## Effect of allometric scaling on stability and diversity
+## Effect of allometric scaling on stability
 
-We now illustrate how the package can be used to explore responses of the
-system to changes in parameters. In particular, we explore how diversity
-and population stability are affected by an increase in connectance. The
-results are presented in \autoref{scaling}.
+In \autoref{vertebrate}, we illustrate how the effect of scaling differs between
+food webs with invertebrates and vertebrate consumers.
 
-!{scaling}
+!{vertebrate}
 
 The allometric scaling is controlled by the parameter $Z$ (field `Z` in the
 code), and can be changed in the following way:
@@ -316,8 +313,59 @@ code), and can be changed in the following way:
 p = model_parameters(A, Z=scaling[i])
 ~~~
 
-All model parameters can be used this way, and explained in the documentation
-of `?model_parameters`.
+Which species is a vertebrate is controlled by the parameter `vertebrate` of
+`model_parameters`, which is an array of boolean (true/false) values. In order
+to have all consumers be vertebrates, we use
+
+~~~ julia
+vert = round(Bool,trophic_rank(A).>1.0)
+~~~
+
+so that for each network, we prepare the simulations with
+
+~~~ julia
+# Prepare the simulation parameters
+p = model_parameters(A,
+      Z=scaling[i],
+      vertebrates=vert)
+~~~
+
+## Connectance effect on coexistence
+
+We investigate the effect of connectance on species coexistence under different
+scenarios of inter-specific competition rates (\autoref{connectance}).
+
+!{connectance}
+
+~~~ julia
+for co in vec([0.05 0.15 0.25])
+  # We generate a random food web
+  A = nichemodel(co, 0.25)
+  while abs(befwm.connectance(A)-co)>0.01
+      A = nichemodel(co, 0.25)
+  end
+  # Prepare the simulation parameters
+  for α in linspace(0.8, 1.2 , 7)
+    p = model_parameters(A, α=α,
+    productivity=:competitive)
+    bm = rand(size(A, 1))
+    # And finally, we simulate.
+    out = simulate(p, bm, start=0,
+          stop=2000, use=:ode45)
+    # And measure the output
+    persistence = species_richness(out,
+                  last=1000,
+                  threshold=eps()) / 20
+  end
+end
+~~~
+
+ Values of $\alpha$ larger than 0 should result in competitive exclusion in the
+ absence of trophic interactions [@will08end]. Indeed, this is the case when $Co =
+ 0.05$ (only a single consumer remains). Increasing connectance results in more
+ species persisting.  The persistence is the number of remaining species (*i.e.*
+ with a biomass larger than `eps()`), divided by the initial number of species
+ (20).
 
 # Conclusions
 
@@ -341,5 +389,9 @@ of the package was used, and to publish the script used to run the simulations
 effort invested in providing the community with reference implementation
 of models representing cornerstones of our ecological understanding is an
 important effort.
+
+**Acknowledgements** TP acknowledges financial support from NSERC, and an
+equipment grant from FRQNT. We thank the developers and maintainers of
+`ODE.jl`.
 
 # References

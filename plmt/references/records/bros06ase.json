@@ -1,0 +1,120 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2015,
+        12,
+        21
+      ]
+    ],
+    "date-time": "2015-12-21T20:31:42Z",
+    "timestamp": 1450729902592
+  },
+  "reference-count": 52,
+  "publisher": "Wiley-Blackwell",
+  "issue": "11",
+  "license": [
+    {
+      "content-version": "tdm",
+      "delay-in-days": 3226,
+      "start": {
+        "date-parts": [
+          [
+            2015,
+            9,
+            1
+          ]
+        ],
+        "date-time": "2015-09-01T00:00:00Z",
+        "timestamp": 1441065600000
+      },
+      "URL": "http://doi.wiley.com/10.1002/tdm_license_1"
+    }
+  ],
+  "published-print": {
+    "date-parts": [
+      [
+        2006,
+        11
+      ]
+    ]
+  },
+  "DOI": "10.1111/j.1461-0248.2006.00978.x",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2006,
+        10,
+        14
+      ]
+    ],
+    "date-time": "2006-10-14T07:54:51Z",
+    "timestamp": 1160812491000
+  },
+  "page": "1228-1236",
+  "source": "CrossRef",
+  "title": "Allometric scaling enhances stability in complex food webs",
+  "prefix": "http://id.crossref.org/prefix/10.1111",
+  "volume": "9",
+  "author": [
+    {
+      "affiliation": [],
+      "family": "Brose",
+      "given": "Ulrich"
+    },
+    {
+      "affiliation": [],
+      "family": "Williams",
+      "given": "Richard J."
+    },
+    {
+      "affiliation": [],
+      "family": "Martinez",
+      "given": "Neo D."
+    }
+  ],
+  "member": "http://id.crossref.org/member/311",
+  "container-title": "Ecology Letters",
+  "link": [
+    {
+      "intended-application": "text-mining",
+      "content-version": "vor",
+      "content-type": "unspecified",
+      "URL": "http://api.wiley.com/onlinelibrary/tdm/v1/articles/10.1111%2Fj.1461-0248.2006.00978.x"
+    }
+  ],
+  "deposited": {
+    "date-parts": [
+      [
+        2015,
+        10,
+        22
+      ]
+    ],
+    "date-time": "2015-10-22T13:37:37Z",
+    "timestamp": 1445521057000
+  },
+  "score": 1,
+  "subtitle": [],
+  "issued": {
+    "date-parts": [
+      [
+        2006,
+        11
+      ]
+    ]
+  },
+  "alternative-id": [
+    "10.1111/j.1461-0248.2006.00978.x"
+  ],
+  "URL": "http://dx.doi.org/10.1111/j.1461-0248.2006.00978.x",
+  "ISSN": [
+    "1461-023X",
+    "1461-0248"
+  ],
+  "subject": [
+    "Ecology, Evolution, Behavior and Systematics"
+  ],
+  "id": "bros06ase"
+}

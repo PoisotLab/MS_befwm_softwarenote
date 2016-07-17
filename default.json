@@ -48,7 +48,12 @@
     "id": "bedd75mip"
   },
   {
+    "issue": "3",
     "DOI": "10.1111/j.0021-8790.2004.00833.x",
+    "type": "article-journal",
+    "page": "585-598",
+    "title": "Interaction strengths in food webs: issues and opportunities",
+    "volume": "73",
     "author": [
       {
         "family": "Berlow",
@@ -63,8 +68,8 @@
         "given": "Joel E."
       },
       {
-        "family": "Ruiter",
-        "given": "Peter C. de"
+        "family": "de Ruiter",
+        "given": "Peter C."
       },
       {
         "family": "Ebenman",
@@ -80,7 +85,7 @@
       },
       {
         "family": "Jansen",
-        "given": "Vincent a. a."
+        "given": "Vincent A. A."
       },
       {
         "family": "Iwan Jones",
@@ -96,7 +101,7 @@
       },
       {
         "family": "McKane",
-        "given": "Alan J"
+        "given": "Alan J."
       },
       {
         "family": "Montoya",
@@ -107,8 +112,7 @@
         "given": "Owen"
       }
     ],
-    "container-title": "J. Anim. Ecol.",
-    "issue": "3",
+    "container-title": "Journal of Animal Ecology",
     "issued": {
       "date-parts": [
         [
@@ -117,14 +121,60 @@
         ]
       ]
     },
-    "page": "585-598",
-    "title": "Interaction strengths in food webs: issues and opportunities",
-    "type": "article-journal",
-    "volume": "73",
     "id": "berl04isf"
   },
   {
+    "issue": "1",
+    "DOI": "10.1073/pnas.0806823106",
+    "type": "article-journal",
+    "page": "187-191",
+    "title": "Simple prediction of interaction strengths in complex food webs",
+    "volume": "106",
+    "author": [
+      {
+        "family": "Berlow",
+        "given": "E. L."
+      },
+      {
+        "family": "Dunne",
+        "given": "J. A."
+      },
+      {
+        "family": "Martinez",
+        "given": "N. D."
+      },
+      {
+        "family": "Stark",
+        "given": "P. B."
+      },
+      {
+        "family": "Williams",
+        "given": "R. J."
+      },
+      {
+        "family": "Brose",
+        "given": "U."
+      }
+    ],
+    "container-title": "Proceedings of the National Academy of Sciences",
+    "issued": {
+      "date-parts": [
+        [
+          2008,
+          12,
+          29
+        ]
+      ]
+    },
+    "id": "berl08spi"
+  },
+  {
+    "issue": "11",
     "DOI": "10.1111/j.1461-0248.2006.00978.x",
+    "type": "article-journal",
+    "page": "1228-1236",
+    "title": "Allometric scaling enhances stability in complex food webs",
+    "volume": "9",
     "author": [
       {
         "family": "Brose",
@@ -132,15 +182,14 @@
       },
       {
         "family": "Williams",
-        "given": "Richard J"
+        "given": "Richard J."
       },
       {
         "family": "Martinez",
-        "given": "Néo D"
+        "given": "Neo D."
       }
     ],
-    "container-title": "Ecol. Lett.",
-    "issue": "11",
+    "container-title": "Ecology Letters",
     "issued": {
       "date-parts": [
         [
@@ -149,53 +198,191 @@
         ]
       ]
     },
-    "page": "1228-1236",
-    "title": "Allometric scaling enhances stability in complex food webs.",
-    "type": "article-journal",
-    "volume": "9",
     "id": "bros06ase"
   },
   {
-    "URL": "http://www.esajournals.org/doi/abs/10.1890/03-9000",
+    "issue": "10",
+    "DOI": "10.1890/0012-9658(2006)87[2411:cbrinf]2.0.co;2",
+    "type": "article-journal",
+    "page": "2411-2417",
+    "title": "CONSUMER–RESOURCE BODY-SIZE RELATIONSHIPS IN NATURAL FOOD WEBS",
+    "volume": "87",
     "author": [
       {
-        "family": "Brown",
-        "given": "J.H."
+        "family": "Brose",
+        "given": "Ulrich"
       },
       {
-        "family": "Gillooly",
-        "given": "J.F."
+        "family": "Jonsson",
+        "given": "Tomas"
       },
       {
-        "family": "Allen",
-        "given": "Andrew P"
+        "family": "Berlow",
+        "given": "Eric L."
       },
       {
-        "family": "Savage",
-        "given": "V.M."
+        "family": "Warren",
+        "given": "Philip"
       },
       {
-        "family": "West",
-        "given": "G.B."
+        "family": "Banasek-Richter",
+        "given": "Carolin"
+      },
+      {
+        "family": "Bersier",
+        "given": "Louis-Félix"
+      },
+      {
+        "family": "Blanchard",
+        "given": "Julia L."
+      },
+      {
+        "family": "Brey",
+        "given": "Thomas"
+      },
+      {
+        "family": "Carpenter",
+        "given": "Stephen R."
+      },
+      {
+        "family": "Blandenier",
+        "given": "Marie-France Cattin"
+      },
+      {
+        "family": "Cushing",
+        "given": "Lara"
+      },
+      {
+        "family": "Dawah",
+        "given": "Hassan Ali"
+      },
+      {
+        "family": "Dell",
+        "given": "Tony"
+      },
+      {
+        "family": "Edwards",
+        "given": "Francois"
+      },
+      {
+        "family": "Harper-Smith",
+        "given": "Sarah"
+      },
+      {
+        "family": "Jacob",
+        "given": "Ute"
+      },
+      {
+        "family": "Ledger",
+        "given": "Mark E."
+      },
+      {
+        "family": "Martinez",
+        "given": "Neo D."
+      },
+      {
+        "family": "Memmott",
+        "given": "Jane"
+      },
+      {
+        "family": "Mintenbeck",
+        "given": "Katja"
+      },
+      {
+        "family": "Pinnegar",
+        "given": "John K."
+      },
+      {
+        "family": "Rall",
+        "given": "Björn C."
+      },
+      {
+        "family": "Rayner",
+        "given": "Thomas S."
+      },
+      {
+        "family": "Reuman",
+        "given": "Daniel C."
+      },
+      {
+        "family": "Ruess",
+        "given": "Liliane"
+      },
+      {
+        "family": "Ulrich",
+        "given": "Werner"
+      },
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      },
+      {
+        "family": "Woodward",
+        "given": "Guy"
+      },
+      {
+        "family": "Cohen",
+        "given": "Joel E."
       }
     ],
     "container-title": "Ecology",
-    "issue": "7",
     "issued": {
       "date-parts": [
         [
-          2004
+          2006,
+          10
         ]
       ]
     },
-    "page": "1771-1789",
-    "title": "Toward a metabolic theory of ecology",
+    "id": "bros06cbr"
+  },
+  {
+    "issue": "7",
+    "DOI": "10.1890/03-9000",
     "type": "article-journal",
+    "page": "1771-1789",
+    "title": "TOWARD A METABOLIC THEORY OF ECOLOGY",
     "volume": "85",
+    "author": [
+      {
+        "family": "Brown",
+        "given": "James H."
+      },
+      {
+        "family": "Gillooly",
+        "given": "James F."
+      },
+      {
+        "family": "Allen",
+        "given": "Andrew P."
+      },
+      {
+        "family": "Savage",
+        "given": "Van M."
+      },
+      {
+        "family": "West",
+        "given": "Geoffrey B."
+      }
+    ],
+    "container-title": "Ecology",
+    "issued": {
+      "date-parts": [
+        [
+          2004,
+          7
+        ]
+      ]
+    },
     "id": "brow04mte"
   },
   {
+    "issue": "7219",
     "DOI": "10.1038/nature07248",
+    "type": "article-journal",
+    "page": "235-238",
+    "title": "The interaction between predation and competition",
+    "volume": "456",
     "author": [
       {
         "family": "Chesson",
@@ -203,23 +390,19 @@
       },
       {
         "family": "Kuang",
-        "given": "Jessica J"
+        "given": "Jessica J."
       }
     ],
     "container-title": "Nature",
-    "issue": "7219",
     "issued": {
       "date-parts": [
         [
           2008,
-          11
+          11,
+          13
         ]
       ]
     },
-    "page": "235-238",
-    "title": "The interaction between predation and competition.",
-    "type": "article-journal",
-    "volume": "456",
     "id": "ches08ipc"
   },
   {
@@ -255,15 +438,94 @@
     "id": "dean75mti"
   },
   {
+    "issue": "6252",
+    "DOI": "10.1126/science.aac6284",
+    "type": "article-journal",
+    "page": "aac6284-aac6284",
+    "title": "The predator-prey power law: Biomass scaling across terrestrial and aquatic biomes",
+    "volume": "349",
+    "author": [
+      {
+        "family": "Hatton",
+        "given": "I. A."
+      },
+      {
+        "family": "McCann",
+        "given": "K. S."
+      },
+      {
+        "family": "Fryxell",
+        "given": "J. M."
+      },
+      {
+        "family": "Davies",
+        "given": "T. J."
+      },
+      {
+        "family": "Smerlak",
+        "given": "M."
+      },
+      {
+        "family": "Sinclair",
+        "given": "A. R. E."
+      },
+      {
+        "family": "Loreau",
+        "given": "M."
+      }
+    ],
+    "container-title": "Science",
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          9,
+          3
+        ]
+      ]
+    },
+    "id": "hatt15ppl"
+  },
+  {
+    "issue": "5611",
+    "DOI": "10.1126/science.1079154",
+    "type": "article-journal",
+    "page": "1388-1391",
+    "title": "Foraging Adaptation and the Relationship Between Food-Web Complexity and Stability",
+    "volume": "299",
+    "author": [
+      {
+        "family": "Kondoh",
+        "given": "M."
+      }
+    ],
+    "container-title": "Science",
+    "issued": {
+      "date-parts": [
+        [
+          2003,
+          2,
+          28
+        ]
+      ]
+    },
+    "id": "kond03far"
+  },
+  {
+    "issue": "7173",
     "DOI": "10.1038/nature06359",
+    "type": "article-journal",
+    "page": "1226-1229",
+    "title": "Allometric degree distributions facilitate food-web stability",
+    "volume": "450",
     "author": [
       {
         "family": "Otto",
-        "given": "Sonja B"
+        "given": "Sonja B."
       },
       {
         "family": "Rall",
-        "given": "Björn C"
+        "given": "Björn C."
       },
       {
         "family": "Brose",
@@ -271,27 +533,68 @@
       }
     ],
     "container-title": "Nature",
-    "issue": "7173",
     "issued": {
       "date-parts": [
         [
           2007,
-          12
+          12,
+          20
         ]
       ]
     },
-    "page": "1226-9",
-    "title": "Allometric degree distributions facilitate food-web stability.",
-    "type": "article-journal",
-    "volume": "450",
     "id": "otto07add"
   },
   {
+    "issue": "12",
+    "funder": [
+      {
+        "award": [
+          "IBN 09-19871"
+        ],
+        "doi-asserted-by": "crossref",
+        "name": "National Science Foundation",
+        "DOI": "10.13039/100000001"
+      },
+      {
+        "award": [],
+        "doi-asserted-by": "crossref",
+        "name": "Burroughs Wellcome Fund",
+        "DOI": "10.13039/100000861"
+      },
+      {
+        "award": [],
+        "doi-asserted-by": "crossref",
+        "name": "Australian Research Council",
+        "DOI": "10.13039/501100000923"
+      },
+      {
+        "award": [
+          "1021010"
+        ],
+        "name": "NSF DEB"
+      },
+      {
+        "award": [
+          "DBI-0906005"
+        ],
+        "name": "NSF Postdoctoral Fellowship in Biological Informatics"
+      },
+      {
+        "award": [
+          "DMS-0827208"
+        ],
+        "name": "Netherlands Organization for Scientific Research (NWO)"
+      }
+    ],
     "DOI": "10.1111/j.1461-0248.2012.01860.x",
+    "type": "article-journal",
+    "page": "1465-1474",
+    "title": "Testing the metabolic theory of ecology",
+    "volume": "15",
     "author": [
       {
         "family": "Price",
-        "given": "Charles a."
+        "given": "Charles A."
       },
       {
         "family": "Weitz",
@@ -311,7 +614,7 @@
       },
       {
         "family": "Coomes",
-        "given": "David a."
+        "given": "David A."
       },
       {
         "family": "Dodds",
@@ -342,89 +645,80 @@
         "given": "Nathan G."
       }
     ],
-    "container-title": "Ecol. Lett.",
-    "editor": [
-      {
-        "family": "Chave",
-        "given": "Jerome"
-      }
-    ],
+    "container-title": "Ecology Letters",
     "issued": {
       "date-parts": [
         [
           2012,
-          8
+          8,
+          30
         ]
       ]
     },
-    "page": "n/a-n/a",
-    "title": "Testing the metabolic theory of ecology",
-    "type": "article-journal",
     "id": "pric12tmt"
   },
   {
-    "URL": "http://www.jstor.org/stable/2460064",
+    "issue": "978",
+    "DOI": "10.1086/283161",
+    "type": "article-journal",
+    "page": "289-300",
+    "title": "The Kinetics of Functional Response",
+    "volume": "111",
     "author": [
       {
         "family": "Real",
-        "given": "Leslie A"
+        "given": "Leslie A."
       }
     ],
-    "container-title": "Am. Nat.",
-    "issue": "978",
+    "container-title": "The American Naturalist",
     "issued": {
       "date-parts": [
         [
-          1977
+          1977,
+          3
         ]
       ]
     },
-    "page": "289-300",
-    "title": "The Kinetics of Functional Response",
-    "type": "article-journal",
-    "volume": "111",
     "id": "real77kfr"
   },
   {
+    "issue": "3",
+    "DOI": "10.1086/381872",
+    "type": "article-journal",
+    "page": "429-441",
+    "title": "Effects of Body Size and Temperature on Population Growth",
+    "volume": "163",
     "author": [
       {
         "family": "Savage",
-        "given": "Author Van M"
+        "given": "Van M."
       },
       {
         "family": "Gillooly",
-        "given": "James F"
+        "given": "James F."
       },
       {
         "family": "Brown",
-        "given": "James H"
+        "given": "James H."
       },
       {
         "family": "West",
-        "given": "Geoffrey B"
+        "given": "Geoffrey B."
       },
       {
         "family": "Charnov",
-        "given": "Eric L"
-      },
-      {
-        "family": "Savage",
-        "given": "Van M"
+        "given": "Eric L."
       }
     ],
-    "container-title": "Am. Nat.",
-    "issue": "3",
+    "container-title": "The American Naturalist",
     "issued": {
       "date-parts": [
         [
-          2004
+          2004,
+          3
         ]
       ]
     },
-    "page": "429-441",
-    "title": "Effects of Body Size and Temperature on Population Growth",
-    "type": "article-journal",
-    "volume": "163",
     "id": "sava04ebs"
   },
   {
@@ -465,10 +759,15 @@
     "id": "stou07eer"
   },
   {
+    "publisher": "Springer Science + Business Media",
+    "DOI": "10.1007/978-1-4020-5337-5_2",
+    "type": "chapter",
+    "page": "37-51",
+    "title": "Homage to Yodzis and Innes 1992: Scaling up Feeding-Based Population Dynamics to Complex Ecological Networks",
     "author": [
       {
         "family": "Williams",
-        "given": "Richard J"
+        "given": "Richard J."
       },
       {
         "family": "Brose",
@@ -476,63 +775,74 @@
       },
       {
         "family": "Martinez",
-        "given": "Néo D"
+        "given": "Neo D."
       }
     ],
     "container-title": "From Energetics to Ecosystems: The Dynamics and Structure of Ecological Systems",
-    "editor": [
-      {
-        "family": "Rooney",
-        "given": "Neil"
-      },
-      {
-        "family": "Mc Cann",
-        "given": "Kevin S"
-      },
-      {
-        "family": "Noakes",
-        "given": "David L G"
-      }
-    ],
     "issued": {
       "date-parts": [
         [
-          2007
+          2006,
+          12,
+          1
         ]
       ]
     },
-    "page": "37-51",
-    "publisher": "Springer",
-    "title": "Homage to Yodzis and Innes 1992 : scaling up feeding-based population dynamics to complex ecological networks",
-    "title-short": "Homage to Yodzis and Innes 1992",
-    "type": "chapter",
+    "ISBN": "http://id.crossref.org/isbn/978-1-4020-5336-8",
+    "URL": "http://dx.doi.org/10.1007/978-1-4020-5337-5_2",
     "id": "will07hyi"
   },
   {
-    "DOI": "10.2307/2462335",
+    "issue": "3",
+    "DOI": "10.1007/s12080-008-0013-5",
+    "type": "article-journal",
+    "page": "141-151",
+    "title": "Effects of network and dynamical model structure on species persistence in large model food webs",
+    "volume": "1",
     "author": [
       {
-        "family": "Yodzis",
-        "given": "P"
-      },
-      {
-        "family": "Innes",
-        "given": "S"
+        "family": "Williams",
+        "given": "Richard J."
       }
     ],
-    "container-title": "The American Naturalist",
-    "issue": "6",
+    "container-title": "Theoretical Ecology",
     "issued": {
       "date-parts": [
         [
-          1992
+          2008,
+          3,
+          14
         ]
       ]
     },
-    "page": "1151-1175",
-    "title": "Body size and consumer-resource dynamics",
+    "id": "will08end"
+  },
+  {
+    "issue": "6",
+    "DOI": "10.1086/285380",
     "type": "article-journal",
+    "page": "1151-1175",
+    "title": "Body Size and Consumer-Resource Dynamics",
     "volume": "139",
+    "author": [
+      {
+        "family": "Yodzis",
+        "given": "P."
+      },
+      {
+        "family": "Innes",
+        "given": "S."
+      }
+    ],
+    "container-title": "The American Naturalist",
+    "issued": {
+      "date-parts": [
+        [
+          1992,
+          6
+        ]
+      ]
+    },
     "id": "yodz92bsc"
   }
 ]

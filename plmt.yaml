@@ -9,6 +9,12 @@ author:
     affiliation: 1, 2
     id: ed
     orcid: 0000-0002-6238-229X
+  - family: Brose
+    given: Ulrich
+  - family: Gravel
+    given: Dominique
+  - family: Stouffer
+    given: Daniel B.
   - family: Poisot
     given: Timothée
     affiliation: 1, 2
@@ -25,16 +31,20 @@ keyword:
   - k: bio-energetic model
   - k: allometric scaling
   - k: food webs
-  - k: community ecology 
+  - k: community ecology
 figure:
-  - id: temporal
-    caption: With the default parameters, a food web with 20 populations and a connectance of 0.25 reaches a stable state within the first 100 timesteps. The solid line represents the average value across 50 independant runs, and the ribbon around it is the standard deviation.
-    short: Example timecourse of biomass and diversity.
-    file: temporal_dynamics.pdf
-  - id: scaling
-    caption: When varying allometric scaling, the model exhibits a range of behaviors, with maximal diversity and stability reached for either no, or positive but weak, scaling.
-    short: Diversity and stability as a function of allometric scaling.
-    file: scaling
+  - id: carrying
+    caption: Effect of increasing the carrying capacity of the resource for different levels of competition ($\alpha \in \left[0.9, 1.1\right]$). For conditions of neutral coexistence or coexistence ($\alpha \leq 1$), diversity is stable until $K \approx 5$. For conditions of competition exclusion ($\alpha > 1$), diversity increases for $K < 5$, and decreases after.
+    short: Effect of varying the carrying capacity.
+    file: carryingcapacity.pdf
+  - id: vertebrate
+    caption: The peak of stability, in terms of allometric scaling, differs between vetebrates and invertebrates. Note that the \emph{y} axis is reversed, since more negative values indicate less variation, and therefore more temporal stability. The sahded area represents negative scaling, \emph{i.e.} predators are smaller than their preys.
+    short: Stability as a function of organism type and allometric scaling.
+    file: vertebrate.pdf
+  - id: connectance
+    caption: Although maximal species persistence is reach for values of inter-specific competition lower than unity, the increased trophic control at higher connectances allow coexistence even under stronger competition. The shaded area represents values of $\alpha$ smaller than unity, \emph{i.e.} coexistence is favored.
+    short: Connectance and competition affect species persistence.
+    file: connectance.pdf
 date: \today
 abstract: ...
 ...

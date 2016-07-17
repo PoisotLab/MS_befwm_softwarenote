@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hylla": "0.0.3",
+    "colors": "^1.1.2",
+    "hylla": "0.0.5",
     "jandoc": "0.0.2",
-    "js-yaml": "^3.6.1"
+    "js-yaml": "^3.6.1",
+    "prompt": "^1.0.0",
+    "sync-request": "^3.0.1"
   }
 }

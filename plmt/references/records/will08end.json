@@ -1,0 +1,95 @@
+{
+  "indexed": {
+    "date-parts": [
+      [
+        2015,
+        12,
+        27
+      ]
+    ],
+    "date-time": "2015-12-27T17:58:08Z",
+    "timestamp": 1451239088148
+  },
+  "reference-count": 69,
+  "publisher": "Springer Science + Business Media",
+  "issue": "3",
+  "published-print": {
+    "date-parts": [
+      [
+        2008,
+        9
+      ]
+    ]
+  },
+  "DOI": "10.1007/s12080-008-0013-5",
+  "type": "journal-article",
+  "created": {
+    "date-parts": [
+      [
+        2008,
+        3,
+        13
+      ]
+    ],
+    "date-time": "2008-03-13T09:31:04Z",
+    "timestamp": 1205400664000
+  },
+  "page": "141-151",
+  "source": "CrossRef",
+  "title": "Effects of network and dynamical model structure on species persistence in large model food webs",
+  "prefix": "http://id.crossref.org/prefix/10.1007",
+  "volume": "1",
+  "author": [
+    {
+      "affiliation": [],
+      "family": "Williams",
+      "given": "Richard J."
+    }
+  ],
+  "member": "http://id.crossref.org/member/297",
+  "published-online": {
+    "date-parts": [
+      [
+        2008,
+        3,
+        14
+      ]
+    ]
+  },
+  "container-title": "Theoretical Ecology",
+  "deposited": {
+    "date-parts": [
+      [
+        2013,
+        4,
+        11
+      ]
+    ],
+    "date-time": "2013-04-11T20:38:04Z",
+    "timestamp": 1365712684000
+  },
+  "score": 1,
+  "subtitle": [],
+  "issued": {
+    "date-parts": [
+      [
+        2008,
+        3,
+        14
+      ]
+    ]
+  },
+  "alternative-id": [
+    "13"
+  ],
+  "URL": "http://dx.doi.org/10.1007/s12080-008-0013-5",
+  "ISSN": [
+    "1874-1738",
+    "1874-1746"
+  ],
+  "subject": [
+    "Ecological Modelling",
+    "Ecology"
+  ],
+  "id": "will08end"
+}
