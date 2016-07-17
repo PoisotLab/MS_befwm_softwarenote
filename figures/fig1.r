@@ -15,15 +15,19 @@ i <- 1
 for(comp in unique(d$competition)) {
   x <- subset(d, competition == comp)
   co <- i
-  lt = 1
+  lt <- 1
   if (comp == 1.0) co <- 'grey'
   if (comp == 1.0) lt <- 2
-  lines(diversity~K, x, col = co, type='l', pch=19, lwd=2, lty = lt)
+  lines(diversity~K, x, col = co, type='l', pch=NA, lwd=1, lty = lt)
+  lines(diversity~K, x, col = co, type='p', pch=21+i, lwd=2, bg='white')
   i <- i + 1
 }
 
-legend("bottomright", fill=c(1, 'grey', 3),
-      legend=c("Coexistence", "Neutral", "Exclusion"),
+legend("bottomright",
+      legend=c("Coexistence", "Neutral stability", "Exclusion"),
+      col = c(1, 'grey', 3),
+      pch = 21 + c(1:3),
+      pt.lwd = 2,
       bty='n')
 
 box()
