@@ -17,7 +17,7 @@ abline(v=1, col='grey')
 i <- 1
 for(co in unique(d$connectance)) {
   x <- subset(d, connectance ==  co)
-  lines(richness~competition, x, col = i, type='l', pch=19, lwd=3)
+  lines(richness~competition, x, col = i, type='l', pch=19, lwd=2)
   i <- i + 1
 }
 

@@ -18,7 +18,7 @@ for(comp in unique(d$competition)) {
   lt = 1
   if (comp == 1.0) co <- 'grey'
   if (comp == 1.0) lt <- 2
-  lines(diversity~K, x, col = co, type='l', pch=19, lwd=3, lty = lt)
+  lines(diversity~K, x, col = co, type='l', pch=19, lwd=2, lty = lt)
   i <- i + 1
 }
 
