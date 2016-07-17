@@ -5,7 +5,7 @@ library(RColorBrewer)
 
 pdf("figures/carryingcapacity.pdf", height=5)
 
-palette(brewer.pal(5, "PRGn"))
+palette(brewer.pal(3, "PRGn"))
 
 plot(0, pch=NA, xlim=range(d$K), ylim=c(0, 0.6),
       xlab = "Carrying capacity", ylab = "Diversity",
@@ -22,7 +22,7 @@ for(comp in unique(d$competition)) {
   i <- i + 1
 }
 
-legend("bottomright", fill=c(2, 'grey', 4),
+legend("bottomright", fill=c(1, 'grey', 3),
       legend=c("Coexistence", "Neutral", "Exclusion"),
       bty='n')
 
