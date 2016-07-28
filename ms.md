@@ -145,7 +145,7 @@ body mass of consumers is then a function of their mean trophic level ($T$), it
 increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
-M_C =  Z^T
+M_C =  Z^{T-1}
 \end{equation}
 
 All of these parameters can be modified before running the simulations (see
