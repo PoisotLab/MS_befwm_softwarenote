@@ -154,7 +154,7 @@ analyses.
 
 ## Saving simulations and output format
 
-The core function `simulate` perform the main simulation loop. It takes two
+The core function `simulate` performs the main simulation loop. It takes two
 arguments, `p` -- the dictionary generated through the `model_parameters`
 function and containing the entire set of parameters -- and `biomass`, a vector
 that contains the initial biomasses for every population. Three keywords
