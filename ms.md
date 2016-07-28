@@ -193,7 +193,7 @@ threshold default value is $\epsilon$, *i.e.* the upper bound of the relative
 error due to rounding in floating point arithmetic. In short, species are
 considered extinct when their biomass is smaller than the rounding error. For
 floating point values encoded over 64 bits (IEEE 754), this is around
-$10^{-16}$. 
+$10^{-16}$.
 
 Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
@@ -306,14 +306,14 @@ end
 
 The results are presented in \autoref{carrying}.
 
-## Effect of allometric scaling on stability
+## Effect of consumer-resource body-mass ratio on stability
 
-In \autoref{vertebrate}, we illustrate how the effect of scaling differs between
+In \autoref{vertebrate}, we illustrate how the effect of body-mass ratio differs between
 food webs with invertebrates and vertebrate consumers.
 
 !{vertebrate}
 
-The allometric scaling is controlled by the parameter $Z$ (field `Z` in the
+The body-mass ratio is controlled by the parameter $Z$ (field `Z` in the
 code), and can be changed in the following way:
 
 ~~~ julia
