@@ -152,6 +152,29 @@ All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
 analyses.
 
+## Saving simulations and output format
+
+The core function `simulate` perform the main simulation loop. It takes two
+arguments, `p` -- the dictionary generated through the `model_parameters`
+function and containing the entire set of parameters -- and `biomass`, a vector
+that contains the initial biomasses for every population. Three keywords
+arguments can be used to define the initial (`start`) and final (`stop`) times
+as well as the integration method (`use`, see `?simulate` or the on-line
+documentation for more details on the numerical integration methods available).
+This function returns an object with a fixed format, made of three fields: `:p`
+has all the parameters used to start the simulation (including the food web
+itself), `:t` has a list of all timesteps (including intermediate integration
+points), and `:B` is is a matrix of biomasses for each population (columns) over
+time (rows). All measures on output described below operate on this object.  
+
+The output of simulations can be saved to disk in either the `JSON` (javascript
+object notation) format, or in the native `jld` format. The `jld` option should
+be preferred since it preserves the structure of all objects (`JSON` should be
+used when the results will be analyzed outside of `Julia`, for example in `R`).
+The function to save results is called `befwm.save` (note that `befwm.` in front
+is mandatory, to avoid clashes with other functions called `save` in base
+`Julia` or other packages).
+
 ## Measures on output
 
 The `befwm` package implements a variety of measures that can be applied on the
@@ -193,23 +216,6 @@ machine can represent), or to $0.0$. We found that using either of these values
 had no qualitative bearing on the results. Values close to 0 indicate little
 variation over time, and increasingly negative values indicate larger
 fluctuations (relative to the mean standing biomass).
-
-## Saving simulations and output format
-
-The core function (`simulate`) returns objects with a fixed format, made of
-three fields: `:p` has all the parameters used to start the simulation
-(including the food web itself), `:t` has a list of all timesteps (including
-intermediate integration points), and `:B` is is a matrix of biomasses for each
-population (columns) over time (rows). All measures on output described above
-operate on this object.
-
-The output of simulations can be saved to disk in either the `JSON` (javascript
-object notation) format, or in the native `jld` format. The `jld` option should
-be preferred since it preserves the structure of all objects (`JSON` should be
-used when the results will be analyzed outside of `Julia`, for example in `R`).
-The function to save results is called `befwm.save` (note that `befwm.` in front
-is mandatory, to avoid clashes with other functions called `save` in base
-`Julia` or other packages).
 
 # Implementation and availability
 
