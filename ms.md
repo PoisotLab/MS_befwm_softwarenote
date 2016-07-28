@@ -16,7 +16,7 @@ representation of resource-consumer dynamics, yielding results comparable to
 empirical systems, while needing minimal parameters. To achieve this purpose, it
 uses allometric scaling of metabolic biomass production and feeding rates,
 meaning that the flow of biomass from a resource to its consumer depends on
-their body-mass.
+their body mass.
 
 Since the work of @yodz92bsc, @ches08ipc have shown that the dynamics of
 ecological communities are driven not only by pairwise interactions, but also by
@@ -25,16 +25,16 @@ show how disturbances affecting species biomass or density cascade up, not only
 to the species that they interact with, but with species up to two degrees of
 separation from the original perturbation. In this context, models of energy
 transfer through trophic interactions are better justified when they account for
-the entire food web structure, such as @will07hyi adaptation to food-webs of
+the entire food-web structure, such as @will07hyi adaptation to food webs of
 @yodz92bsc model. This food-web bio-energetic model has been used, for example,
 to show how food web stability can emerge from allometric scaling [@bros06ase]
 or allometry-constrained degree distributions [@otto07add]. Yet, although these
 and other studies used the same mathematical model, implementations differ from
 study to study and none have been released. Motivated by the fact that this
 model addresses mechanisms that are fundamental to our understanding of energy
-flow throughout food webs, we present `befwm` (Bio-Energetic Food Webs Model), a
+flow throughout food webs, we present `befwm` (Bio-Energetic Food-Webs Model), a
 *Julia* package implementing @yodz92bsc bio-energetic model adapted for
-food-webs [@will07hyi] with updated allometric coefficients [@bros06ase;
+food webs [@will07hyi] with updated allometric coefficients [@bros06ase;
 @brow04mte]. This package aims to offer an efficient common ground for modeling
 food-web dynamics, to make investigations of this model easier, and to
 facilitate reproducibility and transparency of modeling efforts.
@@ -98,11 +98,11 @@ predator population's biomass negatively affect its feeding rates [@bedd75mip;
 take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
 $c = 0$), or predator interference ($h = 1$ and $c > 0$).
 
-As almost all organism metabolic characteristics vary predictably with body-mass
+As almost all organism metabolic characteristics vary predictably with body mass
 [@brow04mte], these variations can be described by allometric relationships as
 described in @bros06ase. Hence, the per unit biomass biological rates of
 production, metabolism and maximum consumption follow negative power-law
-relationships with the typical adult body-mass [@pric12tmt; @sava04ebs].
+relationships with the typical adult body mass [@pric12tmt; @sava04ebs].
 
 \begin{equation}\label{e:production_rate}
 R_P =  a_r M_P^{-0.25}
@@ -117,7 +117,7 @@ Y_C =  a_y M_P^{-0.25}
 \end{equation}
 
 Where the subscripts P and C refer to producers and consumers populations
-respectively, M is the typical adult body-mass and $a_r$, $a_x$ and $a_y$ are
+respectively, M is the typical adult body mass and $a_r$, $a_x$ and $a_y$ are
 the allometric constant. To resolve the dynamics of the system, it is necessary
 to define a timescale. To do so, these biological rates are normalized by the
 growth rate of the producers population (c.f. \autoref{e:production_rate}) (ref.
@@ -139,9 +139,9 @@ thus become a non-dimensional rate:
 y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
-Assuming that most natural food-webs have a constant size structure [@bros06cbr;
+Assuming that most natural food webs have a constant size structure [@bros06cbr;
 @hatt15ppl], the consumer-resource body-mass ratio ($Z$) is also constant. The
-body-mass of consumers is then a function of their mean trophic level ($T$), it
+body mass of consumers is then a function of their mean trophic level ($T$), it
 increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
