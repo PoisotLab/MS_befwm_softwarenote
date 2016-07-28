@@ -187,11 +187,13 @@ populations. It is measured based on the populations biomasses
 (`population_biomass`).
 
 The number of remaining species (`species_richness`) is measured as the number
-of species whose biomass is larger than an arbitrary threshold. By default, the
-threshold is $\epsilon$, *i.e.* the upper bound of the relative error due to
-rounding in floating point arithmetic. In short, species are considered extinct
-when their biomass is smaller than the rounding error. For floating point values
-encoded over 64 bits (IEEE 754), this is around $10^{-16}$.
+of species whose biomass is larger than an arbitrary threshold. Since `befwm`
+uses robust adaptive numerical integrators (such as ODE45 and ODE78) the
+threshold default value is $\epsilon$, *i.e.* the upper bound of the relative
+error due to rounding in floating point arithmetic. In short, species are
+considered extinct when their biomass is smaller than the rounding error. For
+floating point values encoded over 64 bits (IEEE 754), this is around
+$10^{-16}$. 
 
 Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
@@ -209,13 +211,13 @@ Finally, we used the negative size-corrected coefficient of variation to assess
 the temporal stability of biomass stocks across populations
 (`population_stability`). This function accepts an additional `threshold`
 argument, specifying the biomass below which populations are excluded from the
-analysis. Since `befwm` uses robust adaptive numerical integrators (such as
-ODE45 and ODE78), we suggest that this value be set to either the machine's
-$\epsilon(0.0)$ (*i.e.* the smallest value immediately above 0.0 that the
-machine can represent), or to $0.0$. We found that using either of these values
-had no qualitative bearing on the results. Values close to 0 indicate little
-variation over time, and increasingly negative values indicate larger
-fluctuations (relative to the mean standing biomass).
+analysis. For the same reason as for the `species_richness` threshold, we
+suggest that this value be set to either the machine's $\epsilon(0.0)$ (*i.e.*
+the smallest value immediately above 0.0 that the machine can represent), or to
+$0.0$. We found that using either of these values had no qualitative bearing on
+the results. Values close to 0 indicate little variation over time, and
+increasingly negative values indicate larger fluctuations (relative to the mean
+standing biomass).
 
 # Implementation and availability
 
