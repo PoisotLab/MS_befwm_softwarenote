@@ -117,7 +117,7 @@ Y_C =  a_y M_P^{-0.25}
 \end{equation}
 
 Where the subscripts P and C refer to producers and consumers populations
-respectively, M is the typical adult body mass and $a_r$, $a_x$ and $a_y$ are
+respectively, M is the typical adult body mass, and $a_r$, $a_x$ and $a_y$ are
 the allometric constant. To resolve the dynamics of the system, it is necessary
 to define a timescale. To do so, these biological rates are normalized by the
 growth rate of the producers population (c.f. \autoref{e:production_rate}) (ref.
@@ -147,6 +147,8 @@ increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 \begin{equation}\label{e:z_ratio}
 M_C =  Z^{T-1}
 \end{equation}
+
+Where $M_C$ is the body mass of consumers, normalized by the body mass of the basal species ($T = 1$) to make the results independent of the body mass of the basal species.
 
 All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
