@@ -148,7 +148,9 @@ increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 M_C =  Z^{T-1}
 \end{equation}
 
-Where $M_C$ is the body mass of consumers, normalized by the body mass of the basal species ($T = 1$) to make the results independent of the body mass of the basal species.
+Where $M_C$ is the body mass of consumers, normalized by the body mass of the
+basal species ($T = 1$) to make the results independent of the body mass of the
+basal species.
 
 All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
@@ -310,8 +312,8 @@ The results are presented in \autoref{carrying}.
 
 ## Effect of consumer-resource body-mass ratio on stability
 
-In \autoref{vertebrate}, we illustrate how the effect of body-mass ratio differs between
-food webs with invertebrates and vertebrate consumers.
+In \autoref{vertebrate}, we illustrate how the effect of body-mass ratio differs
+between food webs with invertebrates and vertebrate consumers.
 
 !{vertebrate}
 
