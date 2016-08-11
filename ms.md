@@ -16,7 +16,7 @@ representation of resource-consumer dynamics, yielding results comparable to
 empirical systems, while needing minimal parameters. To achieve this purpose, it
 uses allometric scaling of metabolic biomass production and feeding rates,
 meaning that the flow of biomass from a resource to its consumer depends on
-their body mass.
+their body mass. 
 
 Since the work of @yodz92bsc, @ches08ipc have shown that the dynamics of
 ecological communities are driven not only by pairwise interactions, but also by
