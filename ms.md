@@ -35,9 +35,28 @@ model addresses mechanisms that are fundamental to our understanding of energy
 flow throughout food webs, we present `befwm` (Bio-Energetic Food-Webs Model), a
 *Julia* package implementing @yodz92bsc bio-energetic model adapted for
 food webs [@will07hyi] with updated allometric coefficients [@bros06ase;
-@brow04mte]. This package aims to offer an efficient common ground for modeling
-food-web dynamics, to make investigations of this model easier, and to
-facilitate reproducibility and transparency of modeling efforts.
+@brow04mte].
+
+This package aims to offer an efficient common ground for modeling food-web
+dynamics, to make investigations of this model easier, and to facilitate
+reproducibility and transparency of modeling efforts. Taking a broader
+perspective, we argue that providing the community with reference
+implementations of common models is an important task. First, implementing
+complex models can be a difficult task, in which programming mistakes will bias
+the output of the simulations, and therefore the ecological interpretations we
+draw from them. Simulation-based studies are more at risk than analytical-based
+ones, since the computational aspect is an additional layer of complexity on the
+mathematical one. Second, reference implementations facilitate the comparison of
+studies. Currently, comparing studies mean not only comparing results, but also
+comparing implementations -- because not all code is public, a difference in
+results cannot be properly explained as an error in either studies, and this
+eventually generates more uncertainty than it does answers. Finally, reference
+implementation eases reproducibility a lot. Specifically, it becomes enough to
+specify which version of the package was used, and to publish the script used to
+run the simulations (as we, for example, do in this manuscript). We fervently
+believe that more effort invested in providing the community with reference
+implementation of models representing cornerstones of our ecological
+understanding is an important effort.
 
 # The model
 
@@ -46,11 +65,13 @@ facilitate reproducibility and transparency of modeling efforts.
 We implement the model as described by @bros06ase, which is itself explained in
 greater detail in @will07hyi. This model describes the flows of biomass across
 trophic levels, primarily defined by body size. It distinguishes populations
-based on two highly influential variables for the biological rates, body mass
-and metabolic type. Once this distinction made, it models populations as simple
-stocks of biomass growing and shrinking through consumer-resources interactions.
-The governing equations below describe the changes in relative density of
-producers and consumers respectively.
+based on two variables known to drive many biological rates: body mass (how
+large an organism is, *i.e.* how much biomass it stocks) and metabolic type
+(where the organism get its biomass from, and how it is metabolized). Once this
+distinction made, it models populations as simple stocks of biomass growing and
+shrinking through consumer-resources interactions. The governing equations below
+describe the changes in relative density of producers and consumers
+respectively.
 
 \begin{equation}\label{e:producer}
 B'_i = r_i G_i B_i -\sum_{j \in \text{consumers}}\frac{x_jy_jB_jF_{ji}}{e_{ji}}
@@ -197,7 +218,11 @@ threshold default value is $\epsilon$, *i.e.* the upper bound of the relative
 error due to rounding in floating point arithmetic. In short, species are
 considered extinct when their biomass is smaller than the rounding error. For
 floating point values encoded over 64 bits (IEEE 754), this is around
-$10^{-16}$.
+$10^{-16}$. An additional output related to `species_richness` is
+`species_persistence`, which is the number of persisting species divided by the
+starting number of species. A value of `species_persistence` of 1 means that all
+species persisted. A value of `species_persistence` of 0 indicates that all
+species went extinct.
 
 Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
@@ -279,7 +304,7 @@ following code:
 
 ~~~ julia
 # We generate a random food web
-A = nichemodel(20, 0.25)
+A = nichemodel(20, 0.15)
 
 # This loop will keep on trying food webs
 # until one with a connectance close enough
@@ -379,28 +404,18 @@ end
  with a biomass larger than `eps()`), divided by the initial number of species
  (20).
 
-# Conclusions
+# Conclusion
 
 We presented `befwm`, a reference implementation of the bio-energetic model
-applied to food webs. The two examples given can serve as templates to develop
-future studies. Taking a broader perspective, we argue that providing the
-community with reference implementations of common models is an important
-task. First, implementing complex models can be a difficult task, in which
-programming mistakes will bias the output of the simulations, and therefore
-the ecological interpretations we draw from them. Simulation-based studies
-are more at risk than analytical-based ones, since the computational aspect is
-an additional layer of complexity on the mathematical one. Second, reference
-implementations facilitate the comparison of studies. Currently, comparing
-studies mean not only comparing results, but also comparing implementations --
-because not all code is public, a difference in results cannot be properly
-explained as an error in either studies, and this eventually generates more
-uncertainty than it does answers. Finally, reference implementation ease
-reproducibility a lot. Specifically, it becomes enough to specify which version
-of the package was used, and to publish the script used to run the simulations
-(as we, for example, do in this manuscript). We fervently believe that more
-effort invested in providing the community with reference implementation
-of models representing cornerstones of our ecological understanding is an
-important effort.
+applied to food webs. We provided examples that can serve as templates to
+perform novel simulation studies or use this model as an effective teaching
+tool. Because the output can be exported in a language-neutral format (JSON),
+the results obtained with this model can be analayzed in other languages that
+are currently popular with ecologists, such as `R`, `python`, or `MatLab`.
+Because we provide a general implementation that covers some of the modications
+made to this model over the years, there is a decreased need for individual
+scientists to start their own implementation, which is a both a time consuming
+and potentially risky endeavor.
 
 **Acknowledgements** TP acknowledges financial support from NSERC, and an
 equipment grant from FRQNT. We thank the developers and maintainers of
