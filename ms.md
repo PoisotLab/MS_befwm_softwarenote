@@ -95,18 +95,18 @@ F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}
 ## Growth rate function
 
 The formulation of the growth rate $G_i$ can be chosen among three possibilities
-[@will08end] that all share the general equation of $G_i = 1 - p/k$, where $p$
+[@will08end] that all share the general equation of $G_i = 1 - s/k$, where $s$
 is the sum of biomass of populations in competition for a ressource with
-carrying capacity $k$. The first scenario, used by @bros06ase, sets $p = B_i$
+carrying capacity $k$. The first scenario, used by @bros06ase, sets $s = B_i$
 and $k = K$: species only compete with themselves for independant resources. The
 issue with this formulation [@kond03far] is that the biomass and productivity of
 the system scales linearly with the number of primary producers. The second
-formulation "shares" the resource across primary producers, with $p = B_i$ and
+formulation "shares" the resource across primary producers, with $s = B_i$ and
 $k = K/n_P$, wherein $n_p$ is the number of primary producers. Finally, a more
-general solution that encompasses both of the previous functions is $p =
+general solution that encompasses both of the previous functions is $s =
 \sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific competition) set to unity
 and $\alpha_{ij}$ (inter-specific competition) taking values greater than or
-equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $p = B_i$.
+equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $s = B_i$.
 
 ## Numerical response
 
@@ -380,16 +380,20 @@ p = model_parameters(A,
 ## Connectance effect on coexistence
 
 We investigate the effect of connectance on species coexistence under different
-scenarios of inter-specific competition rates (\autoref{connectance}).
+scenarios of inter-specific competition rates (\autoref{connectance}). The
+persistence, which we use as the measure of coexistence, is the number of
+remaining species (*i.e.* with a biomass larger than `eps()`), divided by the
+initial number of species (20) -- note that there is also a
+`species_persistence` function built-in.
 
 !{connectance}
 
 ~~~ julia
 for co in vec([0.05 0.15 0.25])
   # We generate a random food web
-  A = nichemodel(co, 0.25)
+  A = nichemodel(20, co)
   while abs(befwm.connectance(A)-co)>0.01
-      A = nichemodel(co, 0.25)
+      A = nichemodel(20, co)
   end
   # Prepare the simulation parameters
   for α in linspace(0.8, 1.2 , 7)
@@ -410,9 +414,7 @@ end
  Values of $\alpha$ larger than 0 should result in competitive exclusion in the
  absence of trophic interactions [@will08end]. Indeed, this is the case when $Co =
  0.05$ (only a single consumer remains). Increasing connectance results in more
- species persisting.  The persistence is the number of remaining species (*i.e.*
- with a biomass larger than `eps()`), divided by the initial number of species
- (20).
+ species persisting.
 
 # Conclusion
 
