@@ -92,6 +92,8 @@ consuming $j$:
 F_{ij}=\frac {\omega_{ij}B_{j}^{h}}{B_{0}^{h}+c_iB_iB_{0}^{h}+\sum_{k=resources}\omega_{ik}B_{k}^{h}}
 \end{equation}
 
+## Growth rate function
+
 The formulation of the growth rate $G_i$ can be chosen among three possibilities
 [@will08end] that all share the general equation of $G_i = 1 - p/k$, where $p$
 is the sum of biomass of populations in competition for a ressource with
@@ -106,6 +108,8 @@ competition) set to unity and $\alpha_{ij}$ (inter-specific competition) taking
 values greater than or equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to
 $k = K$ and $p = B_i$.
 
+## Numerical response
+
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, or the relative preference of consumer $i$ for $j$
 (refs. Chesson 1983; McCann and Hastings 1997). We have chosen to implement its
@@ -118,6 +122,8 @@ predator population's biomass negatively affect its feeding rates [@bedd75mip;
 @dean75mti]. Depending on the parameters $h$ and $c$ the functional response can
 take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
 $c = 0$), or predator interference ($h = 1$ and $c > 0$).
+
+## Metabolic types and scaling
 
 As almost all organism metabolic characteristics vary predictably with body mass
 [@brow04mte], these variations can be described by allometric relationships as
@@ -173,9 +179,12 @@ Where $M_C$ is the body mass of consumers, normalized by the body mass of the
 basal species ($T = 1$) to make the results independent of the body mass of the
 basal species.
 
+## Setting the simulation parameters
+
 All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
-analyses.
+analyses. The default values and meanings of the different parameters are
+explained in the documentation of the `model_parameters` function.
 
 ## Saving simulations and output format
 
