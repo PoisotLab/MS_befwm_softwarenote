@@ -103,10 +103,10 @@ issue with this formulation [@kond03far] is that the biomass and productivity of
 the system scales linearly with the number of primary producers. The second
 formulation "shares" the resource across primary producers, with $p = B_i$ and
 $k = K/n_P$, wherein $n_p$ is the number of primary producers. Finally, a more
-general solution is $p = \sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific
-competition) set to unity and $\alpha_{ij}$ (inter-specific competition) taking
-values greater than or equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to
-$k = K$ and $p = B_i$.
+general solution that encompasses both of the previous functions is $p =
+\sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific competition) set to unity
+and $\alpha_{ij}$ (inter-specific competition) taking values greater than or
+equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $p = B_i$.
 
 ## Numerical response
 
@@ -147,8 +147,8 @@ Where the subscripts P and C refer to producers and consumers populations
 respectively, M is the typical adult body mass, and $a_r$, $a_x$ and $a_y$ are
 the allometric constant. To resolve the dynamics of the system, it is necessary
 to define a timescale. To do so, these biological rates are normalized by the
-growth rate of the producers population (c.f. \autoref{e:production_rate}) (ref.
-Brose 2008, @will07hyi and @bros06ase).
+growth rate of the producers population (*cf.* \autoref{e:production_rate})
+(ref. Brose 2008, @will07hyi and @bros06ase).
 
 \begin{equation}\label{e:norm_production_rate}
 r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
@@ -184,7 +184,10 @@ basal species.
 All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
 analyses. The default values and meanings of the different parameters are
-explained in the documentation of the `model_parameters` function.
+explained in the documentation of the `model_parameters` function. The user can
+specify which species are vertebrates by supplying a `vertebrate` array of
+boolean values, and the body-mass of each species by supplying a `bodymass`
+array of floating-point values.
 
 ## Saving simulations and output format
 
@@ -285,17 +288,15 @@ approx. 90% to this date.
 
 # Use cases
 
-Documentation is available online at [http://poisotlab.io/doc/befwm/]. The
-documentation includes several use-cases, as well as discussion of some design
-choices. All functions in the package have an in-line documentation, available
-from the `julia` interface by typing `?` followed by the name of the function.
-In this section, we will describe three of the aforementionned use-cases. The
-code to execute them is attached as Supp. Mat. to this paper. As all code in the
+All functions in the package have an in-line documentation, available from the
+`julia` interface by typing `?` followed by the name of the function. In this
+section, we will describe three of the aforementionned use-cases. The code to
+execute them is attached as Supp. Mat. to this paper. As all code in the
 supplementary material uses `Julia`'s parallel computing abilities, it will
 differ slightly from the examples given in the paper. For all figures, each
 point is the average of at least 500 replicates. We conducted the simulations in
-parallel on 50 Intel Xeon cores at 2.00 Ghz; the runtime of examples varied
-between a few minutes (SM2, SM3) and one hour (SM3).
+parallel on 50 Intel Xeon cores at 2.00 Ghz. All random networks were generated
+using the implementation of the niche model {>>REF<<} provided in `befwm`.
 
 ## Effect of increasing carrying capacity
 
