@@ -380,10 +380,12 @@ p = model_parameters(A,
 ## Connectance effect on coexistence
 
 We investigate the effect of connectance on species coexistence under different
-scenarios of inter-specific competition rates (\autoref{connectance}). The
-persistence, which we use as the measure of coexistence, is the number of
-remaining species (*i.e.* with a biomass larger than `eps()`), divided by the
-initial number of species (20) -- note that there is also a
+scenarios of inter-specific competition rates between producers
+(\autoref{connectance}). These simulations therefore measure how the persistence
+of the entire food web is affected by competition at the most basal trophic
+level. The persistence, which we use as the measure of coexistence, is the
+number of remaining species (*i.e.* with a biomass larger than `eps()`), divided
+by the initial number of species (20) -- note that there is also a
 `species_persistence` function built-in.
 
 !{connectance}
