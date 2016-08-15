@@ -1,6 +1,11 @@
 using DataFrames
 
-addprocs(51)
+# Initialize all cores and set a seed
+number_of_cores = 51
+while nprocs() < number_of_cores
+  addprocs(number_of_cores - nprocs())
+end
+@everywhere srand(42)
 
 @everywhere using befwm
 
