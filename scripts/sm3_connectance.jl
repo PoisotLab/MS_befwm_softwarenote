@@ -12,11 +12,8 @@ addprocs(51)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
 @everywhere function makesim(co, α)
-  # Generate a niche model
-  A = nichemodel(20, co)
-  while abs(befwm.connectance(A) - co) > 0.01
-    A = nichemodel(20, co)
-  end
+  # Generate a niche model, with relative tolerance
+  A = nichemodel(20, co, tolerance=0.01, toltype=:rel)
   # Simulate
   p = model_parameters(A, productivity=:competitive, α=α)
   bm = rand(size(A, 1))
@@ -25,7 +22,7 @@ addprocs(51)
   d = foodweb_diversity(out, last=1000)
   s = population_stability(out, last=1000, threshold=eps())
   b = total_biomass(out, last=1000)
-  r = species_richness(out, last=1000, threshold=eps()) / 20.0
+  r = species_persistence(out, last=1000, threshold=eps())
   # Return
   return (d, s, b, r)
 end
@@ -33,7 +30,7 @@ end
 
 df = DataFrame(
   [Float64, Float64, Float64, Float64, Float64, Float64],
-  [:competition, :connectance, :diversity, :stability, :richness, :biomass],
+  [:competition, :connectance, :diversity, :stability, :persistence, :biomass],
   length(conditions))
 
 output = pmap((x) -> makesim(x...), conditions)
@@ -43,13 +40,12 @@ for k in eachindex(output)
   df[:diversity][k] = output[k][1]
   df[:stability][k] = output[k][2]
   df[:biomass][k] = output[k][3]
-  df[:richness][k] = output[k][4]
+  df[:persistence][k] = output[k][4]
 end
 
 # Filter results
 df = df[!isnan(df[:diversity]),:]
 df = df[!isna(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
-#df = df[df[:stability] .>= -5.0,:]
 
 writetable("./figures/sm3.dat", df, separator='\t', header=true)

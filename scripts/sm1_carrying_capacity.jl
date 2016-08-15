@@ -12,11 +12,8 @@ addprocs(51)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
 @everywhere function makesim(k, α)
-  # Generate a niche model
-  A = nichemodel(20, 0.15)
-  while abs(befwm.connectance(A) - 0.15) > 0.01
-    A = nichemodel(20, 0.15)
-  end
+  # Generate a niche model with 20 species and a connectance of 0.15 ± 0.01
+  A = nichemodel(20, 0.15, tolerance=0.01)
   # Simulate
   p = model_parameters(A, productivity=:competitive, α=α, K=k)
   bm = rand(size(A, 1))
