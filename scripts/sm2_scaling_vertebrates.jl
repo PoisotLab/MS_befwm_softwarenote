@@ -5,14 +5,13 @@ number_of_cores = 51
 while nprocs() < number_of_cores
   addprocs(number_of_cores - nprocs())
 end
-@everywhere srand(42)
 
 @everywhere using befwm
 
 @everywhere Z = logspace(-2, 4, 19)
 @everywhere V = vec([true false])
 
-@everywhere replicates = 500
+@everywhere replicates = 1000
 @everywhere conditions = vcat([[(z, v) for z in Z] for v in V]...)
 @everywhere conditions = vcat([conditions for i in 1:replicates]...)
 
