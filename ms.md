@@ -112,16 +112,16 @@ equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $s = B_i$.
 
 In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, or the relative preference of consumer $i$ for $j$
-(refs. Chesson 1983; McCann and Hastings 1997). We have chosen to implement its
-simplest formulation: $\omega_{ij} = 1/n_i$, where $n_i$ is the number of
-resources of consumer $j$. $h$ is the Hill coefficient which is responsible for
-the hyperbolic or sigmoïdal shape of the functional response [@real77kfr], $B_0$
-is the half saturation density and $c$ quantifies the strength of the
-intra-specific predator interference -- the degree to which increasing the
-predator population's biomass negatively affect its feeding rates [@bedd75mip;
-@dean75mti]. Depending on the parameters $h$ and $c$ the functional response can
-take several forms such as type II ($h = 1$ and $c = 0$), type III ($h > 1$ and
-$c = 0$), or predator interference ($h = 1$ and $c > 0$).
+[@ches08ipc; @mcca98wti]. We have chosen to implement its simplest formulation:
+$\omega_{ij} = 1/n_i$, where $n_i$ is the number of resources of consumer $j$.
+$h$ is the Hill coefficient which is responsible for the hyperbolic or sigmoïdal
+shape of the functional response [@real77kfr], $B_0$ is the half saturation
+density and $c$ quantifies the strength of the intra-specific predator
+interference -- the degree to which increasing the predator population's biomass
+negatively affect its feeding rates [@bedd75mip; @dean75mti]. Depending on the
+parameters $h$ and $c$ the functional response can take several forms such as
+type II ($h = 1$ and $c = 0$), type III ($h > 1$ and $c = 0$), or predator
+interference ($h = 1$ and $c > 0$).
 
 ## Metabolic types and scaling
 
@@ -148,7 +148,7 @@ respectively, M is the typical adult body mass, and $a_r$, $a_x$ and $a_y$ are
 the allometric constant. To resolve the dynamics of the system, it is necessary
 to define a timescale. To do so, these biological rates are normalized by the
 growth rate of the producers population (*cf.* \autoref{e:production_rate})
-(ref. Brose 2008, @will07hyi and @bros06ase).
+[@will07hyi; @bros06ase].
 
 \begin{equation}\label{e:norm_production_rate}
 r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
@@ -296,7 +296,8 @@ supplementary material uses `Julia`'s parallel computing abilities, it will
 differ slightly from the examples given in the paper. For all figures, each
 point is the average of at least 500 replicates. We conducted the simulations in
 parallel on 50 Intel Xeon cores at 2.00 Ghz. All random networks were generated
-using the implementation of the niche model {>>REF<<} provided in `befwm`.
+using the implementation of the niche model of food webs [@will00sry] provided
+in `befwm`.
 
 ## Effect of increasing carrying capacity
 

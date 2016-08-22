@@ -11,10 +11,16 @@ author:
     orcid: 0000-0002-6238-229X
   - family: Brose
     given: Ulrich
+    orcid: 0000-0001-9156-583X
+    addiliation: 3, 4
   - family: Gravel
     given: Dominique
+    orcid: 0000-0002-4498-7076
+    affiliation: 2, 5
   - family: Stouffer
     given: Daniel B.
+    orcid: 0000-0001-9436-9674
+    affiliation: 6
   - family: Poisot
     given: Timothée
     affiliation: 1, 2
@@ -26,6 +32,14 @@ affiliation:
     text: Université de Montréal, Département de Sciences Biologiques
   - id: 2
     text: Québec Centre for Biodiversity Sciences
+  - id: 3
+    text: German Centre for Integrative Biodiversity Research (iDiv)
+  - id: 4
+    text: Systemic Conservation Biology, J. F. Blumenbach Institute of Zoology and Anthropology, University of Göttingen
+  - id: 5
+    text: Université de Sherbrooke, Département de Biologie
+  - id: 6
+    text: Centre for Integrative Ecology, School of Biological Sciences, University of Canterbury, Christchurch, New Zealand
 keyword:
   - k: metabolic theory of ecology
   - k: bio-energetic model
@@ -42,9 +56,9 @@ figure:
     short: Stability as a function of organism type and allometric scaling.
     file: vertebrate.pdf
   - id: connectance
-    caption: Although maximal species persistence is reach for values of inter-specific competition lower than unity, the increased trophic control at higher connectances allow coexistence even under stronger competition. The shaded area represents values of $\alpha$ smaller than unity, \emph{i.e.} coexistence is favored.
+    caption: Although maximal species persistence is reached for values of inter-specific competition lower than unity, the increased trophic control at higher connectances allow coexistence even under stronger competition. The shaded area represents values of $\alpha$ smaller than unity, \emph{i.e.} coexistence is favored.
     short: Connectance and competition affect species persistence.
     file: connectance.pdf
 date: \today
-abstract: ...
+abstract: Food webs are the backbone upon which biomass flows through ecosystems. Dynamical models of biomass can reveal how the structure of food webs is involved in many key ecosystem properties, such as persistence, stability, etc.. In this contribution, we present \texttt{befwm}, an implementation of the bio-energetic model, in the high-performance computing language Julia. We illustrate how this package can be used to conduct numerical experiments in a reproducible and standard way.
 ...

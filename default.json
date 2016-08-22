@@ -512,6 +512,39 @@
     "id": "kond03far"
   },
   {
+    "issue": "6704",
+    "DOI": "10.1038/27427",
+    "type": "article-journal",
+    "page": "794-798",
+    "title": "Weak trophic interactions and the balance of nature",
+    "volume": "395",
+    "author": [
+      {
+        "family": "McCann",
+        "given": "Kevin"
+      },
+      {
+        "family": "Hastings",
+        "given": "Alan"
+      },
+      {
+        "family": "Huxel",
+        "given": "Gary R."
+      }
+    ],
+    "container-title": "Nature",
+    "issued": {
+      "date-parts": [
+        [
+          1998,
+          10,
+          22
+        ]
+      ]
+    },
+    "id": "mcca98wti"
+  },
+  {
     "issue": "7173",
     "DOI": "10.1038/nature06359",
     "type": "article-journal",
@@ -757,6 +790,35 @@
       ]
     },
     "id": "stou07eer"
+  },
+  {
+    "issue": "6774",
+    "DOI": "10.1038/35004572",
+    "type": "article-journal",
+    "page": "180-183",
+    "title": "Simple rules yield complex food webs",
+    "volume": "404",
+    "author": [
+      {
+        "family": "Williams",
+        "given": "Richard J."
+      },
+      {
+        "family": "Martinez",
+        "given": "Neo D."
+      }
+    ],
+    "container-title": "Nature",
+    "issued": {
+      "date-parts": [
+        [
+          2000,
+          3,
+          9
+        ]
+      ]
+    },
+    "id": "will00sry"
   },
   {
     "publisher": "Springer Science + Business Media",
