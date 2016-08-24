@@ -1,14 +1,22 @@
 stages:
-    - runs
+    - draft
+    - preprint
+
+variables:
+  title: befwm
 
 preprint:
-    stage: runs
+    stage: preprint
     script:
-        - make TITLE=befwm TYPE=preprint
-        - make TITLE=befwm TYPE=draft
-    artifacts: 
+        - make TITLE=$title TYPE=preprint
+    artifacts:
         paths:
-            - befwm_preprint_version.pdf
-            - befwm_draft_version.pdf
+            - $(title)_preprint_version.pdf
 
-
+draft:
+    stage: draft
+    script:
+        - make TITLE=$title TYPE=draft
+    artifacts:
+        paths:
+            - $(title)_draft_version.pdf
