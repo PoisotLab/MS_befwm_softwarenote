@@ -11,7 +11,7 @@ preprint:
         - make TITLE=$title TYPE=preprint
     artifacts:
         paths:
-            - $(title)_preprint_version.pdf
+            - befwm_preprint_version.pdf
 
 draft:
     stage: draft
@@ -19,4 +19,4 @@ draft:
         - make TITLE=$title TYPE=draft
     artifacts:
         paths:
-            - $(title)_draft_version.pdf
+            - befwm_draft_version.pdf
