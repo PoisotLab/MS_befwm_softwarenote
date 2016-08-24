@@ -53,10 +53,7 @@ results cannot be properly explained as an error in either studies, and this
 eventually generates more uncertainty than it does answers. Finally, reference
 implementation eases reproducibility a lot. Specifically, it becomes enough to
 specify which version of the package was used, and to publish the script used to
-run the simulations (as we, for example, do in this manuscript). We fervently
-believe that more effort invested in providing the community with reference
-implementation of models representing cornerstones of our ecological
-understanding is an important effort.
+run the simulations (as we, for example, do in this manuscript). 
 
 # The model
 
