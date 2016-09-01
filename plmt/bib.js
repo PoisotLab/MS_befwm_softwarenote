@@ -136,6 +136,7 @@ if (_commands.indexOf(_cmd) >= 0) {
 
   if (_cmd == "pdfs") {
     for (var i = 0; i < lib.entries.length; i++) {
+      console.log("Got pdf for ", lib.entries[i].id());
       lib.icanhazpdf(lib.entries[i].id());
     }
   }

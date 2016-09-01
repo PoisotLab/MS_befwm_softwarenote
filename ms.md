@@ -202,7 +202,7 @@ This function returns an object with a fixed format, made of three fields: `:p`
 has all the parameters used to start the simulation (including the food web
 itself), `:t` has a list of all timesteps (including intermediate integration
 points), and `:B` is is a matrix of biomasses for each population (columns) over
-time (rows). All measures on output described below operate on this object.  
+time (rows). All measures on output described below operate on this object.
 
 The output of simulations can be saved to disk in either the `JSON` (javascript
 object notation) format, or in the native `jld` format. The `jld` option should
@@ -268,7 +268,12 @@ immediately before, as well as on the current development version. `Julia` is an
 ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
-REPL using `Pkg.add("befwm")`.
+REPL using `Pkg.add("befwm")`. A user manual and function reference is available
+online as a wiki at
+[http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home], which also
+gives instructions about installing Julia, the package, and how to get started.
+
+[http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home]: http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home
 
 {==Note to reviewers: the code will be uploaded to the Julia packages repository
 upon acceptance; meanwhile, the development version can be downloaded from the
