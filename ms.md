@@ -85,7 +85,7 @@ where $B_i$ is the biomass of population $i$, $r_i$ is the mass-specific maximum
 growth rate, $G_i$ is the net growth rate, $x_i$ is $i$'s mass-specific
 metabolic rate, $y_i$ is $i$'s maximum consumption rate relative to its
 metabolic rate, $e_{ij}$ is $i$'s assimilation efficiency when consuming
-population j and $F_{ij}$ is the multi-resources functional response of $i$
+population $j$ and $F_{ij}$ is the multi-resources functional response of $i$
 consuming $j$:
 
 \begin{equation}\label{e:func_resp}
