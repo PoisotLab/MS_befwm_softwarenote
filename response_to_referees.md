@@ -1,7 +1,11 @@
 # Response to referees
 
-We thank the reviewers for their positive comments and their insightful feedback on the manuscript and the code. We found these comments helpful for improving both.
-We re-submit an improved manuscript incorporating the reviewers' suggestions. Mainly, we have changed the package name and have extended our argumentation about why we think the field would benefit from this implementation of the bio-energetic model of Yodzis and Ines (1992).
+We thank the reviewers for their positive comments and their insightful feedback
+on the manuscript and the code. We found these comments helpful for improving
+both. We re-submit an improved manuscript incorporating the reviewers'
+suggestions. Mainly, we have changed the package name and have extended our
+argumentation about why we think the field would benefit from this
+implementation of the bio-energetic model of Yodzis and Ines (1992).
 
 ## Associate Editor's comments to the Author:
 
@@ -12,15 +16,15 @@ section IV would be useful here.
 
 >Much is made of the high performance nature of the code here, but no
 benchmarks are provided and no comparisons with competing approaches are
-provided.  Is this modelling work routinely limited by speed?  And is the
-step change in speed here enough to help this?  Given that most ODE solvers
+provided. Is this modelling work routinely limited by speed?  And is the
+step change in speed here enough to help this? Given that most ODE solvers
 find their way into heavily optimised compiled code, it's not immediately
-clear there will be a significant difference.  Some clarification here may
+clear there will be a significant difference. Some clarification here may
 help justify the statements.
 
->Also I note that on ODE.jl the README says: *"Need something long-term reliable right now?
- See the Sundials.jl package, which provides wrappers for the excellent
-Sundials ODE solver library."*
+>Also I note that on ODE.jl the README says: *"Need something long-term reliable
+right now? See the Sundials.jl package, which provides wrappers for the
+excellent Sundials ODE solver library."*
 
 >(among other statements of instability).  Is this overstated?
 
@@ -62,7 +66,7 @@ in performance when using this or Sundials.jl).*
  applicability.
 
  As shown in table \ref{listpapers}, the bio-energetic model has been widely
- used to this days in community ecology, and helped to produce some influential
+ used to this days in community ecology, and helped produce some influential
  results. Each of the study presented in the table \ref{listpapers} used their
  own implementation, and none were released to this day, making it difficult to
  reproduce their results. The fact that the bio-energetic model can be applied
@@ -76,7 +80,7 @@ in performance when using this or Sundials.jl).*
  \begin{table}[H]
  \centering
  \caption{List of published papers since
- 2007 that have used the underlying mathematical model, with specification of the parameters used for bothe the growth rate and the functional response.}
+ 2007 that have used the underlying mathematical model, with specification of the parameters used for both the growth rate and the functional response, as well as the type of food-webs data on which it was used.}
  \label{listpapers}
  \begin{tabular}{@{}lllllll@{}}
  \toprule
@@ -94,7 +98,7 @@ in performance when using this or Sundials.jl).*
  \end{tabular}
  \end{table}
 
- >  It did strike me as strange that the paper has 5 authors from different
+ > It did strike me as strange that the paper has 5 authors from different
  institutions, but the julia code seems to be written exclusively by the
  last author. At least the local git (non-github) repository has 100% of
  commits from the last author, so e.g. the first author appears to never
@@ -170,7 +174,7 @@ Corrected.
  effect of incorporating these factors is.
 
  We thank the reviewer for pointing out to this inconsistency (here,
- *vertebrate* refers to *ectotherm vertebrates* only), we have clarified  the
+ *vertebrate* refers to *ectotherm vertebrates* only), we have clarified the
  effect of changing this parameter as well as corrected the term used both in
  the manuscript and the code.
 
