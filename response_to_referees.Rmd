@@ -159,7 +159,9 @@ I have a number of minor suggestions for impovement, in no particular order:
  but that isn’t mentioned in the MS as far as I can see -- I think it should
  be highlighted clearly.
 
-\hl{TODO}
+> The online documentation is mentioned in part III (Implementation and
+availability), with the corresponding link. We now also give the link in the
+introduction paragraph of part IV (Use cases) for more clarity.
 
 3. The documentation mentions that many linux distros have a julia
  package, but that is not the recommended way to install julia on linux –

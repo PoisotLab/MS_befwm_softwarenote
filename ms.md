@@ -284,7 +284,7 @@ approx. 90% to this date.
 
 # Use cases
 
-All functions in the package have an in-line documentation, available from the
+All functions in the package have an in-line documentation available at [http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], as well as from the
 `julia` interface by typing `?` followed by the name of the function. In this
 section, we will describe three of the aforementionned use-cases. The code to
 execute them is attached as Supp. Mat. to this paper. As all code in the
