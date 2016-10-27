@@ -309,8 +309,11 @@ in `befwm`.
 Starting from networks generated with the niche model, with 20 species,
 connectance of $0.15 \pm 0.01$, we investigate the effect of increasing the
 carrying capacity of the resource (on a log scale from 0.1 to 10). We use three
-values of the $\alpha_{ij}$ parameter, ranging from favoring coexistence (0.92),
-neutrally stable (1.0), to weak competitive exclusion (1.08).
+values of the $\alpha_{ij}$ parameter, ranging from 0.92 (the inter-specific
+competition is smaller than the intra-specific competition, which should favor
+coexistence), neutrally stable (intra- = inter-specific competition = 1), to
+1.08 (the intra-specific competition is smaller the inter-specific competition,
+which should favor competitive exclusion).
 
 !{carrying}
 

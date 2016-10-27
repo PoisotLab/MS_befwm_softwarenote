@@ -242,6 +242,13 @@ I have downloaded Julia and the befwm package, and tried some of the
  process of working through the development of a package in a rapidly
  evolving language. Otherwise I found the functions intuitive and the
  structure of the objects well-suited to the goals.  
+
+ >We thank the reviewer for his positive comments and his insightful remarks,
+ which we found useful in improving our work.    > We also thank the reviewer
+ for pointing at the inconsistencies between the code presentented in the
+ manuscript and the tutorials, we have been through both and corrected the
+ mistakes we could find.
+
 While there is little new in this manuscript in terms of methods
  development, I expect that the availability of a standard and reliable
  implementation of the Yodzis & Innes model and its descendants will be of
@@ -254,11 +261,6 @@ While there is little new in this manuscript in terms of methods
  environment (though I have not tried these yet). I could also see this
  turning into a useful teaching tool at multiple levels.
 
- >We thank the reviewer for his positive comments and his insightful remarks,
- which we found useful in improving our work.   
- > We also thank the reviewer for pointing at the
- inconsistencies between the code presentented in the manuscript and the
- tutorials, we have been through both and corrected the mistakes we could find.  
  > We agree that the package presented here do not present a methodological
  novelty, but -- as emphasized by the reviewer -- we think that having a
  reliable implementation of this influential model will be useful for many
@@ -270,13 +272,13 @@ I have only a few relatively minor comments:
 1. the measure referred to as `foodweb_diversity` (P8 L159) is identical to the
  evenness component (J') of the Shannon H' index, is it not? The explanation
  is a bit convoluted for something that should be familiar to ecologists,
- and ideally the function would have been called foodweb_evenness or
+ and ideally the function would have been called `foodweb_evenness` or
  something, as the diversity index itself may also be of interest to users.
 
- > This measure is indeed identical to the evenness component (J') of the
- Shannon H' index, we agree that the use of the term *diversity* may be
- confusing for users and changed the name of this function to `foodweb_evenness`
- as suggested by the reviewer.
+ > This measure is indeed identical to the evenness component of the Shannon
+ index, we agree that the use of the term *diversity* may be confusing for users
+ and changed the name of this function to `foodweb_evenness` as suggested by the
+ reviewer.
 
 2. in IV.i and figure 1, I suggest using outcome-neutral terminology in place
  of "conditions of coexistence[or competitive exclusion]", because
@@ -286,9 +288,11 @@ I have only a few relatively minor comments:
 
  > We agree that the use of the terms coexistence and competitive exclusion is
  not really adapted as it indeed refer to potential outcomes of the chosen
- values of relative inter-specific competition. We have replaced it following
- the suggestions of the reviewer. We now refer to inter-specific competition
- greater, equal or lower than intra-specific competition.
+ values of relative inter-specific competition. We have replaced it in the text
+ following the suggestions of the reviewer. We now refer to inter-specific
+ competition greater, equal or lower than intra-specific competition. Although
+ we kept the terms *coexistence*, *neutrally stable* and *exclusion* in the
+ figure, which represent the outcomes.
 
 3. in the code for section IV.ii (p11-12) it appears that there is a missing
  loop - scaling and the counter 'i' are not defined anywhere.
