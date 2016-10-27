@@ -267,27 +267,20 @@ ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
 REPL using `Pkg.add("befwm")`. A user manual and function reference is available
-online as a wiki at
-[http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home], which also
+online at
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], which also
 gives instructions about installing Julia, the package, and how to get started.
 
-[http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home]: http://poisotlab.biol.umontreal.ca/julia-packages/befwm/wikis/home
-
-{==Note to reviewers: the code will be uploaded to the Julia packages repository
-upon acceptance; meanwhile, the development version can be downloaded from the
-URL given below using `Pkg.clone`, and has been attached to this submission.==}
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/]: http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/
 
 The code is released under the MIT license. This software note describes version
 `0.1.0`. The source code of the package can be viewed, downloaded, and worked on
-at [http://poisotlab.biol.umontreal.ca/julia-packages/befwm]. The code is also
-mirrored (read-only for stable versions) at
-[https://github.com/PoisotLab/befwm.jl]. Potential issues with the code or
-package can be reported at either places throug the *Issues* system. The code is
+at [https://github.com/PoisotLab/BioEnergeticFoodWebs.jl]. Potential issues with
+the code or package can be reported through the *Issues* system. The code is
 version-controlled, undergoes continuous integration, and has a code coverage of
 approx. 90% to this date.
 
-[http://poisotlab.biol.umontreal.ca/julia-packages/befwm]: http://poisotlab.biol.umontreal.ca/julia-packages/befwm
-[https://github.com/PoisotLab/befwm.jl]: https://github.com/PoisotLab/befwm.jl
+[https://github.com/PoisotLab/BioEnergeticFoodWebs.jl]: https://github.com/PoisotLab/BioEnergeticFoodWebs.jl
 
 # Use cases
 
