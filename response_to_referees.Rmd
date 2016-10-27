@@ -178,10 +178,10 @@ on Linux is via tarball from julialang.org.
 
 > We agree that the term *niche* is widely used in ecology but we also argue
 that the particular term *niche model* is well accepted in food web ecology and,
-as it  can be seen in table \ref{listpapers}, is widely used in the literature
+as it can be seen in table \ref{listpapers}, is widely used in the literature
 to describe the model we implemented under the name `nichemodel`. We think that
 it is a clear reference to Williams and Martinez (2000) niche model and that
-choosing another name for this function might be confusing for the users.
+choosing another name for this function might be confusing for users.
 
 5. Line 71: ”is an important effort” - ”is important”.
 
@@ -194,7 +194,8 @@ accordingly.
 the computational aspect is an additional layer of complexity on the
 mathematical one.*
 
-\hl{TODO}
+We have chosen to remove this sentence from the manuscript, as it was not
+necessary to the understanding of this paragraph.
 
 7. Line 89: ”independant” - ”independent”
 
@@ -217,9 +218,9 @@ mathematical one.*
 >This line of code create a vector determining whether the organism $i$ is an
 ectotherm vertebrate (`vert[i] = 1`) or not (`vert[i] = 0`). The inclusion of
 the trophik rank is not necessary for the computation of the biomass dynamics,
-as this parameter is not used for producers (`trophic_rank = 1`), but it would
-be ecologically incorrect to have primary producers being vertebrate, that is
-why we have chosen to precise this argument.
+as this parameter is not used for producers (because for producers `trophic_rank =
+1`), but it would be ecologically incorrect to have primary producers being
+vertebrate, that is why we have chosen to precise this argument.
 
 10. Fig. 2 caption: ”sahded” - ”shaded”
 
@@ -273,7 +274,7 @@ I have only a few relatively minor comments:
  > This measure is indeed identical to the evenness component (J') of the
  Shannon H' index, we agree that the use of the term *diversity* may be
  confusing for users and changed the name of this function to `foodweb_evenness`
- as suggested by the reviewer. 
+ as suggested by the reviewer.
 
 2. in IV.i and figure 1, I suggest using outcome-neutral terminology in place
  of "conditions of coexistence[or competitive exclusion]", because

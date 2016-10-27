@@ -44,9 +44,7 @@ perspective, we argue that providing the community with reference
 implementations of common models is an important task. First, implementing
 complex models can be a difficult task, in which programming mistakes will bias
 the output of the simulations, and therefore the ecological interpretations we
-draw from them. Simulation-based studies are more at risk than analytical-based
-ones, since the computational aspect is an additional layer of complexity on the
-mathematical one. Second, reference implementations facilitate the comparison of
+draw from them. Second, reference implementations facilitate the comparison of
 studies. Currently, comparing studies mean not only comparing results, but also
 comparing implementations -- because not all code is public, a difference in
 results cannot be properly explained as an error in either studies, and this
