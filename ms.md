@@ -164,9 +164,18 @@ thus become a non-dimensional rate:
 y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
+As the metabolic rates also vary with the organisms metabolic types, the maximum
+consumption rate of population $i$ relative to its metabolic rate ($y_{i}$) is
+not the same for ectotherm vertebrates ($y_{i} = 4$) and invertebrates ($y_{i} =
+8$) predators, the same goes for the allometric constant $a_x$, which cause the
+mass-specific metabolic rate ($x_i$) to differ for ectotherm  vertebrates ($a_x =
+0.88$) and invertebrates ($a_x = 0.314$). The diet of predators also affects
+their assimilation efficiency ($e_{ij}$) which is greater for carnivores
+($e_{ij} = 0.85$) than for herbivores ($e_ij = 0.45$).
+
 Assuming that most natural food webs have a constant size structure [@bros06cbr;
-@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is also constant. The
-body mass of consumers is then a function of their mean trophic level ($T$), it
+@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is constant. The body
+mass of consumers is then a function of their mean trophic level ($T$), it
 increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
 \begin{equation}\label{e:z_ratio}
@@ -183,9 +192,9 @@ All of these parameters can be modified before running the simulations (see
 `?model_parameters`), and are saved alongside the simulation output for future
 analyses. The default values and meanings of the different parameters are
 explained in the documentation of the `model_parameters` function. The user can
-specify which species are vertebrates by supplying a `vertebrate` array of
-boolean values, and the body-mass of each species by supplying a `bodymass`
-array of floating-point values.
+specify which species are ectotherm vertebrates by supplying an array of boolean
+values, and the body-mass of each species by supplying an array of
+floating-point values.
 
 ## Saving simulations and output format
 
@@ -345,7 +354,7 @@ The results are presented in \autoref{carrying}.
 ## Effect of consumer-resource body-mass ratio on stability
 
 In \autoref{vertebrate}, we illustrate how the effect of body-mass ratio differs
-between food webs with invertebrates and vertebrate consumers.
+between food webs with invertebrates and ectotherm vertebrate consumers.
 
 !{vertebrate}
 
@@ -357,9 +366,9 @@ code), and can be changed in the following way:
 p = model_parameters(A, Z=scaling[i])
 ~~~
 
-Which species is a vertebrate is controlled by the parameter `vertebrate` of
-`model_parameters`, which is an array of boolean (true/false) values. In order
-to have all consumers be vertebrates, we use
+Which species is an ectotherm vertebrate is controlled by the parameter
+`vertebrate` of `model_parameters`, which is an array of boolean (true/false)
+values. In order to have all consumers be ectotherm vertebrates, we use
 
 ~~~ julia
 vert = round(Bool,trophic_rank(A).>1.0)

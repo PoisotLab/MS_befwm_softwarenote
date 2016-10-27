@@ -208,9 +208,9 @@ necessary to the understanding of this paragraph.
  effect of incorporating these factors is.
 
 >We thank the reviewer for pointing out to this inconsistency (here,
- *vertebrate* refers to *ectotherm vertebrates* only), we have clarified the
- effect of changing this parameter as well as corrected the term used both in
- the manuscript and the code.
+*vertebrate* refers to *ectotherm vertebrates* only, which is now the term used
+throughout the manuscript), we also have clarified the effect of changing this
+parameter in a new paragraph -- lines.
 
 9. It is not clear why the code snippet in line 214 needs to include
  trophic rank.
