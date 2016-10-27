@@ -28,7 +28,7 @@ transfer through trophic interactions are better justified when they account for
 the entire food-web structure, such as @will07hyi adaptation to food webs of
 @yodz92bsc model. This food-web bio-energetic model has been used, for example,
 to show how food web stability can emerge from allometric scaling [@bros06ase]
-or allometry-constrained degree distributions [@otto07add]. Yet, although these
+or allometry-constrained degree distributions [@otto07add] (more past uses of the model are described in supplementary table S1). Yet, although these
 and other studies used the same mathematical model, implementations differ from
 study to study and none have been released. Motivated by the fact that this
 model addresses mechanisms that are fundamental to our understanding of energy
