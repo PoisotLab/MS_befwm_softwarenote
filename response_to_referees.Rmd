@@ -297,9 +297,8 @@ I have only a few relatively minor comments:
 3. in the code for section IV.ii (p11-12) it appears that there is a missing
  loop - scaling and the counter 'i' are not defined anywhere.
 
- > We are thankful for the reviewer for pointing out this error, the loop
- defining the values of body-mass ratio was indeed missing, we thus corrected
- the code on pages 11-12.
+ > We are thankful for the reviewer for pointing out this error, some
+ information were indeed missing, we thus corrected the code on pages 11-12.
 
 4. the 'species_persistence' function is not documented as far as I can see,
  and it's not working on the output of a simulation for me. I would suggest

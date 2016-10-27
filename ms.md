@@ -365,8 +365,9 @@ The body-mass ratio is controlled by the parameter $Z$ (field `Z` in the
 code), and can be changed in the following way:
 
 ~~~ julia
+scaling = logspace(-2, 4, 19) #creates an array with 19 body-mass ratio values
 # Prepare the simulation parameters
-p = model_parameters(A, Z=scaling[i])
+p = model_parameters(A, Z=scaling[i]) #where i is a number from 1 to 19
 ~~~
 
 Which species is an ectotherm vertebrate is controlled by the parameter
@@ -384,6 +385,8 @@ so that for each network, we prepare the simulations with
 p = model_parameters(A,
       Z=scaling[i],
       vertebrates=vert)
+# where i is a number from 1 to 19, as there are 19 body-mass ratio values in the
+# scaling array
 ~~~
 
 ## Connectance effect on coexistence
