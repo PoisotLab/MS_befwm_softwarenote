@@ -96,7 +96,7 @@ The formulation of the growth rate $G_i$ can be chosen among three possibilities
 [@will08end] that all share the general equation of $G_i = 1 - s/k$, where $s$
 is the sum of biomass of populations in competition for a ressource with
 carrying capacity $k$. The first scenario, used by @bros06ase, sets $s = B_i$
-and $k = K$: species only compete with themselves for independant resources. The
+and $k = K$: species only compete with themselves for independent resources. The
 issue with this formulation [@kond03far] is that the biomass and productivity of
 the system scales linearly with the number of primary producers. The second
 formulation "shares" the resource across primary producers, with $s = B_i$ and
