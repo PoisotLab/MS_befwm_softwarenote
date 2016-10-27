@@ -7,7 +7,7 @@ while nprocs() < number_of_cores
 end
 @everywhere srand(42)
 
-@everywhere using befwm
+@everywhere using BioEnergeticFoodWebs
 
 @everywhere competition = linspace(0.90, 1.10, 3)
 @everywhere k = logspace(-1, 1, 19)
@@ -22,7 +22,7 @@ end
   # Simulate
   p = model_parameters(A, productivity=:competitive, α=α, K=k)
   bm = rand(size(A, 1))
-  out = simulate(p, bm, start=0, stop=2000, use=:ode45)
+  out = simulate(p, bm, start=0, stop=2000)
   # Get results
   d = foodweb_diversity(out, last=1000)
   s = population_stability(out, last=1000, threshold=eps())
@@ -51,6 +51,5 @@ end
 df = df[!isnan(df[:diversity]),:]
 df = df[!isna(df[:diversity]),:]
 df = df[df[:stability] .<= 0.0,:]
-#df = df[df[:stability] .>= -5.0,:]
 
 writetable("./figures/sm1.dat", df, separator='\t', header=true)

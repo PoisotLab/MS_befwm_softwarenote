@@ -6,7 +6,7 @@ while nprocs() < number_of_cores
   addprocs(number_of_cores - nprocs())
 end
 
-@everywhere using befwm
+@everywhere using BioEnergeticFoodWebs
 
 @everywhere Z = logspace(-2, 4, 19)
 @everywhere V = vec([true false])
@@ -31,7 +31,7 @@ end
   end
   p = model_parameters(A, productivity=:system, Z=z, vertebrates=round(Bool, vertebrates))
   bm = rand(size(A, 1))
-  out = simulate(p, bm, start=0, stop=2000, use=:ode45)
+  out = simulate(p, bm, start=0, stop=2000)
   # Get results
   d = foodweb_diversity(out, last=1000)
   s = population_stability(out, last=1000, threshold=-0.01)

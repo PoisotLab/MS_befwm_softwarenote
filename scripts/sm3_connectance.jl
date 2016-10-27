@@ -7,7 +7,7 @@ while nprocs() < number_of_cores
 end
 @everywhere srand(42)
 
-@everywhere using befwm
+@everywhere using BioEnergeticFoodWebs
 
 @everywhere competition = linspace(0.8, 1.2, 15)
 @everywhere connectance = linspace(0.05, 0.25, 5)
