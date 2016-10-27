@@ -164,7 +164,7 @@ thus become a non-dimensional rate:
 y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \frac{a_x M_C^{-0.25}} {a_r M_P^{-0.25}}} = \frac {a_y} {a_x}
 \end{equation}
 
-As the metabolic rates also vary with the organisms metabolic types, the maximum
+As the biological rates also vary with the organisms metabolic types, the maximum
 consumption rate of population $i$ relative to its metabolic rate ($y_{i}$) is
 not the same for ectotherm vertebrates ($y_{i} = 4$) and invertebrates ($y_{i} =
 8$) predators, the same goes for the allometric constant $a_x$, which cause the
