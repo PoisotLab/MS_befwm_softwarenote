@@ -275,10 +275,17 @@ I have only a few relatively minor comments:
  and ideally the function would have been called `foodweb_evenness` or
  something, as the diversity index itself may also be of interest to users.
 
- > This measure is indeed identical to the evenness component of the Shannon
- index, we agree that the use of the term *diversity* may be confusing for users
- and changed the name of this function to `foodweb_evenness` as suggested by the
- reviewer.
+ > The measure referred to as `foodweb_diversity` is indeed identical to the
+ evenness component of the Shannon index, as noted by the reviewer. we believe
+ that the use of this index is a good -- and broadly used -- indicator of
+ diversity within communities, here accounting for the number of remaining
+ species as well as their relative abundance -- which perfectly fit the
+ definition of diversity. We understand the view of the reviewer, although we
+ prefer that the name of the function actually refers to what it is measuring
+ instead of the name of the index itself. We are confident that the users --
+ mostly food-web ecologists -- will perfectly understand what the
+ `foodweb_diversity` function does by reading its documentation, available by
+ simply typing `?foodweb_diversity`.  
 
 2. in IV.i and figure 1, I suggest using outcome-neutral terminology in place
  of "conditions of coexistence[or competitive exclusion]", because
@@ -313,3 +320,5 @@ I have only a few relatively minor comments:
  references are formatted inconsistently.
 
  > Corrected.
+
+ \hl{todo}
