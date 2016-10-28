@@ -22,7 +22,7 @@ in particular questions how widely this will be used - some expansion of
 section IV would be useful here.
 
 > We agree that a better contextualization will allow to see how widely this
-model has been used and still is. We have included a table in part IV.iv
+model has been used and still is. We have included a table in supp. mat.
 presenting the past uses of Yodzis & Ines (1992) bio-energetic model from 2007
 untill today. We believe that this table illustrate how broadly this model can
 be used.
@@ -79,8 +79,7 @@ At present, though, I don’t think the authors make a compelling case that
  least look ahead and highlight how this package has broader general
  applicability.
 
- >As shown in table \ref{listpapers} (now included in part IV.iv of the
- manuscript), Yodzis & Ines (1990) bio-energetic model has been widely used to
+ >As shown in table \ref{listpapers} (now included as supp. mat.), Yodzis & Ines (1990) bio-energetic model has been widely used to
  this days in community ecology, and helped produce some influential results.
  Each of the study presented in the table \ref{listpapers} used their own
  implementation, and none were released to date, making it difficult to
@@ -210,7 +209,7 @@ necessary to the understanding of this paragraph.
 >We thank the reviewer for pointing out to this inconsistency (here,
 *vertebrate* refers to *ectotherm vertebrates* only, which is now the term used
 throughout the manuscript), we also have clarified the effect of changing this
-parameter in a new paragraph -- lines.
+parameter in a new paragraph.
 
 9. It is not clear why the code snippet in line 214 needs to include
  trophic rank.
@@ -244,7 +243,9 @@ I have downloaded Julia and the befwm package, and tried some of the
  structure of the objects well-suited to the goals.  
 
  >We thank the reviewer for his positive comments and his insightful remarks,
- which we found useful in improving our work.    > We also thank the reviewer
+ which we found useful in improving our work.    
+
+ > We also thank the reviewer
  for pointing at the inconsistencies between the code presentented in the
  manuscript and the tutorials, we have been through both and corrected the
  mistakes we could find.
@@ -293,7 +294,7 @@ I have only a few relatively minor comments:
  Perhaps phrase in terms of interspecific competition being greater than,
  equal to, or less than intraspecific competition?
 
- > We agree that the use of the terms coexistence and competitive exclusion is
+ > We agree that the use of the terms *coexistence* and *competitive exclusion* is
  not really adapted as it indeed refer to potential outcomes of the chosen
  values of relative inter-specific competition. We have replaced it in the text
  following the suggestions of the reviewer. We now refer to inter-specific
@@ -307,7 +308,7 @@ I have only a few relatively minor comments:
  > We are thankful for the reviewer for pointing out this error, some
  information were indeed missing, we thus corrected the code on pages 11-12.
 
-4. the 'species_persistence' function is not documented as far as I can see,
+4. the `species_persistence` function is not documented as far as I can see,
  and it's not working on the output of a simulation for me. I would suggest
  using the function instead of manually dividing by the initial richness in
  the code in IV.iii, as it will be less likely to lead to errors if adapted
@@ -321,4 +322,4 @@ I have only a few relatively minor comments:
 
  > Corrected.
 
- \hl{todo}
+ \hl{todo}: format references
