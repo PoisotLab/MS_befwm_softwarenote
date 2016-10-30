@@ -10,32 +10,38 @@ output:
 >We thank the reviewers and the editor for their positive comments and their
 insightful feedback on the manuscript and the code. We found these comments
 helpful for improving both. We re-submit an improved manuscript incorporating
-the reviewers' suggestions. Mainly, we have changed the package name and have
-extended our argumentation about why we think the field would benefit from this
-implementation of the bio-energetic model of Yodzis and Ines (1992).
+the reviewers' suggestions. Mainly, we have changed the package name and
+have extended our argumentation about why we think the field would benefit
+from this implementation of the bio-energetic model of Yodzis and Ines (1992).
 
 ## Associate Editor's comments to the Author:
 
 I have received two reviews for this manuscript; both broadly positive but
-with constructive suggestions that will improve the manuscript. Reviewer 1
-in particular questions how widely this will be used - some expansion of
+with constructive suggestions that will improve the manuscript. Reviewer
+1 in particular questions how widely this will be used - some expansion of
 section IV would be useful here.
 
 > We agree that a better contextualization will allow to see how widely this
-model has been used and still is. We have included a table in supp. mat.
-presenting the past uses of Yodzis & Ines (1992) bio-energetic model from 2007
-untill today. We believe that this table illustrate how broadly this model can
-be used.
+model has been used and still is. We have included a table as Supplementary
+Material, presenting the past uses of Yodzis & Ines (1992) bio-energetic model
+from 2007 until today. We believe that this table illustrate how broadly this
+model can be used, and especially the variety of questions it allows answering.
 
-Much is made of the high performance nature of the code here, but no
-benchmarks are provided and no comparisons with competing approaches are
-provided. Is this modelling work routinely limited by speed?  And is the
-step change in speed here enough to help this? Given that most ODE solvers
-find their way into heavily optimised compiled code, it's not immediately
-clear there will be a significant difference. Some clarification here may
-help justify the statements.
+Much is made of the high performance nature of the code here, but no benchmarks
+are provided and no comparisons with competing approaches are provided. Is
+this modelling work routinely limited by speed?  And is the step change
+in speed here enough to help this? Given that most ODE solvers find their
+way into heavily optimised compiled code, it's not immediately clear there
+will be a significant difference. Some clarification here may help justify
+the statements.
 
-\hl{TODO}
+>We agree with this statement -- this being said, `ODE.jl` is a native
+implementation of some common numerical solvers, so no time is spent exchanging
+information between the Julia code and the wrapped library. At a higher level,
+Julia is natively designed for parallel / distributed computing, so very
+naive approach should see almost linear speed-ups on multicore machines. In
+addition, a benchmark would make sense only if the other solutions were (i)
+widely used and (ii) feature equivalent.
 
 Also I note that on ODE.jl the README says: *"Need something long-term reliable
 right now? See the Sundials.jl package, which provides wrappers for the
@@ -44,10 +50,13 @@ instability). Is this overstated?
 
 >In part, yes. The instability refers not to the behavior of the code, but
 to the API itself, meaning that it may change in future releases. However,
-because we have organized the code so that all calls to ODE.jl go through a
-single function, and it will be easy for us to track API changes. In over a
-year of working with ODE.jl, we have noted no change in API (and no difference
-in performance when using this or Sundials.jl).
+because we have organized the code so that all calls to ODE.jl go through
+a single function, and it will be easy for us to track API changes. In
+over a year of working with ODE.jl, we have noted no change in API (and no
+difference in performance when using this or Sundials.jl). We will also revert
+to Sundials.jl once a very specific memory management in the library they
+wrap will be solved; this currently means that there is a memory leak under
+some situations, which result in multiple successive simulations aborting.
 
 ## Reviewer 1
 
@@ -62,9 +71,11 @@ isn’t a lot of code as the package draws extensively on existing
 functionality in other julia packages, but that is in accordance with good
 coding practice.
 
-> We thank the reviewer for his positive comments; as is the case for most
-languages with thriving package ecosystems, we indeed draw on the work of the
-community to avoid re-implementation of existing features.
+>We thank the reviewer for his positive comments; as is the case for most
+languages with thriving package ecosystems, we indeed draw on the work of
+the community to avoid re-implementation of existing features. We have taken
+care to write most wrapper code as single, short, well-tested functions,
+so that we will be able to track API changes should they arise.
 
 At present, though, I don’t think the authors make a compelling case that
  this software will be taken up and used widely in the field. One of the
@@ -79,67 +90,50 @@ At present, though, I don’t think the authors make a compelling case that
  least look ahead and highlight how this package has broader general
  applicability.
 
- >As shown in table \ref{listpapers} (now included as supp. mat.), Yodzis & Ines (1990) bio-energetic model has been widely used to
- this days in community ecology, and helped produce some influential results.
- Each of the study presented in the table \ref{listpapers} used their own
- implementation, and none were released to date, making it difficult to
- reproduce their results. The fact that the bio-energetic model can be applied
- to any type of community, and that it can be used in combination with other
- model (such as the nutrient-intake model, Brose et al., 2005a,b; Brose et al.,
- 2008) make it a broadly used model in community ecology. In addition, some of
- the authors have used this model extensively for teaching. Although this did
- not result in publications, we believe that this type of packages is valuable
- as a teaching tool too.  
+ >As shown in the table now added as Supplementary Material, the Yodzis & Ines
+ (1990) bio-energetic model has been widely used to this days in community
+ ecology, and helped produce some influential results.  Each of the study
+ presented in the table used their own implementation, and none (except
+ the most recent) were released to date, making it difficult to reproduce
+ their results. The fact that the bio-energetic model can be applied to any
+ type of community, and that it can be used in combination with other model
+ (such as the nutrient-intake model, Brose et al., 2005a,b; Brose et al.,
+ 2008) make it a broadly used model in community ecology. In addition, some
+ of the authors have used this model extensively for teaching. Although this
+ did not result in publications, we believe that this type of packages is
+ valuable as a teaching tool too.
 
- > However, we have not included a re-analysis of one of
- these papers because we do not know what choices were made regarding the
- simulation or some of the parameters -- although use case IV.ii (Effect of
- consumer-resource body-mass ratio on stability) is close to Brose et al. (2006)
- analysis. We think that the simple use cases and the table now presented in the
- manuscript are sufficient to illustrate how broadly this package has been (and
- still is) used.
-
-\begin{landscape}
-\begin{table}[ht]
-\centering
-\resizebox{1.4\textwidth}{!}{
-  \begin{tabular}{@{}lllllll@{}}
-  \toprule
-  Reference                                                                 & Title                                                                                                                                                                                                               & Food webs                                                                                                                    & Model reference                                                                                                                                & Growth rate function                                                                                               & Functional response                                                                                                                                                                                        & Implementation \\ \midrule
-  \begin{tabular}[c]{@{}l@{}}Otto et al.,\\  2007\end{tabular}              & \begin{tabular}[c]{@{}l@{}}Allometric degree\\  distributions facilitate \\ food-web stability\end{tabular}                                                                                                         & \begin{tabular}[c]{@{}l@{}}modules from 5\\  natural food \\ webs\end{tabular}                                               & \begin{tabular}[c]{@{}l@{}}Yodzis \& \\ Ines, 1992\end{tabular}                                                                                & productivity = :species                                                                                            & Type II (:h = 1 and :c = 0)                                                                                                                                                                                & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Rall et al., \\ 2007\end{tabular}              & \begin{tabular}[c]{@{}l@{}}Food-web connectance and\\  predator interference \\ dampen the paradox of \\ enrichment\end{tabular}                                                                                    & \begin{tabular}[c]{@{}l@{}}Cascade model, \\ Niche model and \\ Nested hierarchy\\  model\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Yodzis \& \\ Ines, 1992\end{tabular}                                                                                & productivity = :species                                                                                            & \begin{tabular}[c]{@{}l@{}}Type II (:h = 1, :c =0),\\  III (:h = 2, :c = 0) \\ and predator interference, (:h = 1, :c = 1) \\ or gradient (1\textless:h\textless2 and 0\textless:c\textless4)\end{tabular} & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Brose,\\  2008\end{tabular}                    & \begin{tabular}[c]{@{}l@{}}Complex food webs prevent \\ competitive exclusion \\ among producer species\end{tabular}                                                                                                & Niche model                                                                                                                  & \begin{tabular}[c]{@{}l@{}}Yodzis \& \\ Ines, 1992\end{tabular}                                                                                & \begin{tabular}[c]{@{}l@{}}Producer–nutrient model \\ (Brose et al., 2005a,b)\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}Hill exponent (:h) and \\ predator interference (:c) \\ randomly drawn from \\ truncated normal distributions.\end{tabular}                                                     & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Williams, \\ 2008\end{tabular}                 & \begin{tabular}[c]{@{}l@{}}Effects of network and \\ dynamical model structure \\ on species persistence in \\ large model food webs\end{tabular}                                                                   & \begin{tabular}[c]{@{}l@{}}Cascade model, \\  Niche model  \\ Generalized \\ cascade model \\ and random model.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Brose et al. 2006; \\ Williams et al. 2007; \\ Williams and \\ Martinez 2004; \\ Yodzis and Innes 1992\end{tabular} & \begin{tabular}[c]{@{}l@{}}:productivity = :species,\\  :system or \\ :competitive\end{tabular}                    & \begin{tabular}[c]{@{}l@{}}Type II (:h = 1, :c = 0), \\ Weak type III (:h = 1.2, :c = 0) \\ or Weak predator interference \\ (:h = 1, :c = 0.5)\end{tabular}                                               & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Stouffer \&\\  Bascompte,\\  2010\end{tabular} & \begin{tabular}[c]{@{}l@{}}Understanding food-web \\ persistence from local to \\ global scales\end{tabular}                                                                                                        & Niche model                                                                                                                  & \begin{tabular}[c]{@{}l@{}}Yodzis \&\\  Ines 1992\end{tabular}                                                                                 & productivity = :species                                                                                            & Type II (:h = 1, :c = 0)                                                                                                                                                                                   & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Binzer et\\  al., 2011\end{tabular}            & \begin{tabular}[c]{@{}l@{}}The susceptibility of species\\  to extinctions in  model \\ communities\end{tabular}                                                                                                    & Niche model                                                                                                                  & \begin{tabular}[c]{@{}l@{}}Yodzis \& \\ Ines, 1992\end{tabular}                                                                                & productivity = :system                                                                                             & \begin{tabular}[c]{@{}l@{}}Hill exponent (:h) and \\ predator interference (:c) \\ randomly drawn from \\ truncated normal distributions.\end{tabular}                                                     & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Curtsdotter\\  et al., 2011\end{tabular}       & \begin{tabular}[c]{@{}l@{}}Robustness to secondary \\ extinctions: Comparing \\ trait-based sequential \\ deletions in static and \\ dynamic food webs\end{tabular}                                                 & Niche model                                                                                                                  & \begin{tabular}[c]{@{}l@{}}Brose, 2008; \\ Rall et al., 2008\end{tabular}                                                                      & productivity = :system                                                                                             & \begin{tabular}[c]{@{}l@{}}Hill exponent (:h) and\\  predator interference (:c) \\ randomly drawn from\\  truncated normal distributions.\end{tabular}                                                     & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Stouffer \& \\ Bascompte, \\ 2011\end{tabular} & \begin{tabular}[c]{@{}l@{}}Compartmentalization \\ increases food-web \\ persistence\end{tabular}                                                                                                                   & \begin{tabular}[c]{@{}l@{}}Niche model \\ and natural \\ food webs\end{tabular}                                              & \begin{tabular}[c]{@{}l@{}}Yodzis \&\\  Ines, 1992\end{tabular}                                                                                & productivity = :species                                                                                            & Type II (:h = 1, :c = 0)                                                                                                                                                                                   & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Kéfi et al., \\ 2016\end{tabular}              & \begin{tabular}[c]{@{}l@{}}How Structured Is the \\ Entangled Bank? \\ TheSurprisingly Simple \\ Organization of \\ MultiplexEcological \\ Networks Leads to \\ IncreasedPersistence and \\ Resilience\end{tabular} & \begin{tabular}[c]{@{}l@{}}Natural food \\ web and\\ randomization\end{tabular}                                              & \begin{tabular}[c]{@{}l@{}}Brose, 2008; \\ Yodzis \& Ines 1992\end{tabular}                                                                    & \begin{tabular}[c]{@{}l@{}}productivity = :competitive \\ (see Kéfi et al., 2016\\  for more details)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Type III (see Kéfi et al., \\ 2016 for more details)\end{tabular}                                                                                                               & Not released   \\
-  \begin{tabular}[c]{@{}l@{}}Iles \& Novak, \\ 2016\end{tabular}            & \begin{tabular}[c]{@{}l@{}}Complexity Increases \\ Predictability in \\ Allometrically Constrained\\  Food Webs\end{tabular}                                                                                        & Niche model                                                                                                                  & \begin{tabular}[c]{@{}l@{}}Williams \& \\ Martinez, 2004\end{tabular}                                                                          & productivity = :system                                                                                             & \begin{tabular}[c]{@{}l@{}}Saturating Type III–like \\ functional response :h = 3\end{tabular}                                                                                                             & Not released   \\
-  Schneider et al., 2016                                                    & \begin{tabular}[c]{@{}l@{}}Animal diversity and \\ ecosystem functioning \\ in dynamic food webs\end{tabular}                                                                                                       & \begin{tabular}[c]{@{}l@{}}Simulated \\ (see Schneider et al., \\ 2016 for more details)\end{tabular}                        & Brose et al.,  2008                                                                                                                            & Producer–nutrient model                                                                                            & \begin{tabular}[c]{@{}l@{}}Hill exponent (:h) and\\  predator interference (:c) \\ randomly drawn from\\  truncated normal distributions.\end{tabular}                                                     & Released      
-  \end{tabular}
-}
-\caption{List of published papers since
-2007 that have used the underlying mathematical model and could have
-benefitted from having this package available. The Food Webs column gives the type of data the model was applied to. The growth rate function and Functional response columns show how the choice of parameters made in the papers can be reproduced using the BioEnergeticFoodwebs package.}\label{listpapers}
-\end{table}
-\end{landscape}
+ >However, we have not included a re-analysis of one of these papers because
+ we do not know what choices were made regarding the simulation or some of the
+ parameters -- although use case IV.ii (Effect of consumer-resource body-mass
+ ratio on stability) is close to Brose et al. (2006) analysis. Adding explicit
+ reproduction of previous studies would require to dig into why and how the
+ results differ, and this is a rabbit hole we do not intend to dig ourselves
+ in: even minute changes in simulations parameters or implementation choices
+ can have quantitative consequences on the results. We think that the simple
+ use cases and the table now presented in the manuscript are sufficient to
+ illustrate how broadly this model has been (and still is) used.
 
 It did strike me as strange that the paper has 5 authors from different
- institutions, but the julia code seems to be written exclusively by the
- last author. At least the local git (non-github) repository has 100% of
- commits from the last author, so e.g. the first author appears to never
- have contributed to the application code. I am sure there is a good
- explanation for this, it just appears odd at first glance, so perhaps a
- clear author contributions statement would be useful.
+institutions, but the julia code seems to be written exclusively by the
+last author. At least the local git (non-github) repository has 100% of
+commits from the last author, so e.g. the first author appears to never have
+contributed to the application code. I am sure there is a good explanation
+for this, it just appears odd at first glance, so perhaps a clear author
+contributions statement would be useful.
 
->Authors ED and TP contributed most of the code, which is based on
-a preliminary C version by DG, and was modified during discussions with
-UB and DBS. The github version is a mirror of our in-house git server.
-Due to the way we handle merging branches and pushing to the mirror,
-changes were attributed to TP regardless of who committed them. We will
-now move the package entirely to github to ensure proper attribution
-tracking.
+>Authors ED and TP contributed most of the code, which is based on a
+preliminary C version by DG, and was modified during discussions with UB
+and DBS. The github version is a mirror of our in-house git server (as of
+this revision, the GitHub version is the one used for active development).
+Due to the way we handled merging branches and pushing to the mirror, changes
+were attributed to TP regardless of who committed them. We will now move the
+package entirely to github to ensure proper attribution tracking. Should the
+associate editor need it, here is the list of contributions: TP and ED wrote
+the package, based on original code by DG reproducing the model as described
+by UG. DBS and TP and ED came up with the strategy for tests. ED and DBS
+and TP decided on the use cases. ED wrote the manuscript with feedback from
+all authors.
 
 I have a number of minor suggestions for impovement, in no particular order:
 
@@ -151,16 +145,19 @@ I have a number of minor suggestions for impovement, in no particular order:
  change suggestions from the julia package maintainers can be reflected in
  the application note.
 
-> We do agree with this suggestion -- during the revisions, we tagged the
- package into METADATA and changed its name to `BioEnergeticFoodwebs`.
+>We do agree with this suggestion -- during the revisions, we tagged the
+package into METADATA and changed its name to `BioEnergeticFoodwebs`. The
+current version is `0.1.0`, and version `0.1.1` has been submitted and will
+be available in METADATA soon.
 
 2. The author response now highlights an online wiki documentation,
  but that isn’t mentioned in the MS as far as I can see -- I think it should
  be highlighted clearly.
 
-> The online documentation is mentioned in part III (Implementation and
-availability), with the corresponding link. We now also give the link in the
-introduction paragraph of part IV (Use cases) for more clarity.
+>The online documentation is mentioned in part III (Implementation and
+availability), with the corresponding link. We moved the documentation to the
+package source code itself, and the new URL is given in the paper. We also
+added a link to a discussion room for instant help / feedback on package use.
 
 3. The documentation mentions that many linux distros have a julia
  package, but that is not the recommended way to install julia on linux –
@@ -177,12 +174,12 @@ on Linux is via tarball from julialang.org.
 4. I don’t think the function name ’nichemodel’ is ideal, as that term
  is used for many different things in ecology.
 
-> We agree that the term *niche* is widely used in ecology but we also argue
-that the particular term *niche model* is well accepted in food web ecology and,
-as it can be seen in table \ref{listpapers}, is widely used in the literature
-to describe the model we implemented under the name `nichemodel`. We think that
-it is a clear reference to Williams and Martinez (2000) niche model and that
-choosing another name for this function might be confusing for users.
+> We agree that the term *niche* is widely used in ecology but we also
+argue that the particular term *niche model* is well accepted in food web
+ecology and, as it can be seen in the SUpp. Mat. table, is widely used in the
+literature to describe the model we implemented under the name `nichemodel`. We
+think that it is a clear reference to Williams and Martinez (2000) niche model
+and that choosing another name for this function might be confusing for users.
 
 5. Line 71: ”is an important effort” - ”is important”.
 
@@ -195,7 +192,7 @@ accordingly.
 the computational aspect is an additional layer of complexity on the
 mathematical one.*
 
-We have chosen to remove this sentence from the manuscript, as it was not
+>We have chosen to remove this sentence from the manuscript, as it was not
 necessary to the understanding of this paragraph.
 
 7. Line 89: ”independant” - ”independent”
@@ -218,7 +215,7 @@ parameter in a new paragraph (lines 117-122).
 
 >This line of code create a vector determining whether the organism $i$ is an
 ectotherm vertebrate (`vert[i] = 1`) or not (`vert[i] = 0`). The inclusion of
-the trophik rank is not necessary for the computation of the biomass dynamics,
+the trophic rank is not necessary for the computation of the biomass dynamics,
 as this parameter is not used for producers (because for producers `trophic_rank =
 1`), but it would be ecologically incorrect to have primary producers being
 vertebrate, that is why we have chosen to precise this argument.
@@ -230,96 +227,95 @@ vertebrate, that is why we have chosen to precise this argument.
 ## Reviewer 2
 
 This Application Note presents a new implementation of a popular
- bioenergetic model of food web dynamics, aiming to replace the
- idiosyncratic models implemented by numerous authors with an easy-to-use
- standard.  
+bioenergetic model of food web dynamics, aiming to replace the
+idiosyncratic models implemented by numerous authors with an easy-to-use
+standard.
+
 I have downloaded Julia and the befwm package, and tried some of the
- functionality presented in the manuscript and on the authors' website.
- There were a few minor inconsistencies (the arguments do not always seem to
- match between the code in the manuscript and in the tutorial), though some
- of this may be my lack of familiarity with the language, and the natural
- process of working through the development of a package in a rapidly
- evolving language. Otherwise I found the functions intuitive and the
- structure of the objects well-suited to the goals.  
+functionality presented in the manuscript and on the authors' website.
+There were a few minor inconsistencies (the arguments do not always seem to
+match between the code in the manuscript and in the tutorial), though some
+of this may be my lack of familiarity with the language, and the natural
+process of working through the development of a package in a rapidly evolving
+language. Otherwise I found the functions intuitive and the structure of
+the objects well-suited to the goals.
 
- >We thank the reviewer for his positive comments and his insightful remarks,
- which we found useful in improving our work.    
+>We thank the reviewer for his/her positive comments and his insightful
+remarks, which we found useful in improving our work.
 
- > We also thank the reviewer
- for pointing at the inconsistencies between the code presentented in the
- manuscript and the tutorials, we have been through both and corrected the
- mistakes we could find.
+>We also thank the reviewer for pointing at the inconsistencies between the
+code presented in the manuscript and the tutorials, we have been through
+both and corrected the mistakes we could find.
 
 While there is little new in this manuscript in terms of methods
- development, I expect that the availability of a standard and reliable
- implementation of the Yodzis & Innes model and its descendants will be of
- interest to a good number of food web ecologists. The model itself is
- well-documented in the manuscript, and the functions are outlined well in
- the tutorials. This will be especially important given that Julia is likely
- to be new to the majority of end-users, though its performance and
- simplicity seem likely to grow its popularity over time, and some of the
- R-Julia interfaces may help people wanting to continue to work in the R
- environment (though I have not tried these yet). I could also see this
- turning into a useful teaching tool at multiple levels.
+development, I expect that the availability of a standard and reliable
+implementation of the Yodzis & Innes model and its descendants will be of
+interest to a good number of food web ecologists. The model itself is
+well-documented in the manuscript, and the functions are outlined well in
+the tutorials. This will be especially important given that Julia is likely
+to be new to the majority of end-users, though its performance and
+simplicity seem likely to grow its popularity over time, and some of the
+R-Julia interfaces may help people wanting to continue to work in the R
+environment (though I have not tried these yet). I could also see this
+turning into a useful teaching tool at multiple levels.
 
- > We agree that the package presented here do not present a methodological
- novelty, but -- as emphasized by the reviewer -- we think that having a
- reliable implementation of this influential model will be useful for many
- food-web ecologists by improving both the reliability and reproducibility of
- their analysis.
+>We agree that the package presented here do not present a methodological
+novelty, which in our opinion should be the case for software papers:
+to present an implementation of existing methods or models. As emphasized
+by the reviewer, we think that having a reliable implementation of this
+influential model will be useful for many food-web ecologists by improving
+both the reliability and reproducibility of their analysis. We are aware of
+the R-Julia interfaces, but have not tested them extensively. The way they
+work at the moment require to write the exact same amount of Julia code,
+and then some R code on top -- instead, we have offered the opportunity to
+export simulation output as JSON (which the many R JSON libraries can read).
 
 I have only a few relatively minor comments:
 
-1. the measure referred to as `foodweb_diversity` (P8 L159) is identical to the
- evenness component (J') of the Shannon H' index, is it not? The explanation
- is a bit convoluted for something that should be familiar to ecologists,
- and ideally the function would have been called `foodweb_evenness` or
- something, as the diversity index itself may also be of interest to users.
+The measure referred to as `foodweb_diversity` (P8 L159) is identical to the
+evenness component (J') of the Shannon H' index, is it not? The explanation
+is a bit convoluted for something that should be familiar to ecologists, and
+ideally the function would have been called `foodweb_evenness` or something,
+as the diversity index itself may also be of interest to users.
 
- > The measure referred to as `foodweb_diversity` is indeed identical to the
- evenness component of the Shannon index, as noted by the reviewer. we believe
- that the use of this index is a good -- and broadly used -- indicator of
- diversity within communities, here accounting for the number of remaining
- species as well as their relative abundance -- which perfectly fit the
- definition of diversity. We understand the view of the reviewer, although we
- prefer that the name of the function actually refers to what it is measuring
- instead of the name of the index itself. We are confident that the users --
- mostly food-web ecologists -- will perfectly understand what the
- `foodweb_diversity` function does by reading its documentation, available by
- simply typing `?foodweb_diversity`.  
+>The measure referred to as `foodweb_diversity` is indeed identical to the
+evenness component of the Shannon index (a.k.a. Pielou's evenness), as noted
+by the reviewer, which is a diversity index. We understand the view of the
+reviewer, although we prefer that the name of the function actually refers
+to what it is measuring instead of the name of the index itself.
 
-2. in IV.i and figure 1, I suggest using outcome-neutral terminology in place
- of "conditions of coexistence[or competitive exclusion]", because
- coexistence [or not] is an outcome that may depend on the food web context.
- Perhaps phrase in terms of interspecific competition being greater than,
- equal to, or less than intraspecific competition?
+In IV.i and figure 1, I suggest using outcome-neutral terminology in place of
+"conditions of coexistence[or competitive exclusion]", because coexistence [or
+not] is an outcome that may depend on the food web context.  Perhaps phrase
+in terms of interspecific competition being greater than, equal to, or less
+than intraspecific competition?
 
- > We agree that the use of the terms *coexistence* and *competitive exclusion* is
- not really adapted as it indeed refer to potential outcomes of the chosen
- values of relative inter-specific competition. We have replaced it in the text
- following the suggestions of the reviewer. We now refer to inter-specific
- competition greater, equal or lower than intra-specific competition. Although
- we kept the terms *coexistence*, *neutrally stable* and *exclusion* in the
- figure, which represent the outcomes.
+>We agree that the use of the terms *coexistence* and *competitive exclusion*
+is not really adapted as it indeed refer to potential outcomes of the
+chosen values of relative inter-specific competition. We have replaced
+it in the text following the suggestions of the reviewer. We now refer
+to inter-specific competition greater, equal or lower than intra-specific
+competition. Although we kept the terms *coexistence*, *neutrally stable*
+and *exclusion* in the figure, which represent the outcomes.
 
-3. in the code for section IV.ii (p11-12) it appears that there is a missing
- loop - scaling and the counter 'i' are not defined anywhere.
+In the code for section IV.ii (p11-12) it appears that there is a missing
+loop - scaling and the counter 'i' are not defined anywhere.
 
- > We are thankful for the reviewer for pointing out this error, some
- information were indeed missing, we thus corrected the code on pages 11-12.
+>We are thankful for the reviewer for pointing out this error, some
+information were indeed missing, we thus corrected the code on pages 11-12.
 
-4. the `species_persistence` function is not documented as far as I can see,
- and it's not working on the output of a simulation for me. I would suggest
- using the function instead of manually dividing by the initial richness in
- the code in IV.iii, as it will be less likely to lead to errors if adapted
- to other simulations (e.g. that vary starting richness).
+The `species_persistence` function is not documented as far as I can see,
+and it's not working on the output of a simulation for me. I would suggest
+using the function instead of manually dividing by the initial richness in
+the code in IV.iii, as it will be less likely to lead to errors if adapted
+to other simulations (e.g. that vary starting richness).
 
- > The 'species_persistence' function is now documented. The documentation can
- be accessed by typing `?species_persistence` in the command panel.
+>The `species_persistence` function is now documented, and a bug in it has
+been fixed (in release `0.1.1`). The documentation can be accessed by typing
+`?species_persistence` in Julia. In addition, we have added `species_richness`
+as an output function (which avoids the problems identified by the reviewer).
 
-5. there are a handful of typos throughout the manuscript, and some of the
- references are formatted inconsistently.
+There are a handful of typos throughout the manuscript, and some of the
+references are formatted inconsistently.
 
- > Corrected.
-
- \hl{todo}: format references
+>Corrected.
