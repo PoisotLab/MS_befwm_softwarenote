@@ -49,12 +49,12 @@ studies. Currently, comparing studies mean not only comparing results, but also
 comparing implementations -- because not all code is public, a difference in
 results cannot be properly explained as an error in either studies, and this
 eventually generates more uncertainty than it does answers. Finally, reference
-implementation eases reproducibility a lot. Specifically, it becomes enough to
+implementation eases reproducibility. Specifically, it becomes enough to
 specify which version of the package was used, and to publish the script used to
-run the simulations (as we, for example, do in this manuscript). We fervently
-believe that more effort invested in providing the community with reference
-implementation of models representing cornerstones of our ecological
-understanding is important.
+run the simulations (as we do in this manuscript). We fervently
+believe that more effort should be invested in providing the community with reference
+implementation of models that represents cornerstones of our ecological
+understanding.
 
 # The model
 
@@ -63,8 +63,8 @@ understanding is important.
 We implement the model as described by @bros06ase, which is itself explained in
 greater detail in @will07hyi. This model describes the flows of biomass across
 trophic levels, primarily defined by body size. It distinguishes populations
-based on two variables known to drive many biological rates: body mass (how
-large an organism is, *i.e.* how much biomass it stocks) and metabolic type
+based on two variables known to drive many biological rates: body mass (*i.e.* how
+large an organism is, how much biomass it stocks) and metabolic type
 (where the organism get its biomass from, and how it is metabolized). Once this
 distinction made, it models populations as simple stocks of biomass growing and
 shrinking through consumer-resources interactions. The governing equations below
@@ -108,11 +108,11 @@ equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $s = B_i$.
 
 ## Numerical response
 
-In equation \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
+In \autoref{e:func_resp}, $\omega_{ij}$ is $i$'s relative consumption
 rate when consuming $j$, or the relative preference of consumer $i$ for $j$
 [@ches08ipc; @mcca98wti]. We have chosen to implement its simplest formulation:
 $\omega_{ij} = 1/n_i$, where $n_i$ is the number of resources of consumer $j$.
-$h$ is the Hill coefficient which is responsible for the hyperbolic or sigmoïdal
+The Hill coefficient $h$ is responsible for the hyperbolic or sigmoïdal
 shape of the functional response [@real77kfr], $B_0$ is the half saturation
 density and $c$ quantifies the strength of the intra-specific predator
 interference -- the degree to which increasing the predator population's biomass
@@ -156,8 +156,8 @@ r_i =  \frac {a_r M_P^{-0.25}} {a_r M_P^{-0.25}} = 1
 x_i =  \frac {a_x M_C^{-0.25}} {a_r M_P^{-0.25}} = \frac {a_x} {a_r} (\frac {M_C} {M_P})^{0.25}
 \end{equation}
 
-In equations \autoref{e:producer} and \autoref{e:consumer}, $y_{i}$ refer to the
-maximum consumption rate of population $i$ relative to its metabolic rate. $y_i$
+In \autoref{e:producer} and \autoref{e:consumer}, $y_{i}$ refer to the
+maximum consumption rate of population $i$ relative to its metabolic rate, $y_i$
 thus become a non-dimensional rate:
 
 \begin{equation}\label{e:norm_maxcons_rate}
@@ -182,7 +182,7 @@ increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 M_C =  Z^{T-1}
 \end{equation}
 
-Where $M_C$ is the body mass of consumers, normalized by the body mass of the
+Here $M_C$ is the body mass of consumers, normalized by the body mass of the
 basal species ($T = 1$) to make the results independent of the body mass of the
 basal species.
 
@@ -193,7 +193,7 @@ All of these parameters can be modified before running the simulations (see
 analyses. The default values and meanings of the different parameters are
 explained in the documentation of the `model_parameters` function. The user can
 specify which species are ectotherm vertebrates by supplying an array of boolean
-values, and the body-mass of each species by supplying an array of
+values, and the body mass of each species by supplying an array of
 floating-point values.
 
 ## Saving simulations and output format
@@ -304,7 +304,7 @@ parallel on 50 Intel Xeon cores at 2.00 Ghz. All random networks were generated
 using the implementation of the niche model of food webs [@will00sry] provided
 in `BioEnergeticFoodWebs`.
 
-## Effect of increasing carrying capacity
+## Effect of carrying capacity on diversity
 
 Starting from networks generated with the niche model, with 20 species,
 connectance of $0.15 \pm 0.01$, we investigate the effect of increasing the
@@ -389,7 +389,7 @@ p = model_parameters(A,
 # scaling array
 ~~~
 
-## Connectance effect on coexistence
+## Effect of connectance on coexistence
 
 We investigate the effect of connectance on species coexistence under different
 scenarios of inter-specific competition rates between producers
