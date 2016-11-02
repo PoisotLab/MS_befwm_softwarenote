@@ -309,7 +309,7 @@ to other simulations (e.g. that vary starting richness).
 >The `species_persistence` function is now documented, and a bug in it has
 been fixed (in release `0.1.1`). The documentation can be accessed by typing
 `?species_persistence` in Julia. In addition, we have added `species_richness`
-as an output function (which avoids the problems identified by the reviewer).
+as an output function (which avoids the problems identified by the reviewer). We also changed the code in part IV.iii, we now use the function `species_persistence` instead of dividing by the initial richness. We thank the reviewer for suggesting this improvement. 
 
 There are a handful of typos throughout the manuscript, and some of the
 references are formatted inconsistently.

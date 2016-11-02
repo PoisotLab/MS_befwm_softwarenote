@@ -418,9 +418,9 @@ for co in vec([0.05 0.15 0.25])
     out = simulate(p, bm, start=0,
           stop=2000, use=:ode45)
     # And measure the output
-    persistence = species_richness(out,
+    persistence = species_persistence(out,
                   last=1000,
-                  threshold=eps()) / 20
+                  threshold=eps()) 
   end
 end
 ~~~
