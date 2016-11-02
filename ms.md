@@ -277,24 +277,25 @@ numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
 REPL using `Pkg.add("BioEnergeticFoodWebs")`. A user manual and function
 reference is available online at
-[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], which also gives
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/][doc], which also gives
 instructions about installing Julia, the package, and how to get started.
 
-[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/]: http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/
-
 The code is released under the MIT license. This software note describes version
-`0.1.0`. The source code of the package can be viewed, downloaded, and worked on
-at [https://github.com/PoisotLab/BioEnergeticFoodWebs.jl]. Potential issues with
-the code or package can be reported through the *Issues* system. The code is
+`0.2.0`. The source code of the package can be viewed, downloaded, and worked on
+at [https://github.com/PoisotLab/BioEnergeticFoodWebs.jl][git]. Potential issues with
+the code or package can be reported through the *Issues* system or at [https://gitter.im/PoisotLab/BioEnergeticFoodWebs.jl][gitter]. The code is
 version-controlled, undergoes continuous integration, and has a code coverage of
 approx. 90% to this date.
 
-[https://github.com/PoisotLab/BioEnergeticFoodWebs.jl]: https://github.com/PoisotLab/BioEnergeticFoodWebs.jl
+[git]: https://github.com/PoisotLab/BioEnergeticFoodWebs.jl
+[doc]: http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/
+[gitter]: https://gitter.im/PoisotLab/BioEnergeticFoodWebs.jl
+
 
 # Use cases
 
 All functions in the package have an in-line documentation available at
-[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], as well as from the
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/][doc], as well as from the
 `julia` interface by typing `?` followed by the name of the function. In this
 section, we will describe three of the aforementionned use cases. The code to
 execute them is attached as Supp. Mat. to this paper. As all code in the
