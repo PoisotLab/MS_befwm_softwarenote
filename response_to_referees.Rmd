@@ -278,11 +278,7 @@ is a bit convoluted for something that should be familiar to ecologists, and
 ideally the function would have been called `foodweb_evenness` or something,
 as the diversity index itself may also be of interest to users.
 
->The measure referred to as `foodweb_diversity` is indeed identical to the
-evenness component of the Shannon index (a.k.a. Pielou's evenness), as noted
-by the reviewer, which is a diversity index. We understand the view of the
-reviewer, although we prefer that the name of the function actually refers
-to what it is measuring instead of the name of the index itself.
+>The `foodweb_diversity` function indeed refers to the evenness component of the Shannon index. We agree with the reviewer in that the name we had chosen could have been confusing for users and we followed his suggestion. we thus renamed this function `foodweb_evenness`.
 
 In IV.i and figure 1, I suggest using outcome-neutral terminology in place of
 "conditions of coexistence[or competitive exclusion]", because coexistence [or
