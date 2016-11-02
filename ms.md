@@ -45,7 +45,7 @@ implementations of common models is an important task. First, implementing
 complex models can be a difficult task, in which programming mistakes will bias
 the output of the simulations, and therefore the ecological interpretations we
 draw from them. Second, reference implementations facilitate the comparison of
-studies. Currently, comparing studies mean not only comparing results, but also
+studies. Currently, comparing studies means not only comparing results, but also
 comparing implementations -- because not all code is public, a difference in
 results cannot be properly explained as an error in either studies, and this
 eventually generates more uncertainty than it does answers. Finally, having a reference
@@ -53,7 +53,7 @@ implementation eases reproducibility substancially. Specifically, it becomes eno
 specify which version of the package was used, and to publish the script used to
 run the simulations (as we do in this manuscript). We fervently
 believe that more effort should be invested in providing the community with reference
-implementation of the models that represents cornerstones of our ecological
+implementations of the models that represents cornerstones of our ecological
 understanding.
 
 # The model
@@ -171,7 +171,7 @@ not the same for ectotherm vertebrate ($y_{i} = 4$) and invertebrate ($y_{i} =
 mass-specific metabolic rate ($x_i$) to differ for ectotherm  vertebrates ($a_x =
 0.88$) and invertebrates ($a_x = 0.314$). The diet of predators also affects
 their assimilation efficiency ($e_{ij}$) which is greater for carnivores
-($e_{ij} = 0.85$) than for herbivores ($e_ij = 0.45$).
+($e_{ij} = 0.85$) than for herbivores ($e_{ij} = 0.45$).
 
 Based on the observation that most natural food webs have a constant size structure [@bros06cbr;
 @hatt15ppl], the consumer-resource body-mass ratio ($Z$) is assumed to be constant. The body
@@ -256,7 +256,7 @@ where $n$ is the number of populations, and $b$ are the relative biomasses ($b_i
 B_i / \sum B$).
 
 Finally, we used the negative size-corrected coefficient of variation to assess
-the temporal stability of biomass stocks across populations
+the temporal stability of biomass stocks across populations (Tilman, 1996)
 (`population_stability`). This function accepts an additional `threshold`
 argument, specifying the biomass below which populations are excluded from the
 analysis. For the same reason as for the `species_richness` threshold, we
