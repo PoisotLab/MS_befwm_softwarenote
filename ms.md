@@ -32,7 +32,7 @@ or allometry-constrained degree distributions [@otto07add] (more past uses of th
 and other studies used the same mathematical model, implementations differ from
 study to study and none have been released. Motivated by the fact that this
 model addresses mechanisms that are fundamental to our understanding of energy
-flow throughout food webs, we present `befwm` (Bio-Energetic Food-Webs Model), a
+flow throughout food webs, we present `BioEnergeticFoodWebs` (Bio-Energetic Food-Webs Model), a
 *Julia* package implementing @yodz92bsc bio-energetic model adapted for
 food webs [@will07hyi] with updated allometric coefficients [@bros06ase;
 @brow04mte].
@@ -215,13 +215,13 @@ The output of simulations can be saved to disk in either the `JSON` (javascript
 object notation) format, or in the native `jld` format. The `jld` option should
 be preferred since it preserves the structure of all objects (`JSON` should be
 used when the results will be analyzed outside of `Julia`, for example in `R`).
-The function to save results is called `befwm.save` (note that `befwm.` in front
+The function to save results is called `BioEnergeticFoodWebs.save` (note that `BioEnergeticFoodWebs.` in front
 is mandatory, to avoid clashes with other functions called `save` in base
 `Julia` or other packages).
 
 ## Measures on output
 
-The `befwm` package implements a variety of measures that can be applied on the
+The `BioEnergeticFoodWebs` package implements a variety of measures that can be applied on the
 objects returned by simulations. All measures take an optional keyword argument
 `last`, indicating over how many timesteps before the end of the simulations the
 results should be averaged.
@@ -231,7 +231,7 @@ populations. It is measured based on the populations biomasses
 (`population_biomass`).
 
 The number of remaining species (`species_richness`) is measured as the number
-of species whose biomass is larger than an arbitrary threshold. Since `befwm`
+of species whose biomass is larger than an arbitrary threshold. Since `BioEnergeticFoodWebs`
 uses robust adaptive numerical integrators (such as ODE45 and ODE78) the
 threshold default value is $\epsilon$, *i.e.* the upper bound of the relative
 error due to rounding in floating point arithmetic. In short, species are
@@ -269,13 +269,13 @@ standing biomass).
 
 # Implementation and availability
 
-The `befwm` package is available for the `julia` programming language, and is
+The `BioEnergeticFoodWebs` package is available for the `julia` programming language, and is
 continuously tested on the current version of `Julia`, as well as the release
 immediately before, as well as on the current development version. `Julia` is an
 ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
-REPL using `Pkg.add("befwm")`. A user manual and function reference is available
+REPL using `Pkg.add("BioEnergeticFoodWebs")`. A user manual and function reference is available
 online at
 [http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], which also
 gives instructions about installing Julia, the package, and how to get started.
@@ -302,7 +302,7 @@ differ slightly from the examples given in the paper. For all figures, each
 point is the average of at least 500 replicates. We conducted the simulations in
 parallel on 50 Intel Xeon cores at 2.00 Ghz. All random networks were generated
 using the implementation of the niche model of food webs [@will00sry] provided
-in `befwm`.
+in `BioEnergeticFoodWebs`.
 
 ## Effect of increasing carrying capacity
 
@@ -328,7 +328,7 @@ A = nichemodel(20, 0.15)
 # This loop will keep on trying food webs
 # until one with a connectance close enough
 # to 0.15 is found
-while abs(befwm.connectance(A)-0.15)>0.01
+while abs(BioEnergeticFoodWebs.connectance(A)-0.15)>0.01
     A = nichemodel(20, 0.15)
 end
 
@@ -406,7 +406,7 @@ by the initial number of species (20) -- note that there is also a
 for co in vec([0.05 0.15 0.25])
   # We generate a random food web
   A = nichemodel(20, co)
-  while abs(befwm.connectance(A)-co)>0.01
+  while abs(BioEnergeticFoodWebs.connectance(A)-co)>0.01
       A = nichemodel(20, co)
   end
   # Prepare the simulation parameters
@@ -432,7 +432,7 @@ end
 
 # Conclusion
 
-We presented `befwm`, a reference implementation of the bio-energetic model
+We presented `BioEnergeticFoodWebs`, a reference implementation of the bio-energetic model
 applied to food webs. We provided examples that can serve as templates to
 perform novel simulation studies or use this model as an effective teaching
 tool. Because the output can be exported in a language-neutral format (JSON),
