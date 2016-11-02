@@ -256,7 +256,7 @@ where $n$ is the number of populations, and $b$ are the relative biomasses ($b_i
 B_i / \sum B$).
 
 Finally, we used the negative size-corrected coefficient of variation to assess
-the temporal stability of biomass stocks across populations (Tilman, 1996)
+the temporal stability of biomass stocks across populations [@tilm96bpv]
 (`population_stability`). This function accepts an additional `threshold`
 argument, specifying the biomass below which populations are excluded from the
 analysis. For the same reason as for the `species_richness` threshold, we
