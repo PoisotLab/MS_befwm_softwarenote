@@ -243,7 +243,7 @@ starting number of species. A value of `species_persistence` of 1 means that all
 species persisted. A value of `species_persistence` of 0 indicates that all
 species went extinct.
 
-Shannon's entropy (`foodweb_diversity`) is used to measure diversity within the
+Shannon's entropy (`foodweb_evenness`) is used to measure diversity within the
 food web. This measure is corrected for the total number of populations. This
 returns values in $]0;1]$, where $1$ indicates that all populations have the
 same biomass. It is measured as
@@ -345,7 +345,7 @@ for α in linspace(0.92, 1.08, 3)
     out = simulate(p, bm, start=0,
           stop=2000, use=:ode45)
     # And measure the output
-    diversity = foodweb_diversity(out,
+    diversity = foodweb_evenness(out,
                     last=1000,
                     threshold=eps())
   end
