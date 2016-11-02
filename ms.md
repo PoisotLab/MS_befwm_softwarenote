@@ -25,7 +25,7 @@ show how disturbances affecting species biomass or density cascade up, not only
 to the species that they interact with, but with species up to two degrees of
 separation from the original perturbation. In this context, models of energy
 transfer through trophic interactions are better justified when they account for
-the entire food-web structure, such as @will07hyi adaptation to food webs of
+the entire food-web structure, such as @will07hyi adaptation of
 @yodz92bsc model. This food-web bio-energetic model has been used, for example,
 to show how food web stability can emerge from allometric scaling [@bros06ase]
 or allometry-constrained degree distributions [@otto07add] (more past uses of the model are described in supplementary table S1). Yet, although these
@@ -48,12 +48,12 @@ draw from them. Second, reference implementations facilitate the comparison of
 studies. Currently, comparing studies mean not only comparing results, but also
 comparing implementations -- because not all code is public, a difference in
 results cannot be properly explained as an error in either studies, and this
-eventually generates more uncertainty than it does answers. Finally, reference
-implementation eases reproducibility. Specifically, it becomes enough to
+eventually generates more uncertainty than it does answers. Finally, having a reference
+implementation eases reproducibility substancially. Specifically, it becomes enough to
 specify which version of the package was used, and to publish the script used to
 run the simulations (as we do in this manuscript). We fervently
 believe that more effort should be invested in providing the community with reference
-implementation of models that represents cornerstones of our ecological
+implementation of the models that represents cornerstones of our ecological
 understanding.
 
 # The model
@@ -65,7 +65,7 @@ greater detail in @will07hyi. This model describes the flows of biomass across
 trophic levels, primarily defined by body size. It distinguishes populations
 based on two variables known to drive many biological rates: body mass (*i.e.* how
 large an organism is, how much biomass it stocks) and metabolic type
-(where the organism get its biomass from, and how it is metabolized). Once this
+(*i.e.* where the organism get its biomass from and how it is metabolized). Once this
 distinction made, it models populations as simple stocks of biomass growing and
 shrinking through consumer-resources interactions. The governing equations below
 describe the changes in relative density of producers and consumers
@@ -104,7 +104,7 @@ $k = K/n_P$, wherein $n_p$ is the number of primary producers. Finally, a more
 general solution that encompasses both of the previous functions is $s =
 \sum\alpha_{ij}B_j$, with $\alpha_{ii}$ (intraspecific competition) set to unity
 and $\alpha_{ij}$ (inter-specific competition) taking values greater than or
-equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to $k = K$ and $s = B_i$.
+equal to 0. Note that $\alpha_{ij} = 0$ is equivalent to the first scenario of $k = K$ and $s = B_i$.
 
 ## Numerical response
 
@@ -123,7 +123,7 @@ interference ($h = 1$ and $c > 0$).
 
 ## Metabolic types and scaling
 
-As almost all organism metabolic characteristics vary predictably with body mass
+As almost all organisms' metabolic characteristics vary predictably with body mass
 [@brow04mte], these variations can be described by allometric relationships as
 described in @bros06ase. Hence, the per unit biomass biological rates of
 production, metabolism and maximum consumption follow negative power-law
@@ -157,7 +157,7 @@ x_i =  \frac {a_x M_C^{-0.25}} {a_r M_P^{-0.25}} = \frac {a_x} {a_r} (\frac {M_C
 \end{equation}
 
 In \autoref{e:producer} and \autoref{e:consumer}, $y_{i}$ refer to the
-maximum consumption rate of population $i$ relative to its metabolic rate, $y_i$
+maximum consumption rate of population $i$ relative to its metabolic rate and
 thus become a non-dimensional rate:
 
 \begin{equation}\label{e:norm_maxcons_rate}
@@ -166,15 +166,15 @@ y_i = \frac {Y_C} {X_C} = \frac {\frac {a_y M_P^{-0.25}} {a_r M_P^{-0.25}}} { \f
 
 As the biological rates also vary with the organisms metabolic types, the maximum
 consumption rate of population $i$ relative to its metabolic rate ($y_{i}$) is
-not the same for ectotherm vertebrates ($y_{i} = 4$) and invertebrates ($y_{i} =
-8$) predators, the same goes for the allometric constant $a_x$, which cause the
+not the same for ectotherm vertebrate ($y_{i} = 4$) and invertebrate ($y_{i} =
+8$) predators; the same goes for the allometric constant $a_x$, which causes the
 mass-specific metabolic rate ($x_i$) to differ for ectotherm  vertebrates ($a_x =
 0.88$) and invertebrates ($a_x = 0.314$). The diet of predators also affects
 their assimilation efficiency ($e_{ij}$) which is greater for carnivores
 ($e_{ij} = 0.85$) than for herbivores ($e_ij = 0.45$).
 
-Assuming that most natural food webs have a constant size structure [@bros06cbr;
-@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is constant. The body
+Based on the observation that most natural food webs have a constant size structure [@bros06cbr;
+@hatt15ppl], the consumer-resource body-mass ratio ($Z$) is assumed to be constant. The body
 mass of consumers is then a function of their mean trophic level ($T$), it
 increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 
@@ -182,7 +182,7 @@ increases with trophic level when $Z\geq 1$ and decreases when $Z\leq 1$:
 M_C =  Z^{T-1}
 \end{equation}
 
-Here $M_C$ is the body mass of consumers, normalized by the body mass of the
+where $M_C$ is the body mass of consumers, normalized by the body mass of the
 basal species ($T = 1$) to make the results independent of the body mass of the
 basal species.
 
@@ -215,9 +215,9 @@ The output of simulations can be saved to disk in either the `JSON` (javascript
 object notation) format, or in the native `jld` format. The `jld` option should
 be preferred since it preserves the structure of all objects (`JSON` should be
 used when the results will be analyzed outside of `Julia`, for example in `R`).
-The function to save results is called `BioEnergeticFoodWebs.save` (note that `BioEnergeticFoodWebs.` in front
-is mandatory, to avoid clashes with other functions called `save` in base
-`Julia` or other packages).
+The function to save results is called `BioEnergeticFoodWebs.save` (note that
+the prefix `BioEnergeticFoodWebs.` is mandatory, to avoid clashes with other
+functions called `save` in base `Julia` or other packages).
 
 ## Measures on output
 
@@ -263,22 +263,22 @@ analysis. For the same reason as for the `species_richness` threshold, we
 suggest that this value be set to either the machine's $\epsilon(0.0)$ (*i.e.*
 the smallest value immediately above 0.0 that the machine can represent), or to
 $0.0$. We found that using either of these values had no qualitative bearing on
-the results. Values close to 0 indicate little variation over time, and
-increasingly negative values indicate larger fluctuations (relative to the mean
-standing biomass).
+the results described below. Values close to 0 indicate little variation over
+time, and increasingly negative values indicate larger fluctuations (relative to
+the mean standing biomass).
 
 # Implementation and availability
 
-The `BioEnergeticFoodWebs` package is available for the `julia` programming language, and is
-continuously tested on the current version of `Julia`, as well as the release
-immediately before, as well as on the current development version. `Julia` is an
+The `BioEnergeticFoodWebs` package is available for the `julia` programming
+language, and it is continuously tested on the current version of `Julia`, the
+release immediately before and on the current development version. `Julia` is an
 ideal platform for this type of models, since it is easy to write, designed for
 numerical computations, extremely fast, easily parallelized, and has good
 numerical integration libraries. The package can be installed from the `Julia`
-REPL using `Pkg.add("BioEnergeticFoodWebs")`. A user manual and function reference is available
-online at
-[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], which also
-gives instructions about installing Julia, the package, and how to get started.
+REPL using `Pkg.add("BioEnergeticFoodWebs")`. A user manual and function
+reference is available online at
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], which also gives
+instructions about installing Julia, the package, and how to get started.
 
 [http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/]: http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/
 
@@ -293,20 +293,21 @@ approx. 90% to this date.
 
 # Use cases
 
-All functions in the package have an in-line documentation available at [http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], as well as from the
+All functions in the package have an in-line documentation available at
+[http://poisotlab.io/BioEnergeticFoodWebs.jl/latest/], as well as from the
 `julia` interface by typing `?` followed by the name of the function. In this
-section, we will describe three of the aforementionned use-cases. The code to
+section, we will describe three of the aforementionned use cases. The code to
 execute them is attached as Supp. Mat. to this paper. As all code in the
 supplementary material uses `Julia`'s parallel computing abilities, it will
 differ slightly from the examples given in the paper. For all figures, each
 point is the average of at least 500 replicates. We conducted the simulations in
 parallel on 50 Intel Xeon cores at 2.00 Ghz. All random networks were generated
-using the implementation of the niche model of food webs [@will00sry] provided
-in `BioEnergeticFoodWebs`.
+using the implementation of the niche model of food webs [@will00sry], also
+provided in `BioEnergeticFoodWebs`.
 
 ## Effect of carrying capacity on diversity
 
-Starting from networks generated with the niche model, with 20 species,
+Starting from networks generated with the niche model with 20 species and
 connectance of $0.15 \pm 0.01$, we investigate the effect of increasing the
 carrying capacity of the resource (on a log scale from 0.1 to 10). We use three
 values of the $\alpha_{ij}$ parameter, ranging from 0.92 (the inter-specific
@@ -395,10 +396,7 @@ We investigate the effect of connectance on species coexistence under different
 scenarios of inter-specific competition rates between producers
 (\autoref{connectance}). These simulations therefore measure how the persistence
 of the entire food web is affected by competition at the most basal trophic
-level. The persistence, which we use as the measure of coexistence, is the
-number of remaining species (*i.e.* with a biomass larger than `eps()`), divided
-by the initial number of species (20) -- note that there is also a
-`species_persistence` function built-in.
+level. The persistence is used here as the measure of coexistence.
 
 !{connectance}
 
@@ -420,7 +418,7 @@ for co in vec([0.05 0.15 0.25])
     # And measure the output
     persistence = species_persistence(out,
                   last=1000,
-                  threshold=eps()) 
+                  threshold=eps())
   end
 end
 ~~~
@@ -432,12 +430,12 @@ end
 
 # Conclusion
 
-We presented `BioEnergeticFoodWebs`, a reference implementation of the bio-energetic model
-applied to food webs. We provided examples that can serve as templates to
-perform novel simulation studies or use this model as an effective teaching
-tool. Because the output can be exported in a language-neutral format (JSON),
-the results obtained with this model can be analayzed in other languages that
-are currently popular with ecologists, such as `R`, `python`, or `MatLab`.
+We have presented `BioEnergeticFoodWebs`, a reference implementation of the
+bio-energetic model applied to food webs. We provided examples that can serve as
+templates to perform novel simulation studies or use this model as an effective
+teaching tool. Because the output can be exported in a language-neutral format
+(JSON), the results obtained with this model can be analayzed in other languages
+that are currently popular with ecologists, such as `R`, `python`, or `MatLab`.
 Because we provide a general implementation that covers some of the modications
 made to this model over the years, there is a decreased need for individual
 scientists to start their own implementation, which is a both a time consuming
