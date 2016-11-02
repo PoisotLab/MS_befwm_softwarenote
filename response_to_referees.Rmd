@@ -278,7 +278,11 @@ is a bit convoluted for something that should be familiar to ecologists, and
 ideally the function would have been called `foodweb_evenness` or something,
 as the diversity index itself may also be of interest to users.
 
->The `foodweb_diversity` function indeed refers to the evenness component of the Shannon index. We agree with the reviewer in that the name we had chosen could have been confusing for users and we followed his suggestion. we thus renamed this function `foodweb_evenness`.
+>The `foodweb_diversity` function indeed refers to the evenness component of
+the Shannon index. We agree with the reviewer in that the name we had chosen
+could have been confusing for users and we followed his suggestion. We thus
+renamed this function `foodweb_evenness`. The modification will only appear
+in the `0.2.0` release of the package.
 
 In IV.i and figure 1, I suggest using outcome-neutral terminology in place of
 "conditions of coexistence[or competitive exclusion]", because coexistence [or
@@ -306,10 +310,13 @@ using the function instead of manually dividing by the initial richness in
 the code in IV.iii, as it will be less likely to lead to errors if adapted
 to other simulations (e.g. that vary starting richness).
 
->The `species_persistence` function is now documented, and a bug in it has
-been fixed (in release `0.1.1`). The documentation can be accessed by typing
-`?species_persistence` in Julia. In addition, we have added `species_richness`
-as an output function (which avoids the problems identified by the reviewer). We also changed the code in part IV.iii, we now use the function `species_persistence` instead of dividing by the initial richness. We thank the reviewer for suggesting this improvement.
+>The `species_persistence` function is now documented, and a bug in it
+has been fixed (in release `0.1.1`). The documentation can be accessed
+by typing `?species_persistence` in Julia. In addition, we have added
+`species_richness` as an output function (which avoids the problems identified
+by the reviewer). We also changed the code in part IV.iii, we now use the
+function `species_persistence` instead of dividing by the initial richness. We
+thank the reviewer for suggesting this improvement.
 
 There are a handful of typos throughout the manuscript, and some of the
 references are formatted inconsistently.
