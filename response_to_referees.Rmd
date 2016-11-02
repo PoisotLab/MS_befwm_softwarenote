@@ -11,7 +11,7 @@ output:
 insightful feedback on the manuscript and the code. We found these comments
 helpful for improving both. We re-submit an improved manuscript incorporating
 the reviewers' suggestions. Mainly, we have changed the package name and
-have extended our argumentation about why we think the field would benefit
+have extended our discussion about why we think the field would benefit
 from this implementation of the bio-energetic model of Yodzis and Ines (1992).
 
 ## Associate Editor's comments to the Author:
@@ -21,10 +21,10 @@ with constructive suggestions that will improve the manuscript. Reviewer
 1 in particular questions how widely this will be used - some expansion of
 section IV would be useful here.
 
-> We agree that a better contextualization will allow to see how widely this
+> We agree that a better contextualization will help us to show how widely this
 model has been used and still is. We have included a table as Supplementary
 Material, presenting the past uses of Yodzis & Ines (1992) bio-energetic model
-from 2007 until today. We believe that this table illustrate how broadly this
+from 2007 until today. We believe that this table illustrates how broadly this
 model can be used, and especially the variety of questions it allows answering.
 
 Much is made of the high performance nature of the code here, but no benchmarks
@@ -50,9 +50,9 @@ instability). Is this overstated?
 
 >In part, yes. The instability refers not to the behavior of the code, but
 to the API itself, meaning that it may change in future releases. However,
-because we have organized the code so that all calls to ODE.jl go through
-a single function, and it will be easy for us to track API changes. In
-over a year of working with ODE.jl, we have noted no change in API (and no
+ we have organized the code so that all calls to ODE.jl go through
+a single function, it will therefore be easy for us to track API changes. In
+over a year of working with ODE.jl, we have noted no change in the API (and no
 difference in performance when using this or Sundials.jl). We will also revert
 to Sundials.jl once a very specific memory management in the library they
 wrap will be solved; this currently means that there is a memory leak under
@@ -92,15 +92,15 @@ At present, though, I don’t think the authors make a compelling case that
 
  >As shown in the table now added as Supplementary Material, the Yodzis & Ines
  (1990) bio-energetic model has been widely used to this days in community
- ecology, and helped produce some influential results.  Each of the study
+ ecology, and helped produce some influential results.  Each of the studies
  presented in the table used their own implementation, and none (except
  the most recent) were released to date, making it difficult to reproduce
  their results. The fact that the bio-energetic model can be applied to any
- type of community, and that it can be used in combination with other model
+ type of community, and that it can be used in combination with other models
  (such as the nutrient-intake model, Brose et al., 2005a,b; Brose et al.,
- 2008) make it a broadly used model in community ecology. In addition, some
+ 2008), make it a broadly used model in community ecology. In addition, some
  of the authors have used this model extensively for teaching. Although this
- did not result in publications, we believe that this type of packages is
+ did not result in publications, we believe that this type of package is
  valuable as a teaching tool too.
 
  >However, we have not included a re-analysis of one of these papers because
@@ -168,7 +168,7 @@ sources from the website -- though an overwhelming majority of users, ourselves
 included, tend to use the packages from their distributions. Because we test on
 the current, past, and future version of Julia, we are confident that all
 versions that are 'out there' will be able to work with our package. However,
-we now precise in the documentation that the recommended way to install Julia
+we now specify in the documentation that the recommended way to install Julia
 on Linux is via tarball from julialang.org.
 
 4. I don’t think the function name ’nichemodel’ is ideal, as that term
@@ -176,7 +176,7 @@ on Linux is via tarball from julialang.org.
 
 > We agree that the term *niche* is widely used in ecology but we also
 argue that the particular term *niche model* is well accepted in food web
-ecology and, as it can be seen in the SUpp. Mat. table, is widely used in the
+ecology and, as can be seen in the SUpp. Mat. table, is widely used in the
 literature to describe the model we implemented under the name `nichemodel`. We
 think that it is a clear reference to Williams and Martinez (2000) niche model
 and that choosing another name for this function might be confusing for users.
@@ -244,8 +244,8 @@ the objects well-suited to the goals.
 remarks, which we found useful in improving our work.
 
 >We also thank the reviewer for pointing at the inconsistencies between the
-code presented in the manuscript and the tutorials, we have been through
-both and corrected the mistakes we could find.
+code presented in the manuscript and the tutorials. We have been through
+both and corrected all mistakes we could find.
 
 While there is little new in this manuscript in terms of methods
 development, I expect that the availability of a standard and reliable
@@ -292,7 +292,7 @@ chosen values of relative inter-specific competition. We have replaced
 it in the text following the suggestions of the reviewer. We now refer
 to inter-specific competition greater, equal or lower than intra-specific
 competition. Although we kept the terms *coexistence*, *neutrally stable*
-and *exclusion* in the figure, which represent the outcomes.
+and *exclusion* in the figure, which succintly represent the outcomes.
 
 In the code for section IV.ii (p11-12) it appears that there is a missing
 loop - scaling and the counter 'i' are not defined anywhere.
@@ -309,7 +309,7 @@ to other simulations (e.g. that vary starting richness).
 >The `species_persistence` function is now documented, and a bug in it has
 been fixed (in release `0.1.1`). The documentation can be accessed by typing
 `?species_persistence` in Julia. In addition, we have added `species_richness`
-as an output function (which avoids the problems identified by the reviewer). We also changed the code in part IV.iii, we now use the function `species_persistence` instead of dividing by the initial richness. We thank the reviewer for suggesting this improvement. 
+as an output function (which avoids the problems identified by the reviewer). We also changed the code in part IV.iii, we now use the function `species_persistence` instead of dividing by the initial richness. We thank the reviewer for suggesting this improvement.
 
 There are a handful of typos throughout the manuscript, and some of the
 references are formatted inconsistently.
