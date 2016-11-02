@@ -442,6 +442,10 @@ made to this model over the years, there is a decreased need for individual
 scientists to start their own implementation, which is a both a time consuming
 and potentially risky endeavor.
 
+**Contribution statement** Authors ED and TP contributed most of the code, which is
+based on apreliminary C version by DG, and was modified during discussions with UB
+and DBS.
+
 **Acknowledgements** TP acknowledges financial support from NSERC, and an
 equipment grant from FRQNT. We thank the developers and maintainers of
 `ODE.jl`.
