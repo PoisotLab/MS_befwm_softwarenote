@@ -452,4 +452,11 @@ equipment grant from FRQNT. We thank the developers and maintainers of
 
 **Data availability:** No data were used in this manuscript.
 
+
+**Supplementary materials:**
+
+*S1* - Table of previous uses of the model, with research questions and modifications apported.
+
+*S2* - Scripts used to generate the figures in the paper.
+
 # References
